@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Sign Up Controller View Controller-->
@@ -16,24 +17,59 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UqE-Th-8n4" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="88" y="285" width="200" height="30"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ukM-41-uPm">
+                                <rect key="frame" x="88" y="236" width="200" height="30"/>
+                                <state key="normal" title="Login with email"/>
+                                <connections>
+                                    <segue destination="ei8-pL-fE8" kind="presentation" id="kTn-Lr-iWm"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UqE-Th-8n4" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8HU-u8-GjS"/>
+                            <constraint firstItem="ukM-41-uPm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="216" id="Jff-7T-f5y"/>
+                            <constraint firstItem="ukM-41-uPm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="68" id="Tx2-qt-RVO"/>
+                            <constraint firstItem="ukM-41-uPm" firstAttribute="trailing" secondItem="UqE-Th-8n4" secondAttribute="trailing" id="keW-dv-kx1"/>
+                            <constraint firstItem="ukM-41-uPm" firstAttribute="leading" secondItem="UqE-Th-8n4" secondAttribute="leading" id="mdk-yU-mWX"/>
+                            <constraint firstItem="UqE-Th-8n4" firstAttribute="top" secondItem="ukM-41-uPm" secondAttribute="bottom" constant="19" id="pry-yY-v8q"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ukM-41-uPm" secondAttribute="trailing" constant="92" id="yrJ-OJ-f9H"/>
+                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="600"/>
                     <connections>
-                        <segue destination="Rbu-qT-sAx" kind="presentation" id="a0k-d7-qHX"/>
+                        <outlet property="fbLoginButton" destination="UqE-Th-8n4" id="FIs-cQ-MA5"/>
+                        <segue destination="Rbu-qT-sAx" kind="presentation" identifier="HomeSegue" id="a0k-d7-qHX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="245" y="316"/>
         </scene>
-        <!--Storyboard Reference-->
+        <!--TabBarStoryboard-->
         <scene sceneID="gkz-Vr-Yoz">
             <objects>
-                <viewControllerPlaceholder id="Rbu-qT-sAx" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="TabBarStoryboard" id="Rbu-qT-sAx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jgu-YW-Vwk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="621.5" y="254"/>
+        </scene>
+        <!--SignUpWithEmailStoryboard-->
+        <scene sceneID="rIF-3s-sPW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SignUpWithEmailStoryboard" id="ei8-pL-fE8" sceneMemberID="viewController">
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="600"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="84Y-BV-y3t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="621.5" y="498"/>
         </scene>
     </scenes>
 </document>
