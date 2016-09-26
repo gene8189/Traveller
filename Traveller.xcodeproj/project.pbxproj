@@ -14,6 +14,12 @@
 		4FD581921D98F62E0083CCCE /* PostTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */; };
 		4FD581941D98F6800083CCCE /* ProfileTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */; };
 		4FD581961D98F9440083CCCE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4FD581951D98F9440083CCCE /* GoogleService-Info.plist */; };
+		4FD581A31D99059F0083CCCE /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD5819F1D99059F0083CCCE /* Bolts.framework */; };
+		4FD581A41D99059F0083CCCE /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD581A01D99059F0083CCCE /* FBSDKCoreKit.framework */; };
+		4FD581A51D99059F0083CCCE /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD581A11D99059F0083CCCE /* FBSDKLoginKit.framework */; };
+		4FD581A61D99059F0083CCCE /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD581A21D99059F0083CCCE /* FBSDKShareKit.framework */; };
+		4FD581A81D990AAA0083CCCE /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD581A71D990AAA0083CCCE /* HomeTabViewController.swift */; };
+		4FD581AC1D990F190083CCCE /* SignUpWithEmailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD581AB1D990F190083CCCE /* SignUpWithEmailStoryboard.storyboard */; };
 		4FEFA39C1D98E91400866794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA39B1D98E91400866794 /* AppDelegate.swift */; };
 		4FEFA3A11D98E91400866794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FEFA39F1D98E91400866794 /* Main.storyboard */; };
 		4FEFA3A41D98E91400866794 /* Traveller.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */; };
@@ -55,6 +61,12 @@
 		4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostTabStoryboard.storyboard; sourceTree = "<group>"; };
 		4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileTabStoryboard.storyboard; sourceTree = "<group>"; };
 		4FD581951D98F9440083CCCE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4FD5819F1D99059F0083CCCE /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = ../Bolts.framework; sourceTree = "<group>"; };
+		4FD581A01D99059F0083CCCE /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = ../FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		4FD581A11D99059F0083CCCE /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		4FD581A21D99059F0083CCCE /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../FBSDKShareKit.framework; sourceTree = "<group>"; };
+		4FD581A71D990AAA0083CCCE /* HomeTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		4FD581AB1D990F190083CCCE /* SignUpWithEmailStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUpWithEmailStoryboard.storyboard; sourceTree = "<group>"; };
 		4FEFA3981D98E91400866794 /* Traveller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traveller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEFA39B1D98E91400866794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FEFA3A01D98E91400866794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -81,6 +93,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				84213ABCEDB2DFED0ADE0AAC /* Pods_Traveller.framework in Frameworks */,
+				4FD581A41D99059F0083CCCE /* FBSDKCoreKit.framework in Frameworks */,
+				4FD581A61D99059F0083CCCE /* FBSDKShareKit.framework in Frameworks */,
+				4FD581A51D99059F0083CCCE /* FBSDKLoginKit.framework in Frameworks */,
+				4FD581A31D99059F0083CCCE /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +129,36 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4FD581A91D990AB80083CCCE /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				4FEFA39F1D98E91400866794 /* Main.storyboard */,
+				4FD581AB1D990F190083CCCE /* SignUpWithEmailStoryboard.storyboard */,
+				4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */,
+				4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */,
+				4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */,
+				4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */,
+				4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */,
+			);
+			name = StoryBoards;
+			sourceTree = "<group>";
+		};
+		4FD581AA1D990ADF0083CCCE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4FEFA3A51D98E91400866794 /* Assets.xcassets */,
+				4FEFA3A71D98E91400866794 /* LaunchScreen.storyboard */,
+				4FEFA3AA1D98E91400866794 /* Info.plist */,
+				4FD581951D98F9440083CCCE /* GoogleService-Info.plist */,
+				4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */,
+				4FD5819F1D99059F0083CCCE /* Bolts.framework */,
+				4FD581A01D99059F0083CCCE /* FBSDKCoreKit.framework */,
+				4FD581A11D99059F0083CCCE /* FBSDKLoginKit.framework */,
+				4FD581A21D99059F0083CCCE /* FBSDKShareKit.framework */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		4FEFA38F1D98E91400866794 = {
 			isa = PBXGroup;
 			children = (
@@ -140,17 +186,9 @@
 			children = (
 				4FEFA39B1D98E91400866794 /* AppDelegate.swift */,
 				4FEFA3CC1D98E93800866794 /* SignUpControllerViewController.swift */,
-				4FEFA39F1D98E91400866794 /* Main.storyboard */,
-				4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */,
-				4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */,
-				4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */,
-				4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */,
-				4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */,
-				4FEFA3A51D98E91400866794 /* Assets.xcassets */,
-				4FEFA3A71D98E91400866794 /* LaunchScreen.storyboard */,
-				4FEFA3AA1D98E91400866794 /* Info.plist */,
-				4FD581951D98F9440083CCCE /* GoogleService-Info.plist */,
-				4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */,
+				4FD581A71D990AAA0083CCCE /* HomeTabViewController.swift */,
+				4FD581A91D990AB80083CCCE /* StoryBoards */,
+				4FD581AA1D990ADF0083CCCE /* Models */,
 			);
 			path = Traveller;
 			sourceTree = "<group>";
@@ -300,6 +338,7 @@
 			files = (
 				4FD5818E1D98F5F50083CCCE /* HomeTabStoryboard.storyboard in Resources */,
 				4FEFA3A91D98E91400866794 /* LaunchScreen.storyboard in Resources */,
+				4FD581AC1D990F190083CCCE /* SignUpWithEmailStoryboard.storyboard in Resources */,
 				4FEFA3A61D98E91400866794 /* Assets.xcassets in Resources */,
 				4FD581921D98F62E0083CCCE /* PostTabStoryboard.storyboard in Resources */,
 				4FD5818C1D98F37A0083CCCE /* TabBarStoryboard.storyboard in Resources */,
@@ -455,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FEFA3CD1D98E93800866794 /* SignUpControllerViewController.swift in Sources */,
+				4FD581A81D990AAA0083CCCE /* HomeTabViewController.swift in Sources */,
 				4FEFA3A41D98E91400866794 /* Traveller.xcdatamodeld in Sources */,
 				4FEFA39C1D98E91400866794 /* AppDelegate.swift in Sources */,
 			);
@@ -601,6 +641,10 @@
 			baseConfigurationReference = 366CB820EA17A9C4A83E695B /* Pods-Traveller.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Traveller/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = genecoding.Traveller;
@@ -613,6 +657,10 @@
 			baseConfigurationReference = 955563E6C55CEE0DBA3A0C37 /* Pods-Traveller.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Traveller/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = genecoding.Traveller;
