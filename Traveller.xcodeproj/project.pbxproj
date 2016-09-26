@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		4377864557A3748410D8E1F6 /* Pods_TravellerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15795DE704F306F30224DB6A /* Pods_TravellerTests.framework */; };
+		4FD5818C1D98F37A0083CCCE /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */; };
+		4FD5818E1D98F5F50083CCCE /* HomeTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */; };
+		4FD581901D98F6110083CCCE /* InboxTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */; };
+		4FD581921D98F62E0083CCCE /* PostTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */; };
+		4FD581941D98F6800083CCCE /* ProfileTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */; };
 		4FEFA39C1D98E91400866794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA39B1D98E91400866794 /* AppDelegate.swift */; };
 		4FEFA3A11D98E91400866794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FEFA39F1D98E91400866794 /* Main.storyboard */; };
 		4FEFA3A41D98E91400866794 /* Traveller.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */; };
@@ -43,6 +48,11 @@
 		1E3E158E97C9C98092B12E6D /* Pods_Traveller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		366CB820EA17A9C4A83E695B /* Pods-Traveller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveller.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveller/Pods-Traveller.debug.xcconfig"; sourceTree = "<group>"; };
 		39E9B465ACF837088CF450E2 /* Pods-TravellerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerTests/Pods-TravellerTests.release.xcconfig"; sourceTree = "<group>"; };
+		4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
+		4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeTabStoryboard.storyboard; sourceTree = "<group>"; };
+		4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InboxTabStoryboard.storyboard; sourceTree = "<group>"; };
+		4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PostTabStoryboard.storyboard; sourceTree = "<group>"; };
+		4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ProfileTabStoryboard.storyboard; sourceTree = "<group>"; };
 		4FEFA3981D98E91400866794 /* Traveller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traveller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEFA39B1D98E91400866794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FEFA3A01D98E91400866794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -129,6 +139,11 @@
 				4FEFA39B1D98E91400866794 /* AppDelegate.swift */,
 				4FEFA3CC1D98E93800866794 /* SignUpControllerViewController.swift */,
 				4FEFA39F1D98E91400866794 /* Main.storyboard */,
+				4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */,
+				4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */,
+				4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */,
+				4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */,
+				4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */,
 				4FEFA3A51D98E91400866794 /* Assets.xcassets */,
 				4FEFA3A71D98E91400866794 /* LaunchScreen.storyboard */,
 				4FEFA3AA1D98E91400866794 /* Info.plist */,
@@ -280,9 +295,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FD5818E1D98F5F50083CCCE /* HomeTabStoryboard.storyboard in Resources */,
 				4FEFA3A91D98E91400866794 /* LaunchScreen.storyboard in Resources */,
 				4FEFA3A61D98E91400866794 /* Assets.xcassets in Resources */,
+				4FD581921D98F62E0083CCCE /* PostTabStoryboard.storyboard in Resources */,
+				4FD5818C1D98F37A0083CCCE /* TabBarStoryboard.storyboard in Resources */,
+				4FD581901D98F6110083CCCE /* InboxTabStoryboard.storyboard in Resources */,
 				4FEFA3A11D98E91400866794 /* Main.storyboard in Resources */,
+				4FD581941D98F6800083CCCE /* ProfileTabStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
