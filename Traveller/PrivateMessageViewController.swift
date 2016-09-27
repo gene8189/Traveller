@@ -17,37 +17,45 @@ class PrivateMessageViewController: JSQMessagesViewController {
 //    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        observeUser()
         
-        let uid = FIRAuth.auth()!.currentUser!.uid
-        DataService.usernameRef.child(uid).child("username").observeSingleEventOfType(.Value , withBlock: {(snapshot) in
-            let senderDisplayName = snapshot.value as? String
-            print("this is sender displayname : \(senderDisplayName)")
-            print("this is the uid :\(uid)")
-            
-            self.senderId = uid
-            self.senderDisplayName = senderDisplayName!
-            
-            
-        })
-        self.senderId = "placeholder"
-        self.senderDisplayName = "placeholder"
     }
     
     override func viewDidAppear(animated: Bool) {
+        // programmatically make activity indicator
+
         activityIndicator = UIActivityIndicatorView(frame: CGRect(origin: CGPointZero, size: CGSize(width: 50, height: 50)))
-        
         activityIndicator?.activityIndicatorViewStyle = .WhiteLarge
         activityIndicator?.color = UIColor.blackColor()
-        
         self.view.addSubview(activityIndicator!)
         self.view.bringSubviewToFront(activityIndicator!)
         activityIndicator?.center = view.center
         activityIndicator!.startAnimating()
+        observeUser()
     }
 
     @IBAction func onHomeButtonPressed(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    
+    func observeUser(){
+        let uid = FIRAuth.auth()!.currentUser!.uid
+        DataService.usernameRef.child(uid).child("username").observeSingleEventOfType(.Value , withBlock: {(snapshot) in
+            let senderDisplayName = snapshot.value as? String
+            print("this is sender displayname : \(senderDisplayName)")
+            print("this is the uid :\(uid)")
+            self.activityIndicator?.hidden = true
+            self.senderId = uid
+            self.senderDisplayName = senderDisplayName!
+        })
+        self.senderId = "placeholder"
+        self.senderDisplayName = "placeholder"
+        
+    }
+    
+
+    
     
     
     
