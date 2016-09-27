@@ -2,10 +2,10 @@
 # platform :ios, '9.0'
 
 target 'Traveller' do
-  # Comment this line if you're not using Swift and don't want to use dynamic frameworks
-  use_frameworks!
-
-  # Pods for Traveller
+    source 'https://github.com/CocoaPods/Specs.git'
+    use_frameworks!
+    pod 'JSQMessagesViewController', '~> 7.3'
+  
     pod 'Firebase'
     pod 'Firebase/Auth'
     pod 'GoogleSignIn'
@@ -13,6 +13,7 @@ target 'Traveller' do
     pod 'Firebase/Storage'
     pod 'SDWebImage', '~>3.8'
     pod 'Fusuma'
+    
 
 
 
