@@ -21,9 +21,16 @@ class PostViewController: UIViewController,FusumaDelegate {
     @IBOutlet weak var locationTextField: UITextField!
     @IBOutlet weak var productNameTextField: UITextField!
     @IBOutlet weak var selectImageView: UIImageView!
+    
     var selectedImage = UIImage()
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.productNameTextField.text = ""
+        self.locationTextField.text = ""
+        self.collectionTextField.text = ""
+        self.priceTextField.text = ""
+        self.selectImageView.image = UIImage(named: "takePhoto")
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         selectImageView.userInteractionEnabled = true
@@ -55,6 +62,7 @@ class PostViewController: UIViewController,FusumaDelegate {
         let storageRef = FIRStorage.storage().reference().child("\(uniqueImageName).png")
         
         let selectedImage = UIImagePNGRepresentation(self.selectedImage)!
+            
         storageRef.putData(selectedImage, metadata: nil, completion: { (metadata, error) in
             if error != nil{
                 print(error)
@@ -63,24 +71,33 @@ class PostViewController: UIViewController,FusumaDelegate {
             
             
             let currentUserRef = DataService.postRef.childByAutoId()
-            if let imageURL = metadata?.downloadURL()?.absoluteString, user = User.currentUserUid(), productName = self.productNameTextField.text, location = self.locationTextField.text, collection = self.collectionTextField.text, price = self.productNameTextField.text{
-                let value = ["imgurl":imageURL, "userUID":user, "created_at":NSDate().timeIntervalSince1970, "productName":productName, "location":location, "collectionMethod":collection, "price":price]
+            if let imageURL = metadata?.downloadURL()?.absoluteString, user = User.currentUserUid(),productName = self.productNameTextField.text, location = self.locationTextField.text, collectionMethod = self.collectionTextField.text, price = self.priceTextField.text {
+                
+                let value = ["imgurl":imageURL, "userUID":user, "created_at":NSDate().timeIntervalSince1970, "productName":productName, "location":location, "collectionMethod":collectionMethod, "price":price]
                 currentUserRef.setValue(value)
                 
                 
                 FIRDatabase.database().reference().child("Usernames").child(User.currentUserUid()!).child("post").updateChildValues([currentUserRef.key: true])
                 
                 SDImageCache.sharedImageCache().storeImage(self.selectedImage, forKey: imageURL)
+                
+                
+                self.productNameTextField.text = ""
+                self.locationTextField.text = ""
+                self.collectionTextField.text = ""
+                self.priceTextField.text = ""
+                self.selectImageView.image = UIImage(named: "takePhoto")
+                self.priceTextField.resignFirstResponder()
+                self.productNameTextField.resignFirstResponder()
+                self.locationTextField.resignFirstResponder()
+                self.collectionTextField.resignFirstResponder()
             }
             
             
         })
-//        performSegueWithIdentifier("unwindToHomeTabBar", sender: self)
-//        navigationController?.popViewControllerAnimated(true)
-        self.productNameTextField.text = ""
-        self.locationTextField.text = ""
-        self.collectionTextField.text = ""
-        self.priceTextField.text = ""
+        
+        performSegueWithIdentifier("unwindToHomeTabBar", sender: self)
+
     }
     
     // Return the image but called after is dismissed.

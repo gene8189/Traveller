@@ -24,4 +24,7 @@ class HomeTabViewController: UIViewController {
         let viewController = storyboard.instantiateViewControllerWithIdentifier("SignUpViewController")
         self.presentViewController(viewController, animated: true, completion: nil)
     }
+    
+    @IBAction func unwindToHomeTabBar(segue: UIStoryboardSegue) {
+    }
 }
