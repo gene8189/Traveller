@@ -7,11 +7,21 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class HomeTabViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-         
+        
+    }
+    
+    @IBAction func onLogoutButtonPressed(sender: AnyObject) {
+        NSUserDefaults.standardUserDefaults().removeObjectForKey("userUID")
+        let manager = FBSDKLoginManager()
+        manager.logOut()
+        let storyboard = UIStoryboard(name: "Main", bundle: NSBundle.mainBundle())
+        let viewController = storyboard.instantiateViewControllerWithIdentifier("SignUpViewController")
+        self.presentViewController(viewController, animated: true, completion: nil)
     }
 }

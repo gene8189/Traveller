@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Title-->
         <scene sceneID="HUn-fJ-5mO">
             <objects>
-                <viewController id="YZy-GT-ety" sceneMemberID="viewController">
+                <viewController id="YZy-GT-ety" customClass="HomeTabViewController" customModule="Traveller" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="DkN-rB-NCf"/>
                         <viewControllerLayoutGuide type="bottom" id="lOQ-4v-R9U"/>
@@ -18,6 +18,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="CmV-ZG-cye">
+                        <barButtonItem key="rightBarButtonItem" title="Logout" id="9Ej-Pp-anl">
+                            <connections>
+                                <action selector="onLogoutButtonPressed:" destination="YZy-GT-ety" id="k2o-H0-lYR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T0P-18-Uek" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

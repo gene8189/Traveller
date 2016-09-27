@@ -13,6 +13,13 @@
 		11B7B6C31D9960510041E2ED /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6C21D9960510041E2ED /* DataService.swift */; };
 		11B7B6C51D9967A00041E2ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6C41D9967A00041E2ED /* User.swift */; };
 		4377864557A3748410D8E1F6 /* Pods_TravellerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15795DE704F306F30224DB6A /* Pods_TravellerTests.framework */; };
+		4F4C76971D99277C006E94D1 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C76961D99277C006E94D1 /* StyleKit.swift */; };
+		4F4C76991D993D76006E94D1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C76981D993D76006E94D1 /* SignUpViewController.swift */; };
+		4F4C769B1D9960D5006E94D1 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C769A1D9960D5006E94D1 /* InboxViewController.swift */; };
+		4F4C769D1D99FEDD006E94D1 /* InboxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C769C1D99FEDD006E94D1 /* InboxTableViewCell.swift */; };
+		4F4C769F1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4C769E1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard */; };
+		4F4C76A11D9A00CB006E94D1 /* PrivateMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C76A01D9A00CB006E94D1 /* PrivateMessageViewController.swift */; };
+		4F4C76A31D9A097E006E94D1 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C76A21D9A097E006E94D1 /* DataService.swift */; };
 		4FD5818C1D98F37A0083CCCE /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */; };
 		4FD5818E1D98F5F50083CCCE /* HomeTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */; };
 		4FD581901D98F6110083CCCE /* InboxTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */; };
@@ -24,7 +31,7 @@
 		4FD581A51D99059F0083CCCE /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD581A11D99059F0083CCCE /* FBSDKLoginKit.framework */; };
 		4FD581A61D99059F0083CCCE /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FD581A21D99059F0083CCCE /* FBSDKShareKit.framework */; };
 		4FD581A81D990AAA0083CCCE /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD581A71D990AAA0083CCCE /* HomeTabViewController.swift */; };
-		4FD581AC1D990F190083CCCE /* SignUpWithEmailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD581AB1D990F190083CCCE /* SignUpWithEmailStoryboard.storyboard */; };
+		4FD581AC1D990F190083CCCE /* SignInWithEmailStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD581AB1D990F190083CCCE /* SignInWithEmailStoryboard.storyboard */; };
 		4FEFA39C1D98E91400866794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA39B1D98E91400866794 /* AppDelegate.swift */; };
 		4FEFA3A11D98E91400866794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FEFA39F1D98E91400866794 /* Main.storyboard */; };
 		4FEFA3A41D98E91400866794 /* Traveller.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */; };
@@ -32,7 +39,7 @@
 		4FEFA3A91D98E91400866794 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FEFA3A71D98E91400866794 /* LaunchScreen.storyboard */; };
 		4FEFA3B41D98E91400866794 /* TravellerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA3B31D98E91400866794 /* TravellerTests.swift */; };
 		4FEFA3BF1D98E91400866794 /* TravellerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA3BE1D98E91400866794 /* TravellerUITests.swift */; };
-		4FEFA3CD1D98E93800866794 /* SignUpControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA3CC1D98E93800866794 /* SignUpControllerViewController.swift */; };
+		4FEFA3CD1D98E93800866794 /* SignInControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA3CC1D98E93800866794 /* SignInControllerViewController.swift */; };
 		74A86D589243FD7CE0B2AC2F /* Pods_TravellerUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8DDFC6B1A28252B9C9CD64A /* Pods_TravellerUITests.framework */; };
 		84213ABCEDB2DFED0ADE0AAC /* Pods_Traveller.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E3E158E97C9C98092B12E6D /* Pods_Traveller.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +72,13 @@
 		1E3E158E97C9C98092B12E6D /* Pods_Traveller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		366CB820EA17A9C4A83E695B /* Pods-Traveller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveller.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveller/Pods-Traveller.debug.xcconfig"; sourceTree = "<group>"; };
 		39E9B465ACF837088CF450E2 /* Pods-TravellerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerTests/Pods-TravellerTests.release.xcconfig"; sourceTree = "<group>"; };
+		4F4C76961D99277C006E94D1 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
+		4F4C76981D993D76006E94D1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4F4C769A1D9960D5006E94D1 /* InboxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
+		4F4C769C1D99FEDD006E94D1 /* InboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
+		4F4C769E1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrivateMessageStoryboard.storyboard; sourceTree = "<group>"; };
+		4F4C76A01D9A00CB006E94D1 /* PrivateMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateMessageViewController.swift; sourceTree = "<group>"; };
+		4F4C76A21D9A097E006E94D1 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
 		4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeTabStoryboard.storyboard; sourceTree = "<group>"; };
 		4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InboxTabStoryboard.storyboard; sourceTree = "<group>"; };
@@ -76,7 +90,7 @@
 		4FD581A11D99059F0083CCCE /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = ../FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		4FD581A21D99059F0083CCCE /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = ../FBSDKShareKit.framework; sourceTree = "<group>"; };
 		4FD581A71D990AAA0083CCCE /* HomeTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
-		4FD581AB1D990F190083CCCE /* SignUpWithEmailStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignUpWithEmailStoryboard.storyboard; sourceTree = "<group>"; };
+		4FD581AB1D990F190083CCCE /* SignInWithEmailStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SignInWithEmailStoryboard.storyboard; sourceTree = "<group>"; };
 		4FEFA3981D98E91400866794 /* Traveller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traveller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEFA39B1D98E91400866794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FEFA3A01D98E91400866794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,7 +104,7 @@
 		4FEFA3BA1D98E91400866794 /* TravellerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TravellerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEFA3BE1D98E91400866794 /* TravellerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravellerUITests.swift; sourceTree = "<group>"; };
 		4FEFA3C01D98E91400866794 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4FEFA3CC1D98E93800866794 /* SignUpControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpControllerViewController.swift; sourceTree = "<group>"; };
+		4FEFA3CC1D98E93800866794 /* SignInControllerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInControllerViewController.swift; sourceTree = "<group>"; };
 		74974443BA6619B660111BDF /* Pods-TravellerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerTests/Pods-TravellerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8C742861D1A64FB77E5E11AC /* Pods-TravellerUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerUITests/Pods-TravellerUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		955563E6C55CEE0DBA3A0C37 /* Pods-Traveller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveller.release.xcconfig"; path = "Pods/Target Support Files/Pods-Traveller/Pods-Traveller.release.xcconfig"; sourceTree = "<group>"; };
@@ -142,7 +156,17 @@
 		4FD581A91D990AB80083CCCE /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
+
+				4FEFA39F1D98E91400866794 /* Main.storyboard */,
+				4FD581AB1D990F190083CCCE /* SignInWithEmailStoryboard.storyboard */,
+				4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */,
+				4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */,
+				4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */,
+				4F4C769E1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard */,
+				4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */,
+				4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */,
 				4FD581AB1D990F190083CCCE /* SignUpWithEmailStoryboard.storyboard */,
+
 			);
 			name = StoryBoards;
 			sourceTree = "<group>";
@@ -150,6 +174,14 @@
 		4FD581AA1D990ADF0083CCCE /* Models */ = {
 			isa = PBXGroup;
 			children = (
+
+				4F4C76A21D9A097E006E94D1 /* DataService.swift */,
+				4FEFA3A51D98E91400866794 /* Assets.xcassets */,
+				4FEFA3A71D98E91400866794 /* LaunchScreen.storyboard */,
+				4FEFA3AA1D98E91400866794 /* Info.plist */,
+				4FD581951D98F9440083CCCE /* GoogleService-Info.plist */,
+				4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */,
+
 				4FD5819F1D99059F0083CCCE /* Bolts.framework */,
 				4FD581A01D99059F0083CCCE /* FBSDKCoreKit.framework */,
 				4FD581A11D99059F0083CCCE /* FBSDKLoginKit.framework */,
@@ -183,8 +215,13 @@
 		4FEFA39A1D98E91400866794 /* Traveller */ = {
 			isa = PBXGroup;
 			children = (
+				4F4C76961D99277C006E94D1 /* StyleKit.swift */,
 				4FEFA39B1D98E91400866794 /* AppDelegate.swift */,
-				4FEFA3CC1D98E93800866794 /* SignUpControllerViewController.swift */,
+				4F4C76981D993D76006E94D1 /* SignUpViewController.swift */,
+				4FEFA3CC1D98E93800866794 /* SignInControllerViewController.swift */,
+				4F4C769A1D9960D5006E94D1 /* InboxViewController.swift */,
+				4F4C769C1D99FEDD006E94D1 /* InboxTableViewCell.swift */,
+				4F4C76A01D9A00CB006E94D1 /* PrivateMessageViewController.swift */,
 				4FEFA39F1D98E91400866794 /* Main.storyboard */,
 				4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */,
 				4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */,
@@ -353,7 +390,7 @@
 			files = (
 				4FD5818E1D98F5F50083CCCE /* HomeTabStoryboard.storyboard in Resources */,
 				4FEFA3A91D98E91400866794 /* LaunchScreen.storyboard in Resources */,
-				4FD581AC1D990F190083CCCE /* SignUpWithEmailStoryboard.storyboard in Resources */,
+				4FD581AC1D990F190083CCCE /* SignInWithEmailStoryboard.storyboard in Resources */,
 				4FEFA3A61D98E91400866794 /* Assets.xcassets in Resources */,
 				4FD581921D98F62E0083CCCE /* PostTabStoryboard.storyboard in Resources */,
 				4FD5818C1D98F37A0083CCCE /* TabBarStoryboard.storyboard in Resources */,
@@ -361,6 +398,7 @@
 				4FD581961D98F9440083CCCE /* GoogleService-Info.plist in Resources */,
 				4FEFA3A11D98E91400866794 /* Main.storyboard in Resources */,
 				4FD581941D98F6800083CCCE /* ProfileTabStoryboard.storyboard in Resources */,
+				4F4C769F1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -508,13 +546,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F4C769B1D9960D5006E94D1 /* InboxViewController.swift in Sources */,
+				4F4C76991D993D76006E94D1 /* SignUpViewController.swift in Sources */,
+				4FEFA3CD1D98E93800866794 /* SignInControllerViewController.swift in Sources */,
 				11B7B6BD1D9909100041E2ED /* PostViewController.swift in Sources */,
-				4FEFA3CD1D98E93800866794 /* SignUpControllerViewController.swift in Sources */,
 				11B7B6C11D9909590041E2ED /* EditProfileViewController.swift in Sources */,
 				11B7B6BF1D9909380041E2ED /* ProfileViewController.swift in Sources */,
 				4FD581A81D990AAA0083CCCE /* HomeTabViewController.swift in Sources */,
 				11B7B6C51D9967A00041E2ED /* User.swift in Sources */,
 				4FEFA3A41D98E91400866794 /* Traveller.xcdatamodeld in Sources */,
+				4F4C76971D99277C006E94D1 /* StyleKit.swift in Sources */,
+				4F4C769D1D99FEDD006E94D1 /* InboxTableViewCell.swift in Sources */,
+				4F4C76A11D9A00CB006E94D1 /* PrivateMessageViewController.swift in Sources */,
 				4FEFA39C1D98E91400866794 /* AppDelegate.swift in Sources */,
 				11B7B6C31D9960510041E2ED /* DataService.swift in Sources */,
 			);

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="1bb-HI-Tav">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Sign In Controller View Controller-->
+        <scene sceneID="1Yc-FJ-XHp">
+            <objects>
+                <viewController id="1bb-HI-Tav" customClass="SignInControllerViewController" customModule="Traveller" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JNn-Fu-WV9"/>
+                        <viewControllerLayoutGuide type="bottom" id="C6A-Oe-lqH"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="T89-T9-M1o">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8gj-Tm-Z62" customClass="FBSDKLoginButton">
+                                <rect key="frame" x="100" y="283" width="200" height="30"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="SNQ-cq-7CP"/>
+                                    <constraint firstAttribute="height" constant="30" id="m10-L6-yPN"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U5u-cZ-Xz1">
+                                <rect key="frame" x="100" y="235" width="200" height="30"/>
+                                <color key="backgroundColor" red="0.9838637107" green="0.9838637107" blue="0.9838637107" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="6X2-Cq-GHQ"/>
+                                    <constraint firstAttribute="width" constant="200" id="6Xx-WD-PXg"/>
+                                    <constraint firstAttribute="height" constant="30" id="XmX-JJ-X7j"/>
+                                    <constraint firstAttribute="height" constant="30" id="w13-Gy-lKq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="contentEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="   Log in with Email" image="Mail"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6Xx-WD-PXg"/>
+                                        <exclude reference="XmX-JJ-X7j"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="onSignInWithEmailButtonPressed:" destination="1bb-HI-Tav" eventType="touchUpInside" id="1fm-Eb-qxe"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="puI-6Y-xrS">
+                                <rect key="frame" x="175" y="333" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Xfh-vI-K64"/>
+                                    <constraint firstAttribute="width" constant="50" id="iAC-lz-QzV"/>
+                                </constraints>
+                            </activityIndicatorView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="U5u-cZ-Xz1" firstAttribute="leading" secondItem="T89-T9-M1o" secondAttribute="leadingMargin" constant="68" id="Fo6-Jl-GgL"/>
+                            <constraint firstItem="8gj-Tm-Z62" firstAttribute="top" secondItem="U5u-cZ-Xz1" secondAttribute="bottom" constant="19" id="GZ6-9R-ggk"/>
+                            <constraint firstItem="U5u-cZ-Xz1" firstAttribute="top" secondItem="JNn-Fu-WV9" secondAttribute="bottom" constant="216" id="HCz-tX-Cbd"/>
+                            <constraint firstItem="U5u-cZ-Xz1" firstAttribute="top" secondItem="JNn-Fu-WV9" secondAttribute="bottom" constant="215" id="MT4-eX-28r"/>
+                            <constraint firstItem="8gj-Tm-Z62" firstAttribute="centerX" secondItem="T89-T9-M1o" secondAttribute="centerX" id="QYh-4Z-9td"/>
+                            <constraint firstItem="U5u-cZ-Xz1" firstAttribute="centerX" secondItem="T89-T9-M1o" secondAttribute="centerX" id="ZuK-fb-TqW"/>
+                            <constraint firstItem="puI-6Y-xrS" firstAttribute="top" secondItem="8gj-Tm-Z62" secondAttribute="bottom" constant="20" id="eGM-jc-uEp"/>
+                            <constraint firstItem="U5u-cZ-Xz1" firstAttribute="leading" secondItem="8gj-Tm-Z62" secondAttribute="leading" id="i5A-EY-AR9"/>
+                            <constraint firstItem="puI-6Y-xrS" firstAttribute="centerX" secondItem="T89-T9-M1o" secondAttribute="centerX" id="kpf-3k-CWa"/>
+                            <constraint firstItem="8gj-Tm-Z62" firstAttribute="top" secondItem="U5u-cZ-Xz1" secondAttribute="bottom" constant="18" id="n57-ep-Qnl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="U5u-cZ-Xz1" secondAttribute="trailing" constant="92" id="qeu-m2-gHz"/>
+                            <constraint firstItem="U5u-cZ-Xz1" firstAttribute="trailing" secondItem="8gj-Tm-Z62" secondAttribute="trailing" id="uZw-8f-oU8"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Fo6-Jl-GgL"/>
+                                <exclude reference="HCz-tX-Cbd"/>
+                                <exclude reference="i5A-EY-AR9"/>
+                                <exclude reference="qeu-m2-gHz"/>
+                                <exclude reference="uZw-8f-oU8"/>
+                                <exclude reference="GZ6-9R-ggk"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="600"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="puI-6Y-xrS" id="rMp-P8-Ygr"/>
+                        <outlet property="emailLoginButton" destination="U5u-cZ-Xz1" id="dLs-R0-VCX"/>
+                        <outlet property="fbLoginButton" destination="8gj-Tm-Z62" id="GYi-bR-Fzq"/>
+                        <segue destination="egL-cv-pmC" kind="show" identifier="HomeSegue" id="Jhb-XN-OnQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nT6-lW-EyV" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="314"/>
+        </scene>
+        <!--TabBarStoryboard-->
+        <scene sceneID="5nV-NL-A9j">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabBarStoryboard" id="egL-cv-pmC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="no6-8e-lKz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="882.5" y="322"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Mail" width="16" height="16"/>
+    </resources>
+</document>
