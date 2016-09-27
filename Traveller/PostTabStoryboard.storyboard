@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GE9-VW-s8O">
-                                <rect key="frame" x="166.5" y="40" width="267" height="145"/>
+                                <rect key="frame" x="166" y="40" width="267" height="145"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="267" id="sec-ot-n3k"/>
                                     <constraint firstAttribute="height" constant="145" id="yjz-rs-7ar"/>
@@ -128,6 +128,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLk-Z2-mNn">
                                 <rect key="frame" x="285" y="513" width="31" height="30"/>
                                 <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="onPostButtonPressed:" destination="NdO-Og-mrC" eventType="touchUpInside" id="fSR-70-VZJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -140,6 +143,13 @@
                             <constraint firstItem="hLk-Z2-mNn" firstAttribute="top" secondItem="1Bj-M5-twD" secondAttribute="bottom" constant="33" id="jc0-ag-xB4"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collectionTextField" destination="JNF-xE-fxA" id="mx5-QQ-SHO"/>
+                        <outlet property="locationTextField" destination="NE4-lo-amj" id="JpA-F2-YMo"/>
+                        <outlet property="priceTextField" destination="Brp-3R-IAY" id="vha-mi-nxh"/>
+                        <outlet property="productNameTextField" destination="ter-nA-pPz" id="94x-f3-2SN"/>
+                        <outlet property="selectImageView" destination="GE9-VW-s8O" id="1P4-Yv-3ou"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mdd-zN-32Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
