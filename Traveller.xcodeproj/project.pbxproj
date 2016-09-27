@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		11B7B6BD1D9909100041E2ED /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6BC1D9909100041E2ED /* PostViewController.swift */; };
+		11B7B6BF1D9909380041E2ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6BE1D9909380041E2ED /* ProfileViewController.swift */; };
+		11B7B6C11D9909590041E2ED /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6C01D9909590041E2ED /* EditProfileViewController.swift */; };
+		11B7B6C31D9960510041E2ED /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6C21D9960510041E2ED /* DataService.swift */; };
+		11B7B6C51D9967A00041E2ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6C41D9967A00041E2ED /* User.swift */; };
 		4377864557A3748410D8E1F6 /* Pods_TravellerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15795DE704F306F30224DB6A /* Pods_TravellerTests.framework */; };
 		4FD5818C1D98F37A0083CCCE /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */; };
 		4FD5818E1D98F5F50083CCCE /* HomeTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */; };
@@ -51,6 +56,11 @@
 
 /* Begin PBXFileReference section */
 		0B7D3D90E03B3B5AA80F76E0 /* Pods-TravellerUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerUITests/Pods-TravellerUITests.release.xcconfig"; sourceTree = "<group>"; };
+		11B7B6BC1D9909100041E2ED /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		11B7B6BE1D9909380041E2ED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		11B7B6C01D9909590041E2ED /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		11B7B6C21D9960510041E2ED /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		11B7B6C41D9967A00041E2ED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		15795DE704F306F30224DB6A /* Pods_TravellerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravellerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E3E158E97C9C98092B12E6D /* Pods_Traveller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		366CB820EA17A9C4A83E695B /* Pods-Traveller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveller.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveller/Pods-Traveller.debug.xcconfig"; sourceTree = "<group>"; };
@@ -132,13 +142,7 @@
 		4FD581A91D990AB80083CCCE /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
-				4FEFA39F1D98E91400866794 /* Main.storyboard */,
 				4FD581AB1D990F190083CCCE /* SignUpWithEmailStoryboard.storyboard */,
-				4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */,
-				4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */,
-				4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */,
-				4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */,
-				4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */,
 			);
 			name = StoryBoards;
 			sourceTree = "<group>";
@@ -146,11 +150,6 @@
 		4FD581AA1D990ADF0083CCCE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4FEFA3A51D98E91400866794 /* Assets.xcassets */,
-				4FEFA3A71D98E91400866794 /* LaunchScreen.storyboard */,
-				4FEFA3AA1D98E91400866794 /* Info.plist */,
-				4FD581951D98F9440083CCCE /* GoogleService-Info.plist */,
-				4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */,
 				4FD5819F1D99059F0083CCCE /* Bolts.framework */,
 				4FD581A01D99059F0083CCCE /* FBSDKCoreKit.framework */,
 				4FD581A11D99059F0083CCCE /* FBSDKLoginKit.framework */,
@@ -186,6 +185,22 @@
 			children = (
 				4FEFA39B1D98E91400866794 /* AppDelegate.swift */,
 				4FEFA3CC1D98E93800866794 /* SignUpControllerViewController.swift */,
+				4FEFA39F1D98E91400866794 /* Main.storyboard */,
+				4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */,
+				4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */,
+				4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */,
+				4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */,
+				11B7B6BC1D9909100041E2ED /* PostViewController.swift */,
+				11B7B6C41D9967A00041E2ED /* User.swift */,
+				11B7B6BE1D9909380041E2ED /* ProfileViewController.swift */,
+				11B7B6C21D9960510041E2ED /* DataService.swift */,
+				11B7B6C01D9909590041E2ED /* EditProfileViewController.swift */,
+				4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */,
+				4FEFA3A51D98E91400866794 /* Assets.xcassets */,
+				4FEFA3A71D98E91400866794 /* LaunchScreen.storyboard */,
+				4FEFA3AA1D98E91400866794 /* Info.plist */,
+				4FD581951D98F9440083CCCE /* GoogleService-Info.plist */,
+				4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */,
 				4FD581A71D990AAA0083CCCE /* HomeTabViewController.swift */,
 				4FD581A91D990AB80083CCCE /* StoryBoards */,
 				4FD581AA1D990ADF0083CCCE /* Models */,
@@ -493,10 +508,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11B7B6BD1D9909100041E2ED /* PostViewController.swift in Sources */,
 				4FEFA3CD1D98E93800866794 /* SignUpControllerViewController.swift in Sources */,
+				11B7B6C11D9909590041E2ED /* EditProfileViewController.swift in Sources */,
+				11B7B6BF1D9909380041E2ED /* ProfileViewController.swift in Sources */,
 				4FD581A81D990AAA0083CCCE /* HomeTabViewController.swift in Sources */,
+				11B7B6C51D9967A00041E2ED /* User.swift in Sources */,
 				4FEFA3A41D98E91400866794 /* Traveller.xcdatamodeld in Sources */,
 				4FEFA39C1D98E91400866794 /* AppDelegate.swift in Sources */,
+				11B7B6C31D9960510041E2ED /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
