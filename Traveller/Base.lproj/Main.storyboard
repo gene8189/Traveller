@@ -194,20 +194,20 @@
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="rrP-hA-dmd"/>
-                                        <exclude reference="z9a-5o-7u0"/>
-                                        <exclude reference="6ee-Wg-Vqz"/>
-                                        <exclude reference="nQJ-64-572"/>
                                         <exclude reference="0SS-7t-ciI"/>
-                                        <exclude reference="jRt-UE-k2C"/>
-                                        <exclude reference="Tma-Ag-uSu"/>
-                                        <exclude reference="sxj-iY-ySX"/>
-                                        <exclude reference="iY9-oS-3Tj"/>
-                                        <exclude reference="cyW-kR-7de"/>
+                                        <exclude reference="6ee-Wg-Vqz"/>
                                         <exclude reference="NjD-PX-tdi"/>
                                         <exclude reference="QLL-sc-OiT"/>
-                                        <exclude reference="fx4-6k-ifK"/>
+                                        <exclude reference="Tma-Ag-uSu"/>
                                         <exclude reference="V2V-yY-Xy3"/>
+                                        <exclude reference="cyW-kR-7de"/>
+                                        <exclude reference="fx4-6k-ifK"/>
+                                        <exclude reference="iY9-oS-3Tj"/>
+                                        <exclude reference="jRt-UE-k2C"/>
+                                        <exclude reference="nQJ-64-572"/>
+                                        <exclude reference="rrP-hA-dmd"/>
+                                        <exclude reference="sxj-iY-ySX"/>
+                                        <exclude reference="z9a-5o-7u0"/>
                                     </mask>
                                 </variation>
                             </scrollView>
@@ -228,8 +228,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="nep-xt-5M8"/>
                                 <exclude reference="SfE-7n-2OU"/>
+                                <exclude reference="nep-xt-5M8"/>
                                 <exclude reference="6Wq-Ef-lkv"/>
                                 <exclude reference="QNn-86-ewN"/>
                                 <exclude reference="Dy5-8j-hYX"/>

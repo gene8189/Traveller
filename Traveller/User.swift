@@ -11,7 +11,6 @@ import Firebase
 
 class User{
     
-    
     class func currentUserUid() -> String? {
         return NSUserDefaults.standardUserDefaults().valueForKey("userUID") as? String
     }

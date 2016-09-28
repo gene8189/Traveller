@@ -10,7 +10,6 @@
 		11B7B6BD1D9909100041E2ED /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6BC1D9909100041E2ED /* PostViewController.swift */; };
 		11B7B6BF1D9909380041E2ED /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6BE1D9909380041E2ED /* ProfileViewController.swift */; };
 		11B7B6C11D9909590041E2ED /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6C01D9909590041E2ED /* EditProfileViewController.swift */; };
-		11B7B6C31D9960510041E2ED /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6C21D9960510041E2ED /* DataService.swift */; };
 		11B7B6C51D9967A00041E2ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6C41D9967A00041E2ED /* User.swift */; };
 		4377864557A3748410D8E1F6 /* Pods_TravellerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15795DE704F306F30224DB6A /* Pods_TravellerTests.framework */; };
 		4F4C76971D99277C006E94D1 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C76961D99277C006E94D1 /* StyleKit.swift */; };
@@ -34,6 +33,9 @@
 		4FE3D4201D9A26170001344C /* AddUserPrivateMessageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FE3D41F1D9A26170001344C /* AddUserPrivateMessageStoryboard.storyboard */; };
 		4FE3D4221D9A32F40001344C /* AddUserPrivateMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3D4211D9A32F40001344C /* AddUserPrivateMessageViewController.swift */; };
 		4FE3D4241D9A332B0001344C /* AddUserPrivateMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3D4231D9A332B0001344C /* AddUserPrivateMessageTableViewCell.swift */; };
+		4FE3D42A1D9A395E0001344C /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3D4291D9A395E0001344C /* DataService.swift */; };
+		4FE3D4301D9A463F0001344C /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3D42F1D9A463F0001344C /* Username.swift */; };
+		4FE3D4331D9B20B50001344C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3D4321D9B20B50001344C /* Message.swift */; };
 		4FEFA39C1D98E91400866794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA39B1D98E91400866794 /* AppDelegate.swift */; };
 		4FEFA3A11D98E91400866794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FEFA39F1D98E91400866794 /* Main.storyboard */; };
 		4FEFA3A41D98E91400866794 /* Traveller.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */; };
@@ -68,7 +70,6 @@
 		11B7B6BC1D9909100041E2ED /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		11B7B6BE1D9909380041E2ED /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		11B7B6C01D9909590041E2ED /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
-		11B7B6C21D9960510041E2ED /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		11B7B6C41D9967A00041E2ED /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		15795DE704F306F30224DB6A /* Pods_TravellerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravellerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E3E158E97C9C98092B12E6D /* Pods_Traveller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -80,7 +81,6 @@
 		4F4C769C1D99FEDD006E94D1 /* InboxTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InboxTableViewCell.swift; sourceTree = "<group>"; };
 		4F4C769E1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrivateMessageStoryboard.storyboard; sourceTree = "<group>"; };
 		4F4C76A01D9A00CB006E94D1 /* PrivateMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateMessageViewController.swift; sourceTree = "<group>"; };
-		4F4C76A21D9A097E006E94D1 /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
 		4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeTabStoryboard.storyboard; sourceTree = "<group>"; };
 		4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InboxTabStoryboard.storyboard; sourceTree = "<group>"; };
@@ -96,6 +96,9 @@
 		4FE3D41F1D9A26170001344C /* AddUserPrivateMessageStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddUserPrivateMessageStoryboard.storyboard; sourceTree = "<group>"; };
 		4FE3D4211D9A32F40001344C /* AddUserPrivateMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserPrivateMessageViewController.swift; sourceTree = "<group>"; };
 		4FE3D4231D9A332B0001344C /* AddUserPrivateMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserPrivateMessageTableViewCell.swift; sourceTree = "<group>"; };
+		4FE3D4291D9A395E0001344C /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		4FE3D42F1D9A463F0001344C /* Username.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
+		4FE3D4321D9B20B50001344C /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		4FEFA3981D98E91400866794 /* Traveller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traveller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEFA39B1D98E91400866794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FEFA3A01D98E91400866794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -161,8 +164,12 @@
 		4FD581A91D990AB80083CCCE /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
-				4F4C769E1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard */,
-				4FD581AB1D990F190083CCCE /* SignInWithEmailStoryboard.storyboard */,
+				4FE3D42D1D9A39910001344C /* SignIn&SignOut */,
+				4FE3D42E1D9A39A40001344C /* Inbox Storyboard */,
+				4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */,
+				4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */,
+				4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */,
+				4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */,
 			);
 			name = StoryBoards;
 			sourceTree = "<group>";
@@ -170,13 +177,69 @@
 		4FD581AA1D990ADF0083CCCE /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				4F4C76A21D9A097E006E94D1 /* DataService.swift */,
+				11B7B6C41D9967A00041E2ED /* User.swift */,
+				4FE3D4321D9B20B50001344C /* Message.swift */,
+				4FE3D42F1D9A463F0001344C /* Username.swift */,
+				4FE3D4291D9A395E0001344C /* DataService.swift */,
+				4FEFA3A51D98E91400866794 /* Assets.xcassets */,
+				4FEFA3A71D98E91400866794 /* LaunchScreen.storyboard */,
+				4FEFA3AA1D98E91400866794 /* Info.plist */,
+				4FD581951D98F9440083CCCE /* GoogleService-Info.plist */,
+				4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */,
 				4FD5819F1D99059F0083CCCE /* Bolts.framework */,
 				4FD581A01D99059F0083CCCE /* FBSDKCoreKit.framework */,
 				4FD581A11D99059F0083CCCE /* FBSDKLoginKit.framework */,
 				4FD581A21D99059F0083CCCE /* FBSDKShareKit.framework */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		4FE3D4251D9A38FF0001344C /* SignIn & SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				4F4C76981D993D76006E94D1 /* SignUpViewController.swift */,
+				4FEFA3CC1D98E93800866794 /* SignInControllerViewController.swift */,
+			);
+			name = "SignIn & SignUp";
+			sourceTree = "<group>";
+		};
+		4FE3D4261D9A39210001344C /* Inbox */ = {
+			isa = PBXGroup;
+			children = (
+				4FE3D4311D9A61780001344C /* TableViewCell Class */,
+				4F4C769A1D9960D5006E94D1 /* InboxViewController.swift */,
+				4FE3D4211D9A32F40001344C /* AddUserPrivateMessageViewController.swift */,
+				4F4C76A01D9A00CB006E94D1 /* PrivateMessageViewController.swift */,
+			);
+			name = Inbox;
+			sourceTree = "<group>";
+		};
+		4FE3D42D1D9A39910001344C /* SignIn&SignOut */ = {
+			isa = PBXGroup;
+			children = (
+				4FEFA39F1D98E91400866794 /* Main.storyboard */,
+				4FD581AB1D990F190083CCCE /* SignInWithEmailStoryboard.storyboard */,
+			);
+			name = "SignIn&SignOut";
+			sourceTree = "<group>";
+		};
+		4FE3D42E1D9A39A40001344C /* Inbox Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */,
+				4FE3D41F1D9A26170001344C /* AddUserPrivateMessageStoryboard.storyboard */,
+				4F4C769E1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard */,
+			);
+			name = "Inbox Storyboard";
+			sourceTree = "<group>";
+		};
+		4FE3D4311D9A61780001344C /* TableViewCell Class */ = {
+			isa = PBXGroup;
+			children = (
+				4F4C769C1D99FEDD006E94D1 /* InboxTableViewCell.swift */,
+				4FE3D4231D9A332B0001344C /* AddUserPrivateMessageTableViewCell.swift */,
+			);
+			name = "TableViewCell Class";
 			sourceTree = "<group>";
 		};
 		4FEFA38F1D98E91400866794 = {
@@ -206,30 +269,11 @@
 			children = (
 				4F4C76961D99277C006E94D1 /* StyleKit.swift */,
 				4FEFA39B1D98E91400866794 /* AppDelegate.swift */,
-				4F4C76981D993D76006E94D1 /* SignUpViewController.swift */,
-				4FEFA3CC1D98E93800866794 /* SignInControllerViewController.swift */,
-				4F4C769A1D9960D5006E94D1 /* InboxViewController.swift */,
-				4F4C769C1D99FEDD006E94D1 /* InboxTableViewCell.swift */,
-				4F4C76A01D9A00CB006E94D1 /* PrivateMessageViewController.swift */,
-				4FE3D4211D9A32F40001344C /* AddUserPrivateMessageViewController.swift */,
-				4FE3D4231D9A332B0001344C /* AddUserPrivateMessageTableViewCell.swift */,
+				4FE3D4251D9A38FF0001344C /* SignIn & SignUp */,
+				4FE3D4261D9A39210001344C /* Inbox */,
 				11B7B6BC1D9909100041E2ED /* PostViewController.swift */,
-				11B7B6C41D9967A00041E2ED /* User.swift */,
 				11B7B6BE1D9909380041E2ED /* ProfileViewController.swift */,
-				11B7B6C21D9960510041E2ED /* DataService.swift */,
 				11B7B6C01D9909590041E2ED /* EditProfileViewController.swift */,
-				4FEFA39F1D98E91400866794 /* Main.storyboard */,
-				4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */,
-				4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */,
-				4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */,
-				4FE3D41F1D9A26170001344C /* AddUserPrivateMessageStoryboard.storyboard */,
-				4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */,
-				4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */,
-				4FEFA3A51D98E91400866794 /* Assets.xcassets */,
-				4FEFA3A71D98E91400866794 /* LaunchScreen.storyboard */,
-				4FEFA3AA1D98E91400866794 /* Info.plist */,
-				4FD581951D98F9440083CCCE /* GoogleService-Info.plist */,
-				4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */,
 				4FD581A71D990AAA0083CCCE /* HomeTabViewController.swift */,
 				4FD581A91D990AB80083CCCE /* StoryBoards */,
 				4FD581AA1D990ADF0083CCCE /* Models */,
@@ -542,19 +586,21 @@
 				4F4C769B1D9960D5006E94D1 /* InboxViewController.swift in Sources */,
 				4F4C76991D993D76006E94D1 /* SignUpViewController.swift in Sources */,
 				4FEFA3CD1D98E93800866794 /* SignInControllerViewController.swift in Sources */,
+				4FE3D4331D9B20B50001344C /* Message.swift in Sources */,
 				11B7B6BD1D9909100041E2ED /* PostViewController.swift in Sources */,
 				11B7B6C11D9909590041E2ED /* EditProfileViewController.swift in Sources */,
 				11B7B6BF1D9909380041E2ED /* ProfileViewController.swift in Sources */,
 				4FD581A81D990AAA0083CCCE /* HomeTabViewController.swift in Sources */,
 				11B7B6C51D9967A00041E2ED /* User.swift in Sources */,
 				4FEFA3A41D98E91400866794 /* Traveller.xcdatamodeld in Sources */,
+				4FE3D42A1D9A395E0001344C /* DataService.swift in Sources */,
 				4F4C76971D99277C006E94D1 /* StyleKit.swift in Sources */,
 				4F4C769D1D99FEDD006E94D1 /* InboxTableViewCell.swift in Sources */,
 				4F4C76A11D9A00CB006E94D1 /* PrivateMessageViewController.swift in Sources */,
+				4FE3D4301D9A463F0001344C /* Username.swift in Sources */,
 				4FE3D4221D9A32F40001344C /* AddUserPrivateMessageViewController.swift in Sources */,
 				4FEFA39C1D98E91400866794 /* AppDelegate.swift in Sources */,
 				4FE3D4241D9A332B0001344C /* AddUserPrivateMessageTableViewCell.swift in Sources */,
-				11B7B6C31D9960510041E2ED /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

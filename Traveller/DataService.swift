@@ -1,11 +1,10 @@
 //
-//  DataService.swift
+//  DataService2.swift
 //  Traveller
 //
 //  Created by Tan Yee Gene on 27/09/2016.
 //  Copyright © 2016 Tan Yee Gene. All rights reserved.
 //
-
 import Foundation
 import FirebaseDatabase
 import FirebaseAuth
@@ -16,4 +15,6 @@ struct DataService {
     static var usernameRef = FIRDatabase.database().reference().child("Usernames")
     static var userRef = FIRDatabase.database().reference().child("users")
     static var postRef = FIRDatabase.database().reference().child("posts")
+    static var chatroomRef = FIRDatabase.database().reference().child("Chatroom")
+    static var currentUserUID = FIRAuth.auth()!.currentUser!.uid
 }
