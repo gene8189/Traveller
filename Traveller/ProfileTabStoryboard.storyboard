@@ -58,7 +58,7 @@
                                                 </constraints>
                                                 <state key="normal" title="Edit profile"/>
                                                 <connections>
-                                                    <segue destination="DKT-fE-tEC" kind="show" id="w08-YU-zBl"/>
+                                                    <segue destination="DKT-fE-tEC" kind="show" id="8wa-Zf-FS2"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -108,12 +108,18 @@
                             <constraint firstItem="la8-VD-GOQ" firstAttribute="top" secondItem="7lG-fH-dt8" secondAttribute="bottom" constant="40" id="hJC-Cy-vBj"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="aboutMeLabel" destination="v4n-U5-GYt" id="TMe-Zn-a0d"/>
+                        <outlet property="profileImageView" destination="8nW-sZ-z0e" id="GX5-he-vKt"/>
+                        <outlet property="trustworthyLabel" destination="z0K-RX-qVg" id="gLt-XG-Q7y"/>
+                        <outlet property="usernameLabel" destination="GWw-t0-qIJ" id="eHa-Cz-WDo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmf-oZ-aES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="316" y="831"/>
         </scene>
-        <!--Edit Profile View Controller-->
+        <!--Title-->
         <scene sceneID="PUA-oh-cye">
             <objects>
                 <viewController id="DKT-fE-tEC" customClass="EditProfileViewController" customModule="Traveller" customModuleProvider="target" sceneMemberID="viewController">
@@ -211,8 +217,22 @@
                             <constraint firstItem="PsI-9J-lkr" firstAttribute="top" secondItem="Yhx-S4-IKD" secondAttribute="bottom" constant="50" id="v6l-ou-req"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Title" id="jrV-kc-nHc">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="huq-vM-Bdz">
+                            <connections>
+                                <action selector="onSaveButtonPressed:" destination="DKT-fE-tEC" id="o1E-Kz-8Tn"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="aboutMeTextView" destination="N80-He-alV" id="k9I-Qf-jab"/>
+                        <outlet property="profileImageView" destination="Ql9-L0-n14" id="opM-T1-I8F"/>
+                        <outlet property="usernameTextField" destination="3rX-JC-wI3" id="n4Y-4s-co7"/>
+                        <segue destination="7q2-5E-ep6" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfile:" id="hI3-o5-j0U"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tv3-iy-ail" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="7q2-5E-ep6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1026" y="831"/>
         </scene>

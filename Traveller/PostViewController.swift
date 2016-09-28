@@ -15,7 +15,6 @@ import SDWebImage
 
 class PostViewController: UIViewController,FusumaDelegate {
     
-    
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var collectionTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
@@ -61,7 +60,7 @@ class PostViewController: UIViewController,FusumaDelegate {
         let uniqueImageName = NSUUID().UUIDString
         let storageRef = FIRStorage.storage().reference().child("\(uniqueImageName).png")
         
-        let selectedImage = UIImagePNGRepresentation(self.selectedImage)!
+        let selectedImage = UIImageJPEGRepresentation(self.selectedImage, 0.5)!
             
         storageRef.putData(selectedImage, metadata: nil, completion: { (metadata, error) in
             if error != nil{
@@ -73,7 +72,7 @@ class PostViewController: UIViewController,FusumaDelegate {
             let currentUserRef = DataService.postRef.childByAutoId()
             if let imageURL = metadata?.downloadURL()?.absoluteString, user = User.currentUserUid(),productName = self.productNameTextField.text, location = self.locationTextField.text, collectionMethod = self.collectionTextField.text, price = self.priceTextField.text {
                 
-                let value = ["imgurl":imageURL, "userUID":user, "created_at":NSDate().timeIntervalSince1970, "productName":productName, "location":location, "collectionMethod":collectionMethod, "price":price]
+                let value = ["imgurl":imageURL, "posterUID":user, "created_at":NSDate().timeIntervalSince1970, "productName":productName, "location":location, "collectionMethod":collectionMethod, "price":price]
                 currentUserRef.setValue(value)
                 
                 

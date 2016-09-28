@@ -105,6 +105,9 @@
                                             <constraint firstAttribute="width" constant="96" id="PqY-Vd-Dm1"/>
                                         </constraints>
                                         <state key="normal" title="Add As Friend"/>
+                                        <connections>
+                                            <action selector="onAddFriendButtonPressed:" destination="eSe-7O-3Hv" eventType="touchUpInside" id="ePO-Dj-ho1"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bX-wI-cAC">
                                         <rect key="frame" x="156" y="0.0" width="96" height="30"/>
@@ -113,6 +116,9 @@
                                             <constraint firstAttribute="width" constant="96" id="qt7-nk-r3l"/>
                                         </constraints>
                                         <state key="normal" title="Message Me"/>
+                                        <connections>
+                                            <action selector="onMessageButtonPressed:" destination="eSe-7O-3Hv" eventType="touchUpInside" id="cig-S9-Iar"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -127,6 +133,12 @@
                             <constraint firstItem="Cc8-KO-BNV" firstAttribute="centerX" secondItem="h1e-D9-GIx" secondAttribute="centerX" id="zjH-n4-RTN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="aboutMeLabel" destination="LAR-7P-x1b" id="8yo-DA-UGq"/>
+                        <outlet property="addFriendButton" destination="NKH-FX-Kcw" id="AtP-Dy-FNV"/>
+                        <outlet property="profileImageView" destination="8gY-ZW-uvj" id="Zqb-Re-VP5"/>
+                        <outlet property="usernameLabel" destination="Tcr-xe-GVU" id="Rhb-Qa-wwo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gaq-gR-MVz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
