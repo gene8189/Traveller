@@ -86,7 +86,7 @@
         <!--Inbox-->
         <scene sceneID="QAt-ZJ-Z9X">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="C5b-Bx-GGk" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="Inbox" automaticallyAdjustsScrollViewInsets="NO" id="C5b-Bx-GGk" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Inbox" image="Inbox" id="6Z2-5q-GjT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="KZK-5l-0oM">

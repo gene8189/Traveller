@@ -9,7 +9,7 @@
         <!--Inbox View Controller-->
         <scene sceneID="WW3-ra-8Qd">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="R3s-Cb-OYl" customClass="InboxViewController" customModule="Traveller" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="InboxController" automaticallyAdjustsScrollViewInsets="NO" id="R3s-Cb-OYl" customClass="InboxViewController" customModule="Traveller" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0mV-Pb-IQ4"/>
                         <viewControllerLayoutGuide type="bottom" id="Uzj-uh-4hX"/>
@@ -38,22 +38,11 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ui0-Hk-OYq">
-                                                    <rect key="frame" x="88" y="10" width="150" height="30"/>
+                                                    <rect key="frame" x="88" y="15" width="150" height="50"/>
                                                     <color key="backgroundColor" red="0.88044011779999998" green="0.88044011779999998" blue="0.88044011779999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="5XP-Qk-TUj"/>
+                                                        <constraint firstAttribute="height" constant="50" id="5XP-Qk-TUj"/>
                                                         <constraint firstAttribute="width" constant="150" id="LRI-qa-QZd"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SV5-Zo-oMx">
-                                                    <rect key="frame" x="91" y="40" width="200" height="30"/>
-                                                    <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="dlK-66-sGt"/>
-                                                        <constraint firstAttribute="width" constant="200" id="vFb-pt-x4K"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,30 +50,37 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Ui0-Hk-OYq" firstAttribute="centerY" secondItem="aBo-kM-vuF" secondAttribute="centerY" id="99I-jQ-Pp4"/>
                                                 <constraint firstItem="Ui0-Hk-OYq" firstAttribute="leading" secondItem="Bk7-S0-Iys" secondAttribute="trailing" constant="20" id="SmL-j0-2QV"/>
                                                 <constraint firstItem="Bk7-S0-Iys" firstAttribute="leading" secondItem="aBo-kM-vuF" secondAttribute="leadingMargin" id="a3e-nt-qvj"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="SV5-Zo-oMx" secondAttribute="bottom" constant="1.5" id="abi-1n-cbX"/>
-                                                <constraint firstItem="SV5-Zo-oMx" firstAttribute="leading" secondItem="Bk7-S0-Iys" secondAttribute="trailing" constant="20" id="eAP-Bb-QVt"/>
-                                                <constraint firstItem="SV5-Zo-oMx" firstAttribute="top" secondItem="Ui0-Hk-OYq" secondAttribute="bottom" id="onD-Ka-wkB"/>
                                                 <constraint firstItem="Bk7-S0-Iys" firstAttribute="centerY" secondItem="aBo-kM-vuF" secondAttribute="centerY" id="yrf-OL-xir"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="lastReplyLabel" destination="SV5-Zo-oMx" id="dLP-bW-gPU"/>
                                             <outlet property="userProfileImage" destination="Bk7-S0-Iys" id="AW0-Zo-Mfv"/>
                                             <outlet property="usernameLabel" destination="Ui0-Hk-OYq" id="Ehg-CN-pqS"/>
-                                            <segue destination="Kvj-EY-aEw" kind="show" action="showDetailViewController:sender:" id="JbY-Ww-zhB"/>
+                                            <segue destination="Kvj-EY-aEw" kind="show" identifier="PrivateSegue" action="showDetailViewController:sender:" id="JbY-Ww-zhB"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="YAd-v4-k82">
+                                <rect key="frame" x="175.5" y="242.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Whe-Xu-cPL"/>
+                                    <constraint firstAttribute="width" constant="50" id="zUZ-YZ-CVW"/>
+                                </constraints>
+                                <color key="color" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="9md-7X-w29" firstAttribute="leading" secondItem="vq7-U3-OhB" secondAttribute="leading" id="98I-TL-tWF"/>
                             <constraint firstItem="9md-7X-w29" firstAttribute="top" secondItem="0mV-Pb-IQ4" secondAttribute="bottom" id="Gbn-yP-M71"/>
+                            <constraint firstItem="YAd-v4-k82" firstAttribute="centerX" secondItem="vq7-U3-OhB" secondAttribute="centerX" id="KTP-pQ-G5X"/>
                             <constraint firstItem="Uzj-uh-4hX" firstAttribute="top" secondItem="9md-7X-w29" secondAttribute="bottom" id="RPm-Qv-Zpl"/>
                             <constraint firstItem="9md-7X-w29" firstAttribute="top" secondItem="0mV-Pb-IQ4" secondAttribute="bottom" constant="50" id="Y0s-xa-L15"/>
+                            <constraint firstItem="YAd-v4-k82" firstAttribute="centerY" secondItem="vq7-U3-OhB" secondAttribute="centerY" id="dqB-2y-q6v"/>
                             <constraint firstAttribute="trailing" secondItem="9md-7X-w29" secondAttribute="trailing" id="frL-Vw-hV7"/>
                         </constraints>
                         <variation key="default">
@@ -97,17 +93,9 @@
                     <navigationItem key="navigationItem" id="0a6-io-m4b">
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="KFR-Mh-Hqx"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="pVC-bT-hIp">
-                            <rect key="frame" x="120" y="7" width="160" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Recent"/>
-                                <segment title="All"/>
-                            </segments>
-                        </segmentedControl>
                         <barButtonItem key="rightBarButtonItem" title="+" id="YnA-g5-eaU">
                             <connections>
-                                <segue destination="cRh-bP-6kq" kind="show" id="qOj-6x-Rdt"/>
+                                <segue destination="cRh-bP-6kq" kind="show" identifier="AddSegue" id="qOj-6x-Rdt"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -116,6 +104,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="600"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="YAd-v4-k82" id="TAd-sh-bUo"/>
                         <outlet property="tableView" destination="9md-7X-w29" id="WBG-yC-QDn"/>
                     </connections>
                 </viewController>
