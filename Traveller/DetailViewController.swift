@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         if let post = self.post{
-            self.productNameLabel.text = "Product Name: " + post.productName
+            self.productNameLabel.text = "Product: " + post.productName
             self.priceLabel.text = "Price: RM" + post.price
             self.locationLabel.text = "Location: " + post.location
             self.collectionMethodLabel.text = "Collection Method: " + post.collectionMethod

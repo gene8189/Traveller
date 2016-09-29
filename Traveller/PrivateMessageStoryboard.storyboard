@@ -19,9 +19,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="io7-Up-Hoo">
-                        <barButtonItem key="leftBarButtonItem" title="&lt;  Home" style="plain" id="71a-nJ-D1D">
+                        <barButtonItem key="leftBarButtonItem" title="&lt;  Home" style="done" id="71a-nJ-D1D">
                             <connections>
-                                <action selector="onHomeButtonPressed:" destination="3KW-N4-dgg" id="UoF-pz-y71"/>
+                                <action selector="onHomeButtonPressed:" destination="3KW-N4-dgg" id="Zrk-IG-jQh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

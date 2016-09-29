@@ -47,7 +47,7 @@ class User{
             self.rating = ""
         }
     }
-    
+
     class func currentUserUid() -> String? {
         return NSUserDefaults.standardUserDefaults().valueForKey("userUID") as? String
     }

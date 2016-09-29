@@ -13,8 +13,21 @@ import FirebaseDatabase
 import FirebaseStorage
 import SDWebImage
 
-class PostViewController: UIViewController,FusumaDelegate {
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+    }
     
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    var activeTextField:UITextField?
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var collectionTextField: UITextField!
     @IBOutlet weak var locationTextField: UITextField!
@@ -25,6 +38,8 @@ class PostViewController: UIViewController,FusumaDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.registerForKeyboardNotificaion()
+        self.hideKeyboardWhenTappedAround()
         self.productNameTextField.text = ""
         self.locationTextField.text = ""
         self.collectionTextField.text = ""
@@ -119,6 +134,64 @@ class PostViewController: UIViewController,FusumaDelegate {
     
     func fusumaClosed() {
         
+        
+    }
+    
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
+    }
+    
+    func registerForKeyboardNotificaion(){
+        
+        //when keyboard appears
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWasShown), name: UIKeyboardDidShowNotification, object: nil)
+        //when keyboard dissappear
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDisappear), name: UIKeyboardDidHideNotification, object: nil)
+        
+    }
+    
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        activeTextField = textField
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        activeTextField = nil
+    }
+    
+    func keyboardWasShown(notification: NSNotification){
+        
+        // check if the current text field is being coverd by keyboard
+        let info: NSDictionary = notification.userInfo!
+        let keyboardSize = info.objectForKey(UIKeyboardFrameBeginUserInfoKey)!.CGRectValue().size
+        
+        // get part of screen not covered by keyboard
+        var viewRect = view.frame
+        viewRect.size.height -= keyboardSize.height
+        let globalPoint = activeTextField!.superview?.convertPoint(activeTextField!.frame.origin, toView: nil)
+        
+        //check if current text field is being covered by keyboard
+        if !CGRectContainsPoint(viewRect, globalPoint!){
+            let bottomEdgeOfTextField = globalPoint!.y + activeTextField!.frame.height
+            let verticalDistance = bottomEdgeOfTextField - viewRect.height
+            
+            let contentOffsetPoint = CGPointMake(0.0, verticalDistance)
+            scrollView.setContentOffset(contentOffsetPoint, animated:true)
+        }
+        
+        
+        //   up entire view until keyboard is directly beneath the selected text field
+    }
+    
+    func keyboardDisappear(notification: NSNotification){
         
     }
 }

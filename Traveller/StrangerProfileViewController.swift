@@ -10,13 +10,24 @@ import UIKit
 
 class StrangerProfileViewController: UIViewController {
 
+    @IBOutlet weak var messageMeButton: UIButton!
     @IBOutlet weak var addFriendButton: UIButton!
     @IBOutlet weak var aboutMeLabel: UITextView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    
+    var checker:Bool = true
     var strangerUID:String!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        profileImageView!.layer.cornerRadius = profileImageView.frame.size.width / 2
+        profileImageView!.clipsToBounds = true
+        
+        if strangerUID == User.currentUserUid(){
+            self.addFriendButton.hidden = true
+            self.messageMeButton.hidden = true
+        }
         
         DataService.usernameRef.child(self.strangerUID).observeEventType(.Value, withBlock: { userSnapshot in
             if let user = User(snapshot: userSnapshot){
@@ -41,6 +52,15 @@ class StrangerProfileViewController: UIViewController {
     }
     
     @IBAction func onAddFriendButtonPressed(sender: AnyObject) {
+        if checker {
+            DataService.usernameRef.child(self.strangerUID).child("pending-friends").updateChildValues([User.currentUserUid()!:true])
+            self.addFriendButton.setTitle("Pending", forState: .Normal)
+            checker = false
+        }else{
+            DataService.usernameRef.child(self.strangerUID).child("pending-friends").child(User.currentUserUid()!).removeValue()
+            self.addFriendButton.setTitle("Add as Friend", forState: .Normal)
+            checker = true
+        }
         
     }
 }

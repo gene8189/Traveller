@@ -8,6 +8,8 @@
 
 import UIKit
 import FBSDKLoginKit
+import FirebaseDatabase
+import FirebaseAuth
 
 class HomeTabViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
