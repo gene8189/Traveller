@@ -24,6 +24,10 @@ class AddUserPrivateMessageViewController: UIViewController, UITableViewDelegate
         self.tableView.dataSource = self
         activityIndicator.startAnimating()
         
+        if self.listOfUser.count < 0 {
+            activityIndicator.stopAnimating()
+        }
+        
         tableView.reloadData()
     }
     

@@ -47,8 +47,8 @@ class SignInControllerViewController: UIViewController, FBSDKLoginButtonDelegate
                 
                 let firebaseRef = FIRDatabase.database().reference()
                 let currentUserRef = firebaseRef.child("Usernames").child(user.uid)
-                let userDict = ["username": user.displayName!, "profileImage" : "", "self-description": "", "trustworthy": ""]
-                currentUserRef.setValue(userDict)
+                let userDict = ["username": user.displayName!]
+                currentUserRef.updateChildValues(userDict)
                 
             }
         }

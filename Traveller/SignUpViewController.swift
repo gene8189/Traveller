@@ -149,7 +149,7 @@ class SignUpViewController: UIViewController {
                 NSUserDefaults.standardUserDefaults().setObject(uid, forKey: "userUID")
                 
                 let firebaseRef = FIRDatabase.database().reference()
-                let username = ["username" : username, "profileImage": "", "self-description": "", "trustworthy" : ""]
+                let username = ["username" : username]
                 firebaseRef.child("Usernames").child(uid).setValue(username)
                 let storyBoard = UIStoryboard(name:"TabBarStoryboard", bundle:NSBundle.mainBundle())
                 

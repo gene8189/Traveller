@@ -15,13 +15,15 @@ class PrivateMessageViewController: JSQMessagesViewController {
     var messages = [JSQMessage]()
     var activityIndicator: UIActivityIndicatorView?
     var userUID : String!
-//    @IBOutlet var activityIndicator: UIActivityIndicatorView!
+    //    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     override func viewDidLoad() {
         super.viewDidLoad()
         observeUser()
-//        observeMessage()
+        observeMessage()
+        
+    
     }
-
+    
     func observeUser(){
         DataService.usernameRef.child(DataService.currentUserUID).child("username").observeSingleEventOfType(.Value , withBlock: {(snapshot) in
             let senderDisplayName = snapshot.value as? String
@@ -34,81 +36,56 @@ class PrivateMessageViewController: JSQMessagesViewController {
         
     }
     
-//    func observeMessage(){
-//        
-//        DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").child(DataService.currentUserUID+self.userUID).child("chat").observeEventType(.ChildAdded, withBlock: {(snapshot) in
-//            
-//            let chatKey = snapshot.key
-//            
-//        print("this is observe message snapshot: \(snapshot.key)")
-//            
-//            DataService.chatroomRef.child(DataService.currentUserUID+self.userUID).child(chatKey).observeEventType(.Value, withBlock: {(snapshot2) in
-//                let message = Message(snapshot: snapshot2)
-////                print("this is message text : \(message?.text)")
-//                self.messages.append(JSQMessage(senderId: message?.senderID, displayName: message?.senderDisplayName, text: message?.text))
-//                self.collectionView.reloadData()
-//            })
-//        })
-//    }
+    
+    
+    func observeMessage(){
+        
+        DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").child(DataService.currentUserUID+self.userUID).child("chat").observeEventType(.ChildAdded, withBlock: {(snapshot) in
+            let chatKey = snapshot.key
+            DataService.chatroomRef.child(DataService.currentUserUID+self.userUID).child(chatKey).observeSingleEventOfType(.Value, withBlock: {(snapshot2) in
+                let message = Message(snapshot: snapshot2)
+                print(message?.text)
+                self.messages.append(JSQMessage(senderId: message?.senderID, displayName: message?.senderDisplayName, text: message?.text))
+                self.scrollToBottomAnimated(true)
+                JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                self.finishSendingMessage()
+                self.collectionView.reloadData()
+            })
+        })
+    }
     
     
     override func didPressSendButton(button: UIButton!, withMessageText text: String!, senderId: String!, senderDisplayName: String!, date: NSDate!) {
-        
-        messages.append(JSQMessage(senderId: senderId, displayName: senderDisplayName, text: text))
+    
         sendMessage(text)
-        // update CurrentUser
+       
         
     }
     
     func sendMessage(text: String){
         // current user update
         let currentUserUIDAndUserUID = ["currentUserUID" : DataService.currentUserUID, "userUID" : self.userUID]
-        DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").setValue(currentUserUIDAndUserUID)
+        DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").child(DataService.currentUserUID+self.userUID).updateChildValues(currentUserUIDAndUserUID)
         let currentUserChatID = DataService.chatroomRef.child(DataService.currentUserUID+self.userUID).childByAutoId()
         let chatMessage = ["senderID": senderId, "senderDisplayName": senderDisplayName, "text": text]
-    
+        
         currentUserChatID.setValue(chatMessage)
         DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").child(DataService.currentUserUID+self.userUID).child("chat").updateChildValues([currentUserChatID.key: true])
         
         
         //other user update
-        let UserUIDAndCurrentUserUID = [ "userUID" : self.userUID, "currentUserUID" : DataService.currentUserUID]
-        DataService.usernameRef.child(self.userUID).child("chatroom").setValue(UserUIDAndCurrentUserUID)
+        let UserUIDAndCurrentUserUID = [ "userUID" : DataService.currentUserUID, "currentUserUID" :self.userUID ]
+        DataService.usernameRef.child(self.userUID).child("chatroom").child(self.userUID+DataService.currentUserUID).updateChildValues(UserUIDAndCurrentUserUID)
         let userChatID = DataService.chatroomRef.child(self.userUID+DataService.currentUserUID).childByAutoId()
         let userChatMessage = ["senderID": senderId, "senderDisplayName": senderDisplayName, "text": text]
         userChatID.setValue(userChatMessage)
-       
+        
         
         DataService.usernameRef.child(self.userUID).child("chatroom").child(self.userUID+DataService.currentUserUID).child("chat").updateChildValues([userChatID.key: true])
-        
-        
-        
-//        
-//        let currentUserUid = FIRAuth.auth()!.currentUser!.uid
-//        
-//        let chatID = DataService.chatroomRef.child(currentUserUid+self.userUID).childByAutoId()
-//        //currentUser
-//        let chatroomID = DataService.usernameRef.child(currentUserUid).child("chatroom").child(currentUserUid+self.userUID).child(chatID.key)
-//        let currentUserUIDAndUserUID = ["currentUserUID" : currentUserUid, "userUID" : self.userUID]
-//        chatroomID.setValue(currentUserUIDAndUserUID)
-//        DataService.usernameRef.child(currentUserUid).child("chatroom").child(currentUserUid+self.userUID).child("chat").updateChildValues([chatID.key : true])
-//        
-//        //update User
-//        let userChatroom = DataService.chatroomRef.child(self.userUID+currentUserUid).childByAutoId()
-//        let userChatroomID = DataService.usernameRef.child(self.userUID).child("chatroom").child(self.userUID+currentUserUid).child(userChatroom.key)
-//        let userUIDAndCurrentUserUID = [ "currentUserUID" : self.userUID, "userUID": currentUserUid]
-//        userChatroomID.setValue(userUIDAndCurrentUserUID)
-//        DataService.usernameRef.child(self.userUID).child("chatroom").child(self.userUID+currentUserUid).child("chat").updateChildValues([chatID.key : true])
-//        
-//        let chatroomRef = DataService.chatroomRef.child(chatroomID.key)
-//        chatroomRef.child(chatID.key).updateChildValues(["senderID" : senderId, "senderDisplayName" : senderDisplayName, "text" : text])
-//        let userChatroomRef = DataService.chatroomRef.child(userChatroom.key)
-//        userChatroomRef.child(chatID.key).updateChildValues(["senderID" : senderId, "senderDisplayName" : senderDisplayName, "text" : text])
-        
         collectionView.reloadData()
         
     }
-
+    
     
     override func didPressAccessoryButton(sender: UIButton!) {
         let picker = UIImagePickerController()
@@ -122,7 +99,7 @@ class PrivateMessageViewController: JSQMessagesViewController {
     override func collectionView(collectionView: JSQMessagesCollectionView!, messageBubbleImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageBubbleImageDataSource! {
         
         let data = messages[indexPath.row]
-    
+        
         if data.senderId == DataService.currentUserUID {
             let bubble = JSQMessagesBubbleImageFactory()
             return bubble.outgoingMessagesBubbleImageWithColor(.grayColor())
@@ -130,7 +107,7 @@ class PrivateMessageViewController: JSQMessagesViewController {
             let bubble = JSQMessagesBubbleImageFactory()
             return bubble.incomingMessagesBubbleImageWithColor(.blueColor())
         }
-
+        
     }
     
     override func collectionView(collectionView: JSQMessagesCollectionView!, avatarImageDataForItemAtIndexPath indexPath: NSIndexPath!) -> JSQMessageAvatarImageDataSource! {
@@ -164,5 +141,5 @@ class PrivateMessageViewController: JSQMessagesViewController {
     //        activityIndicator!.startAnimating()
     //        observeUser()
     //    }
-
+    
 }
