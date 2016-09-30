@@ -27,6 +27,7 @@
 		4F4C769F1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F4C769E1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard */; };
 		4F4C76A11D9A00CB006E94D1 /* PrivateMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C76A01D9A00CB006E94D1 /* PrivateMessageViewController.swift */; };
 		4F7612C71D9CDF4D00649EA6 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F7612C61D9CDF4D00649EA6 /* TabBarViewController.swift */; };
+		4FADD7C21D9E384D00DA8EBA /* NotificationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FADD7C11D9E384D00DA8EBA /* NotificationStoryboard.storyboard */; };
 		4FD5818C1D98F37A0083CCCE /* TabBarStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */; };
 		4FD5818E1D98F5F50083CCCE /* HomeTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */; };
 		4FD581901D98F6110083CCCE /* InboxTabStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */; };
@@ -96,6 +97,7 @@
 		4F4C769E1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PrivateMessageStoryboard.storyboard; sourceTree = "<group>"; };
 		4F4C76A01D9A00CB006E94D1 /* PrivateMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateMessageViewController.swift; sourceTree = "<group>"; };
 		4F7612C61D9CDF4D00649EA6 /* TabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		4FADD7C11D9E384D00DA8EBA /* NotificationStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NotificationStoryboard.storyboard; sourceTree = "<group>"; };
 		4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBarStoryboard.storyboard; sourceTree = "<group>"; };
 		4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HomeTabStoryboard.storyboard; sourceTree = "<group>"; };
 		4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = InboxTabStoryboard.storyboard; sourceTree = "<group>"; };
@@ -287,6 +289,7 @@
 				11B7B6C81D9A225C0041E2ED /* StrangerProfileViewController.swift */,
 				4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */,
 				11B7B6DC1D9B7D980041E2ED /* NotificationTableViewController.swift */,
+				4FADD7C11D9E384D00DA8EBA /* NotificationStoryboard.storyboard */,
 				11B7B6BE1D9909380041E2ED /* ProfileViewController.swift */,
 				11B7B6C01D9909590041E2ED /* EditProfileViewController.swift */,
 				4FEFA39F1D98E91400866794 /* Main.storyboard */,
@@ -463,6 +466,7 @@
 				4FD581961D98F9440083CCCE /* GoogleService-Info.plist in Resources */,
 				4FEFA3A11D98E91400866794 /* Main.storyboard in Resources */,
 				4FD581941D98F6800083CCCE /* ProfileTabStoryboard.storyboard in Resources */,
+				4FADD7C21D9E384D00DA8EBA /* NotificationStoryboard.storyboard in Resources */,
 				4F4C769F1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

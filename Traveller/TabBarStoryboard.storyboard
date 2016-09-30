@@ -17,13 +17,14 @@
                     <connections>
                         <segue destination="gtT-lQ-kEe" kind="relationship" relationship="viewControllers" id="A0A-n0-vgJ"/>
                         <segue destination="C5b-Bx-GGk" kind="relationship" relationship="viewControllers" id="PpY-rq-ciz"/>
+                        <segue destination="Whb-Ko-pQX" kind="relationship" relationship="viewControllers" id="CBR-0Z-egg"/>
                         <segue destination="pgk-t7-EeO" kind="relationship" relationship="viewControllers" id="YFi-5i-Rid"/>
                         <segue destination="ej5-21-jPV" kind="relationship" relationship="viewControllers" id="uuE-Hy-w0n"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14A-dU-tNq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1127" y="117"/>
+            <point key="canvasLocation" x="-1307" y="-7"/>
         </scene>
         <!--Profile-->
         <scene sceneID="i0e-0i-qR7">
@@ -42,7 +43,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nda-pM-Zb1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-491" y="892"/>
+            <point key="canvasLocation" x="321" y="892"/>
         </scene>
         <!--ProfileTabStoryboard-->
         <scene sceneID="xMG-ML-0g6">
@@ -52,7 +53,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="igG-Bg-qzC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="15.5" y="875"/>
+            <point key="canvasLocation" x="827.5" y="875"/>
         </scene>
         <!--Post-->
         <scene sceneID="xAQ-1Y-5L0">
@@ -71,7 +72,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3O-5c-7pc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3" y="227"/>
+            <point key="canvasLocation" x="815" y="227"/>
         </scene>
         <!--PostTabStoryboard-->
         <scene sceneID="4GP-1z-Ii2">
@@ -141,11 +142,43 @@
             </objects>
             <point key="canvasLocation" x="-771" y="-605"/>
         </scene>
+        <!--Notification-->
+        <scene sceneID="aNb-X9-Yh2">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Whb-Ko-pQX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Notification" image="bell2" id="hHs-5M-ypk"/>
+                    <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="400" height="600"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="hHO-nV-0aw">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="KlS-A8-2pH" kind="relationship" relationship="rootViewController" id="IE9-5p-cyJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VWJ-1Y-n5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1319" y="772"/>
+        </scene>
+        <!--NotificationStoryboard-->
+        <scene sceneID="E0A-kV-1k4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NotificationStoryboard" id="KlS-A8-2pH" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="aCh-3O-Eon"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vmy-GK-gSE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-765.5" y="797"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Home" width="32" height="32"/>
         <image name="Inbox" width="32" height="32"/>
         <image name="Post" width="32" height="32"/>
         <image name="Profile" width="32" height="32"/>
+        <image name="bell2" width="32" height="32"/>
     </resources>
 </document>
