@@ -195,6 +195,7 @@
                                                 <rect key="frame" x="250" y="387" width="100" height="30"/>
                                                 <state key="normal" title="I want this job!"/>
                                                 <connections>
+                                                    <action selector="onApplyJobButtonPressed:" destination="DLW-co-e54" eventType="touchUpInside" id="pLr-CA-WQZ"/>
                                                     <action selector="onIWantThisJobButtonPressed:" destination="DLW-co-e54" eventType="touchUpInside" id="ugL-uV-g8f"/>
                                                 </connections>
                                             </button>
@@ -229,6 +230,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="applyJobButton" destination="28r-LK-9NA" id="LhB-Kd-45y"/>
                         <outlet property="collectionMethodLabel" destination="4Bt-wD-WqP" id="LV5-zf-LVZ"/>
                         <outlet property="locationLabel" destination="vdk-hp-GTb" id="HpW-8m-5w3"/>
                         <outlet property="priceLabel" destination="QDa-aF-sCW" id="fPx-t6-xqv"/>

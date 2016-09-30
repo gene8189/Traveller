@@ -120,14 +120,7 @@ class HomeTabViewController: UIViewController, UICollectionViewDelegate, UIColle
         
     }
     
-    func BoldString(text:String) -> NSMutableAttributedString{
-        
-        let att = [NSFontAttributeName : UIFont.boldSystemFontOfSize(15)]
-        
-        let boldText = NSMutableAttributedString(string:text, attributes:att)
-        
-        return boldText
-    }
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let nextScene = segue.destinationViewController as! DetailViewController
