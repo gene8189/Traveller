@@ -22,6 +22,7 @@ class NotificationTableViewController: UITableViewController {
                 if let user = User(snapshot: userSnapshot){
                     self.listOfUser.append(user)
                     self.tableView.reloadData()
+                    
                 }
             })
             self.tableView.reloadData()
@@ -33,6 +34,7 @@ class NotificationTableViewController: UITableViewController {
             if i.uid == snapshot.key{
                 self.listOfUser.removeAtIndex(index)
                 self.tableView.reloadData()
+                
             }
         }
     })
@@ -61,3 +63,7 @@ class NotificationTableViewController: UITableViewController {
     }
     
 }
+        
+
+    
+

@@ -7,31 +7,30 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class TabBarViewController: UITabBarController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = StyleKit.lighterRed
+//        DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").observeEventType(.Value, withBlock: {(snapshot) in
+//            self.setTabBarItemImage("lock")
         
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        DataService.usernameRef.child(DataService.currentUserUID).child("pending-friends").observeEventType(.ChildAdded, withBlock: {(snapshot2) in
+            self.setTabBarItemImage("lock")
+        })
+        
+        DataService.usernameRef.child(DataService.currentUserUID).child("pending-friends").observeEventType(.ChildRemoved, withBlock: {(snapshot3) in
+            self.setTabBarItemImage("bell2")
+        })
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func setTabBarItemImage(image:String){
+        let items = self.tabBar.items![2]
+        items.image = UIImage(named: image)
     }
-    */
-
+    
 }
