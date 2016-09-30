@@ -46,15 +46,20 @@ class ProfileViewController: UIViewController {
         DataService.usernameRef.child(User.currentUserUid()!).child("pending-friends").observeEventType(.Value, withBlock: { snapshot in
             if snapshot.hasChildren(){
                 if let image = UIImage(named: "bell") {
+                   
                     self.notificationButton.setBackgroundImage(image, forState: .Normal, barMetrics: .Default)
                 }
             }else{
                 if let image = UIImage(named: "bell2") {
                     self.notificationButton.setBackgroundImage(image, forState: .Normal, barMetrics: .Default)
+//                    var settingsItem = self.tabBar.items?[4] as UITabBarItem
+//                    settingsItem.selectedImage = UIImage(named: "home-selected")
                 }
             }
         })
         
+      
+
         
         // Title Decoration
         self.navigationController?.navigationBarHidden =  false
@@ -66,6 +71,7 @@ class ProfileViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = StyleKit.darkRed
     }
     
+   
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "EditSegue"{
             let nextScene = segue.destinationViewController as! EditProfileViewController
