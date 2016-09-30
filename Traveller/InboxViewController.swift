@@ -28,10 +28,29 @@ class InboxViewController: UIViewController,UITableViewDelegate, UITableViewData
         activityIndicator.startAnimating()
         observeRecent()
         tableView.reloadData()
-        if self.listOfUsername.count < 1 {
+        navigationItem.leftBarButtonItem = editButtonItem()
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
+        tableView.separatorColor = UIColor.whiteColor()
+        
+        
+        let attribute = UIFont(name: "Elley", size: 23.0)
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName : attribute!], forState: .Normal)
+        
+        if self.listOfUsername.count == 0 {
             self.activityIndicator.hidden = true
         }
         
+        // Title Decoration
+        self.navigationController?.navigationBarHidden =  false
+        self.title = "InBox"
+        let attributes: AnyObject = [ NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = attributes as? [String : AnyObject]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Elley", size: 23.0)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        navigationController?.navigationBar.barTintColor = StyleKit.darkRed
+    }
+  
+    override func viewDidAppear(animated: Bool) {
+        activityIndicator.startAnimating()
     }
     
     
@@ -42,14 +61,22 @@ class InboxViewController: UIViewController,UITableViewDelegate, UITableViewData
         return self.listOfUsername.count
     }
     
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! InboxTableViewCell
         let username = self.listOfUsername[indexPath.row]
 
+        cell.backgroundColor = StyleKit.skinColor.colorWithAlphaComponent(0.5)
+        
+
+        cell.usernameLabel.backgroundColor = UIColor(white: 1, alpha: 0.8)
+        cell.usernameLabel.layer.cornerRadius = cell.usernameLabel.frame.width / 100
+    
         
         let url = NSURL(string: username.profileImage)
         cell.userProfileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "loading"))
-        
+        cell.userProfileImage.layer.cornerRadius = cell.userProfileImage.bounds.width / 2
+        cell.userProfileImage.clipsToBounds = true
         cell.usernameLabel.text = username.username
         
         return cell
@@ -61,7 +88,7 @@ class InboxViewController: UIViewController,UITableViewDelegate, UITableViewData
             let chatroomKey = chatroomKeySnapshot.key
             
 
-            DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").child(chatroomKey).child("userUID").observeEventType(.Value, withBlock: {(snapshot) in
+            DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").child(chatroomKey).child("userUID").observeSingleEventOfType(.Value, withBlock: {(snapshot) in
                 
                 if snapshot.exists() {
                     
@@ -83,6 +110,46 @@ class InboxViewController: UIViewController,UITableViewDelegate, UITableViewData
         
         
     }
+    
+    override func setEditing(editing: Bool, animated: Bool) {
+        super.setEditing(editing, animated: animated)
+        tableView.setEditing(editing, animated: true)
+    }
+
+
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == .Delete{
+            let deleteUsername = self.listOfUsername[indexPath.row]
+             let usernameID = deleteUsername.userUID
+             self.deleteChatroom(usernameID)
+            self.listOfUsername.removeAtIndex(indexPath.row)
+            self.tableView.reloadData()
+        }
+    }
+    
+    func deleteChatroom(usernameID : String) {
+        DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").child(DataService.currentUserUID+usernameID).removeValue()
+        
+        print("working")
+    }
+    
+    @IBAction func unwindToInbox(segue: UIStoryboardSegue) {
+    }
+    
+//    func deleteBlog(blogID: Int){
+//        Alamofire.request(.DELETE, "https://nextacademy-ios-blog.herokuapp.com/api/v1/blogs"+String(blogID)).responseData(completionHandler: {(response) in
+//            switch response.result {
+//            case .Success(_):
+//                let temporaryBlog = self.blogs.filter({ $0.id != blogID })
+//                self.blogs = temporaryBlog
+//                self.tableView.reloadData()
+//            case .Failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        })
+//    }
+
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
          if segue.identifier == "PrivateSegue"{

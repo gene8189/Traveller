@@ -31,30 +31,47 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bk7-S0-Iys">
                                                     <rect key="frame" x="8" y="10" width="60" height="60"/>
-                                                    <color key="backgroundColor" red="0.88044011779999998" green="0.88044011779999998" blue="0.88044011779999998" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="60" id="91f-8y-kTL"/>
                                                         <constraint firstAttribute="height" constant="60" id="iHi-VH-Wkk"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ui0-Hk-OYq">
-                                                    <rect key="frame" x="88" y="15" width="150" height="50"/>
-                                                    <color key="backgroundColor" red="0.88044011779999998" green="0.88044011779999998" blue="0.88044011779999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ui0-Hk-OYq">
+                                                    <rect key="frame" x="88" y="15" width="284" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="5XP-Qk-TUj"/>
                                                         <constraint firstAttribute="width" constant="150" id="LRI-qa-QZd"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <attributedString key="attributedText">
+                                                        <fragment content="Label">
+                                                            <attributes>
+                                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <font key="NSFont" size="17" name="HelveticaNeue"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" firstLineHeadIndent="10" tighteningFactorForTruncation="0.0"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
                                                     <nil key="highlightedColor"/>
+                                                    <variation key="default">
+                                                        <mask key="constraints">
+                                                            <exclude reference="LRI-qa-QZd"/>
+                                                        </mask>
+                                                    </variation>
                                                 </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="Ui0-Hk-OYq" firstAttribute="centerY" secondItem="aBo-kM-vuF" secondAttribute="centerY" id="99I-jQ-Pp4"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="Ui0-Hk-OYq" secondAttribute="trailing" constant="20" id="BTh-X4-bPA"/>
+                                                <constraint firstAttribute="trailing" secondItem="Ui0-Hk-OYq" secondAttribute="trailing" id="Iut-ps-bPI"/>
                                                 <constraint firstItem="Ui0-Hk-OYq" firstAttribute="leading" secondItem="Bk7-S0-Iys" secondAttribute="trailing" constant="20" id="SmL-j0-2QV"/>
                                                 <constraint firstItem="Bk7-S0-Iys" firstAttribute="leading" secondItem="aBo-kM-vuF" secondAttribute="leadingMargin" id="a3e-nt-qvj"/>
                                                 <constraint firstItem="Bk7-S0-Iys" firstAttribute="centerY" secondItem="aBo-kM-vuF" secondAttribute="centerY" id="yrf-OL-xir"/>
                                             </constraints>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Iut-ps-bPI"/>
+                                                </mask>
+                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="userProfileImage" destination="Bk7-S0-Iys" id="AW0-Zo-Mfv"/>
@@ -92,8 +109,14 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="0a6-io-m4b">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="KFR-Mh-Hqx"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="KFR-Mh-Hqx">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="onEditButtonPressed:" destination="R3s-Cb-OYl" id="cPR-nB-5RO"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="+" id="YnA-g5-eaU">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <segue destination="cRh-bP-6kq" kind="show" identifier="AddSegue" id="qOj-6x-Rdt"/>
                             </connections>

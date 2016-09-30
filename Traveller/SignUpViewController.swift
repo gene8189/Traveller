@@ -8,9 +8,10 @@
 
 import UIKit
 import FirebaseAuth
+import FBSDKLoginKit
 import Firebase
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: UIViewController, FBSDKLoginButtonDelegate {
     @IBOutlet var tapAction: UITapGestureRecognizer!
     @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet var segmentedControl: UISegmentedControl!
@@ -18,21 +19,57 @@ class SignUpViewController: UIViewController {
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var registerButton: UIButton!
     @IBOutlet var usernameTextField: UITextField!
-    @IBOutlet var backToFacebookLogin: UIButton!
     @IBOutlet var forgotPasswordButton: UIButton!
     @IBOutlet var loginButton: UIButton!
+    @IBOutlet var fbLoginButton: FBSDKLoginButton!
     var activeTextField : UITextField?
     override func viewDidLoad() {
         super.viewDidLoad()
-        registerButton.backgroundColor = StyleKit.yellow
-        registerButton.layer.borderWidth = 0.3
-        registerButton.layer.cornerRadius = registerButton.bounds.width / 25
-        backToFacebookLogin.layer.borderWidth = 0.5
-        backToFacebookLogin.layer.borderColor = UIColor(white: 1, alpha: 0.5).CGColor
-        backToFacebookLogin.layer.backgroundColor = UIColor(white: 1, alpha: 0.3).CGColor
-        loginButton.backgroundColor = StyleKit.green
-        loginButton.layer.borderWidth = 0.3
-        loginButton.layer.cornerRadius = loginButton.bounds.width / 25
+        
+        var attributes = NSDictionary(object: UIFont(name: "HelveticaNeue", size: 18.0)!, forKey: NSFontAttributeName)
+        segmentedControl.setTitleTextAttributes(attributes as [NSObject : AnyObject], forState: .Normal)
+        
+        //gradient
+        let gradientColors = [StyleKit.darkRed.CGColor, StyleKit.lighterRed.CGColor]
+        let gradientLocation = [ 0.1 , 0.5]
+        let gradientLayer : CAGradientLayer = CAGradientLayer()
+        gradientLayer.colors = gradientColors
+        gradientLayer.locations = gradientLocation
+        gradientLayer.frame = self.view.bounds
+        self.view.layer.insertSublayer(gradientLayer, atIndex: 0)
+        
+        
+        //email
+        emailTextField.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        emailTextField.layer.cornerRadius = emailTextField.frame.width / 30
+        emailTextField.leftViewMode = UITextFieldViewMode.Always
+        emailTextField.leftView = makeImageView("Mail")
+        
+        //password
+        passwordTextField.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        passwordTextField.layer.cornerRadius = passwordTextField.frame.width / 30
+        passwordTextField.leftViewMode = UITextFieldViewMode.Always
+        passwordTextField.leftView = makeImageView("lock")
+        
+        //username
+        usernameTextField.backgroundColor = UIColor(white: 1, alpha: 0.5)
+        usernameTextField.layer.cornerRadius = usernameTextField.frame.width / 30
+        usernameTextField.leftViewMode = UITextFieldViewMode.Always
+        usernameTextField.leftView = makeImageView("profile16")
+        
+        
+        
+        registerButton.layer.backgroundColor = StyleKit.paleRed.CGColor
+        registerButton.layer.cornerRadius = registerButton.bounds.width / 30
+        loginButton.backgroundColor = StyleKit.lighterRed
+        loginButton.layer.cornerRadius = loginButton.bounds.width / 30
+        
+        self.fbLoginButton.delegate = self
+        fbLoginButton.layer.cornerRadius = fbLoginButton.bounds.width / 200
+        fbLoginButton.backgroundColor = StyleKit.lighterRed
+        
+        
+        
         loginButton.hidden = true
         forgotPasswordButton.hidden = true
         loginButton.enabled = false
@@ -40,6 +77,16 @@ class SignUpViewController: UIViewController {
         registerButton.hidden = false
         registerButton.enabled = true
         activityIndicator.hidden = true
+    }
+    
+    
+    func makeImageView(imageName: String) -> UIView{
+        let ImgContainer = UIView(frame: CGRectMake(emailTextField.frame.origin.x, emailTextField.frame.origin.y, 40.0, 30.0))
+        let ImageView = UIImageView(frame: CGRectMake(0 , 0 , 25.0 , 25.0))
+        ImageView.image = UIImage(named: imageName)
+        ImageView.center = CGPointMake(ImgContainer.frame.size.width / 2, ImgContainer.frame.size.height / 2)
+        ImgContainer.addSubview(ImageView)
+        return ImgContainer
     }
     
     @IBAction func indexChanged(sender: AnyObject) {
@@ -80,6 +127,8 @@ class SignUpViewController: UIViewController {
     }
     
     
+    
+    
     @IBAction func onLoginButtonPressed(sender: AnyObject) {
         guard
             let email = emailTextField.text,
@@ -111,14 +160,14 @@ class SignUpViewController: UIViewController {
                         let tabBarController = storyBoard.instantiateViewControllerWithIdentifier("TabBarController")
                         let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                         appDelegate.window?.rootViewController=tabBarController
-                          self.performSegueWithIdentifier("HomeSegue", sender: nil)
+                        self.performSegueWithIdentifier("HomeSegue", sender: nil)
                     }
                 }
             }
         })
         
-      
-     
+        
+        
     }
     
     
@@ -156,12 +205,45 @@ class SignUpViewController: UIViewController {
                 let tabBarController = storyBoard.instantiateViewControllerWithIdentifier("TabBarController")
                 let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
                 appDelegate.window?.rootViewController=tabBarController
-                 self.performSegueWithIdentifier("HomeSegue", sender: nil)
+                self.performSegueWithIdentifier("HomeSegue", sender: nil)
                 
             }
         }
         
-       
+        
+    }
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        if let error = error {
+            print(error.localizedDescription)
+            print("outside")
+            let alert = UIAlertController(title: "Sign up Failed", message: error.localizedDescription, preferredStyle: .Alert)
+            let dismissAction = UIAlertAction(title: "Dismiss", style: .Default, handler: nil)
+            
+            alert.addAction(dismissAction)
+            
+            self.presentViewController(alert, animated: true, completion: nil)
+            return
+        }
+        self.activityIndicator.hidden = false
+        self.activityIndicator.startAnimating()
+        let credential = FIRFacebookAuthProvider.credentialWithAccessToken(FBSDKAccessToken.currentAccessToken().tokenString)
+        FIRAuth.auth()?.signInWithCredential(credential) { (user, error) in
+            if let user = user {
+                NSUserDefaults.standardUserDefaults().setObject(user.uid, forKey: "userUID")
+                self.performSegueWithIdentifier("HomeSegue", sender: nil)
+                
+                let firebaseRef = FIRDatabase.database().reference()
+                let currentUserRef = firebaseRef.child("Usernames").child(user.uid)
+                let userDict = ["username": user.displayName!]
+                currentUserRef.updateChildValues(userDict)
+                
+            }
+        }
+        
+    }
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        try! FIRAuth.auth()!.signOut()
     }
     
     @IBAction func tapAction(sender: UITapGestureRecognizer) {
@@ -169,10 +251,6 @@ class SignUpViewController: UIViewController {
         self.emailTextField.resignFirstResponder()
         self.passwordTextField.resignFirstResponder()
         self.usernameTextField.resignFirstResponder()
-    }
-
-    @IBAction func onBackToFacebookButtonPressed(sender: AnyObject) {
-        self.performSegueWithIdentifier("FacebookSegue", sender: nil)
     }
     
     override func prefersStatusBarHidden() -> Bool{

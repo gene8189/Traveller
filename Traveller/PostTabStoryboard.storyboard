@@ -23,7 +23,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TZc-aC-bgd">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="570"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HJQ-dq-aDb">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HJQ-dq-aDb">
                                                 <rect key="frame" x="180" y="8" width="240" height="128"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="6Og-gH-Nyb"/>
@@ -132,7 +132,10 @@
                                                 </subviews>
                                             </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gy2-6f-ySG">
-                                                <rect key="frame" x="285" y="329" width="31" height="30"/>
+                                                <rect key="frame" x="175.5" y="329" width="250" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="250" id="JrY-Ag-JCQ"/>
+                                                </constraints>
                                                 <state key="normal" title="Post"/>
                                                 <connections>
                                                     <action selector="onPostButtonPressed:" destination="NdO-Og-mrC" eventType="touchUpInside" id="MKe-jK-Gmm"/>
