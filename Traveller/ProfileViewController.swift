@@ -38,7 +38,7 @@ class ProfileViewController: UIViewController {
                 }
                 
                 self.aboutMeLabel.text = user.description
-                self.usernameLabel.text = user.username
+                self.usernameLabel.attributedText = self.BoldString(user.username)
                 self.user = user
                 
             }

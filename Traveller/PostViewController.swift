@@ -22,6 +22,15 @@ extension UIViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    func BoldString(text:String) -> NSMutableAttributedString{
+        
+        let att = [NSFontAttributeName : UIFont.boldSystemFontOfSize(15)]
+        
+        let boldText = NSMutableAttributedString(string:text, attributes:att)
+        
+        return boldText
+    }
 }
 
 class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {

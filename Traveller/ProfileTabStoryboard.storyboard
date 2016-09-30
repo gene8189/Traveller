@@ -148,36 +148,29 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="63.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9tu-Mg-xli">
-                                            <rect key="frame" x="8" y="0.0" width="63" height="56"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="55.5" id="8Yi-Il-ZVe"/>
-                                                <constraint firstAttribute="width" constant="63" id="n2L-JG-xUs"/>
-                                            </constraints>
-                                        </imageView>
                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qr5-9a-sVs">
-                                            <rect key="frame" x="79" y="8" width="171" height="43"/>
+                                            <rect key="frame" x="79" y="8" width="131" height="43"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="171" id="0bN-Ey-r5p"/>
-                                                <constraint firstAttribute="height" constant="43" id="Q27-g5-FDH"/>
+                                                <constraint firstAttribute="height" constant="43" id="exL-8O-GkB"/>
+                                                <constraint firstAttribute="width" constant="131" id="wYA-Av-1Mj"/>
                                             </constraints>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="ajM-wY-K7P">
-                                            <rect key="frame" x="263" y="17" width="121" height="30"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ajM-wY-K7P">
+                                            <rect key="frame" x="212" y="17" width="115" height="30"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6J-zv-9Qa">
-                                                    <rect key="frame" x="0.0" y="0.0" width="49" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A6J-zv-9Qa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="30"/>
                                                     <state key="normal" title="Accept"/>
                                                     <connections>
                                                         <action selector="onAcceptButtonPressed:" destination="zXa-Z1-izM" eventType="touchUpInside" id="XbQ-v0-awi"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3L-S8-iTE">
-                                                    <rect key="frame" x="69" y="0.0" width="52" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g3L-S8-iTE">
+                                                    <rect key="frame" x="63" y="0.0" width="52" height="30"/>
                                                     <state key="normal" title="Decline"/>
                                                     <connections>
                                                         <action selector="onDeclineButtonPressed:" destination="zXa-Z1-izM" eventType="touchUpInside" id="NST-vs-qdC"/>
@@ -185,21 +178,28 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="121" id="Awh-5W-aww"/>
-                                                <constraint firstAttribute="height" constant="30" id="CWN-0o-ghc"/>
+                                                <constraint firstAttribute="width" constant="115" id="cAp-zQ-6YD"/>
+                                                <constraint firstAttribute="height" constant="30" id="uGI-JC-UFi"/>
                                             </constraints>
                                         </stackView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9tu-Mg-xli">
+                                            <rect key="frame" x="8" y="4" width="63" height="56"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="56" id="7pQ-U0-TIi"/>
+                                                <constraint firstAttribute="width" constant="63" id="uSm-wc-Pru"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="qr5-9a-sVs" firstAttribute="top" secondItem="fh2-j1-84F" secondAttribute="top" constant="8" id="1dl-HN-gSM"/>
-                                        <constraint firstAttribute="bottom" secondItem="9tu-Mg-xli" secondAttribute="bottom" constant="8" id="BOc-wT-2f1"/>
-                                        <constraint firstItem="qr5-9a-sVs" firstAttribute="leading" secondItem="9tu-Mg-xli" secondAttribute="trailing" constant="8" id="CJw-QZ-HaA"/>
-                                        <constraint firstItem="ajM-wY-K7P" firstAttribute="leading" secondItem="qr5-9a-sVs" secondAttribute="trailing" constant="13" id="FZB-U1-yWB"/>
-                                        <constraint firstItem="ajM-wY-K7P" firstAttribute="top" secondItem="fh2-j1-84F" secondAttribute="top" constant="17" id="Fam-zg-1kg"/>
-                                        <constraint firstItem="9tu-Mg-xli" firstAttribute="top" secondItem="fh2-j1-84F" secondAttribute="top" id="c0m-Bq-am9"/>
-                                        <constraint firstAttribute="bottom" secondItem="qr5-9a-sVs" secondAttribute="bottom" constant="12.5" id="eRf-b3-5KO"/>
-                                        <constraint firstItem="9tu-Mg-xli" firstAttribute="leading" secondItem="fh2-j1-84F" secondAttribute="leading" constant="8" id="kZB-7O-Yqc"/>
-                                        <constraint firstAttribute="bottom" secondItem="ajM-wY-K7P" secondAttribute="bottom" constant="16.5" id="xuP-aC-sn8"/>
+                                        <constraint firstAttribute="bottom" secondItem="qr5-9a-sVs" secondAttribute="bottom" constant="12.5" id="31F-Zb-Nof"/>
+                                        <constraint firstItem="ajM-wY-K7P" firstAttribute="top" secondItem="fh2-j1-84F" secondAttribute="top" constant="17" id="6jV-t2-nSm"/>
+                                        <constraint firstItem="qr5-9a-sVs" firstAttribute="top" secondItem="fh2-j1-84F" secondAttribute="top" constant="8" id="AIN-yt-Ete"/>
+                                        <constraint firstItem="9tu-Mg-xli" firstAttribute="top" secondItem="fh2-j1-84F" secondAttribute="top" constant="4" id="OWW-Zr-hE8"/>
+                                        <constraint firstAttribute="bottom" secondItem="ajM-wY-K7P" secondAttribute="bottom" constant="16.5" id="fyO-e7-Utb"/>
+                                        <constraint firstItem="ajM-wY-K7P" firstAttribute="leading" secondItem="qr5-9a-sVs" secondAttribute="trailing" constant="2" id="lR3-NX-aoi"/>
+                                        <constraint firstItem="9tu-Mg-xli" firstAttribute="leading" secondItem="fh2-j1-84F" secondAttribute="leading" constant="8" id="luZ-3y-KpG"/>
+                                        <constraint firstAttribute="bottom" secondItem="9tu-Mg-xli" secondAttribute="bottom" constant="3.5" id="pME-Fv-Tsj"/>
+                                        <constraint firstItem="qr5-9a-sVs" firstAttribute="leading" secondItem="9tu-Mg-xli" secondAttribute="trailing" constant="8" id="r31-uQ-AZN"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

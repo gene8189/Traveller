@@ -16,6 +16,8 @@ class ProductCell: UICollectionViewCell {
     @IBOutlet weak var priceLabel: UILabel!
 }
 
+
+
 class NotificationCell: UITableViewCell {
     
     var friendRequesterUID:String!

@@ -16,8 +16,10 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var collectionMethodLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var applyJobButton: UIButton!
     
     var post:Post!
+    var checker:Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,4 +44,15 @@ class DetailViewController: UIViewController {
         nextScene.strangerUID = self.post.posterUID
     }
     
+    @IBAction func onApplyJobButtonPressed(sender: AnyObject) {
+        
+        if checker{
+            self.applyJobButton.setTitle("Applied", forState: .Normal)
+            checker = false
+        }else{
+            self.applyJobButton.setTitle("I want this job!", forState: .Normal)
+            checker = true
+        }
+        
+    }
 }
