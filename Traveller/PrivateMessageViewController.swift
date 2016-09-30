@@ -20,7 +20,7 @@ class PrivateMessageViewController: JSQMessagesViewController {
         super.viewDidLoad()
         observeUser()
         observeMessage()
-        
+         navigationController?.navigationBar.barTintColor = StyleKit.darkRed
     
     }
     
@@ -47,7 +47,7 @@ class PrivateMessageViewController: JSQMessagesViewController {
                 print(message?.text)
                 self.messages.append(JSQMessage(senderId: message?.senderID, displayName: message?.senderDisplayName, text: message?.text))
                 self.scrollToBottomAnimated(true)
-                JSQSystemSoundPlayer.jsq_playMessageSentSound()
+                
                 self.finishSendingMessage()
                 self.collectionView.reloadData()
             })
@@ -124,7 +124,7 @@ class PrivateMessageViewController: JSQMessagesViewController {
     }
     
     @IBAction func onHomeButtonPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.performSegueWithIdentifier("unwindToInbox", sender: self)
     }
     
     

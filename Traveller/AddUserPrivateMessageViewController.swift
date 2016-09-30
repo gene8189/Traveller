@@ -27,6 +27,9 @@ class AddUserPrivateMessageViewController: UIViewController, UITableViewDelegate
         if self.listOfUser.count < 0 {
             activityIndicator.stopAnimating()
         }
+         navigationController?.navigationBar.barTintColor = StyleKit.darkRed
+        navigationItem.leftBarButtonItem?.tintColor = UIColor.whiteColor()
+        
         
         tableView.reloadData()
     }
@@ -40,8 +43,11 @@ class AddUserPrivateMessageViewController: UIViewController, UITableViewDelegate
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! AddUserPrivateMessageTableViewCell
         let dict = self.listOfUser[indexPath.row]
         let url = NSURL(string: dict.profileImage)
+        
         cell.usernameLabel.text = dict.username
         cell.userProfileImage.sd_setImageWithURL(url, placeholderImage: UIImage(named: "loading"))
+        cell.userProfileImage.layer.cornerRadius = cell.userProfileImage.bounds.width / 2
+        cell.userProfileImage.clipsToBounds = true
         return cell
     }
     

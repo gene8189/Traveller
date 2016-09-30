@@ -13,15 +13,34 @@ import FirebaseAuth
 
 class HomeTabViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 
+    @IBOutlet var logoutButton: UIBarButtonItem!
+    @IBOutlet var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var collectionView: UICollectionView!
     var listOfPosts = [Post]()
     var post:Post!
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Title Decoration
+        self.navigationController?.navigationBarHidden =  false
         self.title = "Home"
+        let attributes: AnyObject = [ NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = attributes as? [String : AnyObject]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Elley", size: 23.0)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        
+        // navigationBar decoration
+        navigationController?.navigationBar.barTintColor = StyleKit.darkRed
+        
         collectionView.delegate = self
         collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor.whiteColor()
+        
+        let attribute = UIFont(name: "Elley", size: 23.0)
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSFontAttributeName : attribute!], forState: .Normal)
+        
+        
+        
         
         DataService.postRef.observeEventType(.ChildAdded, withBlock: { postSnapshot in
             if let post = Post(snapshot: postSnapshot){
@@ -33,11 +52,18 @@ class HomeTabViewController: UIViewController, UICollectionViewDelegate, UIColle
                         self.listOfPosts.append(post)
                         self.listOfPosts.sortInPlace { $0.date > $1.date }
                         self.collectionView.reloadData()
-                        
+                        self.activityIndicator.hidden = true
                     }
                 })
             }
         })
+        if listOfPosts.count == 0 {
+            activityIndicator.stopAnimating()
+        }
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        activityIndicator.startAnimating()
     }
     
     @IBAction func onLogoutButtonPressed(sender: AnyObject) {
@@ -74,8 +100,11 @@ class HomeTabViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ProductCell
         let post = self.listOfPosts[indexPath.row]
+        cell.priceLabel.backgroundColor = StyleKit.skinColor
+        cell.productNameLabel.backgroundColor = StyleKit.skinColor
         cell.productNameLabel.attributedText = self.BoldString(post.productName)
         cell.priceLabel.text = "RM " + post.price
+        
         
         let userImageUrl = post.productImage
         let url = NSURL(string: userImageUrl)
@@ -104,6 +133,8 @@ class HomeTabViewController: UIViewController, UICollectionViewDelegate, UIColle
         let nextScene = segue.destinationViewController as! DetailViewController
         nextScene.post = self.post
     }
+    
+   
 
     
 }
