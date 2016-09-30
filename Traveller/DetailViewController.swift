@@ -23,6 +23,11 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+            if self.post.posterUID == User.currentUserUid(){
+                self.applyJobButton.hidden = true
+            }
+        
+        
         if let post = self.post{
             self.productNameLabel.text = "Product: " + post.productName
             self.priceLabel.text = "Price: RM" + post.price
@@ -35,9 +40,6 @@ class DetailViewController: UIViewController {
         }
         
     }
-    @IBAction func onIWantThisJobButtonPressed(sender: AnyObject) {
-        
-    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let nextScene = segue.destinationViewController as! StrangerProfileViewController
@@ -48,9 +50,15 @@ class DetailViewController: UIViewController {
         
         if checker{
             self.applyJobButton.setTitle("Applied", forState: .Normal)
+            
+            DataService.postRef.child(self.post.uid).child("travellers").updateChildValues([User.currentUserUid()!:true])
+            
             checker = false
         }else{
             self.applyJobButton.setTitle("I want this job!", forState: .Normal)
+            
+            DataService.postRef.child(self.post.uid).child("travellers").child(User.currentUserUid()!).removeValue()
+            
             checker = true
         }
         

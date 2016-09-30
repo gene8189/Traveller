@@ -12,7 +12,7 @@ import SDWebImage
 class NotificationTableViewController: UITableViewController {
 
     var listOfUser = [User]()
-    var listOfID = [String]()
+    var strangerUID:String!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,6 +25,17 @@ class NotificationTableViewController: UITableViewController {
                 }
             })
             self.tableView.reloadData()
+    })
+        
+    DataService.usernameRef.child(User.currentUserUid()!).child("post").observeEventType(.Value, withBlock: { snapshot in
+
+        DataService.postRef.child(snapshot.key).child("travellers").observeSingleEventOfType(.Value, withBlock: { userSnapshot in
+//            guard let snapshotDictionary = snapshot.key as? [String:AnyObject] else { return }
+//            
+//            let imageURL = snapshotDictionary["true"] as? String
+            
+        })
+        self.tableView.reloadData()
     })
     
     DataService.usernameRef.child(User.currentUserUid()!).child("pending-friends").observeEventType(.ChildRemoved, withBlock: { snapshot in
@@ -58,6 +69,19 @@ class NotificationTableViewController: UITableViewController {
         cell.friendRequesterUID = user.uid
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let user = self.listOfUser[indexPath.row]
+        self.strangerUID = user.uid
+        performSegueWithIdentifier("goToStrangerProfile", sender: self)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "goToStrangerProfile"{
+            let nextScene = segue.destinationViewController as! StrangerProfileViewController
+            nextScene.strangerUID = self.strangerUID
+        }
     }
     
 }

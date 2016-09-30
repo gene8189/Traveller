@@ -196,7 +196,6 @@
                                                 <state key="normal" title="I want this job!"/>
                                                 <connections>
                                                     <action selector="onApplyJobButtonPressed:" destination="DLW-co-e54" eventType="touchUpInside" id="pLr-CA-WQZ"/>
-                                                    <action selector="onIWantThisJobButtonPressed:" destination="DLW-co-e54" eventType="touchUpInside" id="ugL-uV-g8f"/>
                                                 </connections>
                                             </button>
                                         </subviews>
