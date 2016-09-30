@@ -56,6 +56,14 @@ class ProfileViewController: UIViewController {
         })
         
         
+        // Title Decoration
+        self.navigationController?.navigationBarHidden =  false
+        self.title = "Profile"
+        let attributes: AnyObject = [ NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = attributes as? [String : AnyObject]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Elley", size: 23.0)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        navigationController?.navigationBar.barTintColor = StyleKit.darkRed
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

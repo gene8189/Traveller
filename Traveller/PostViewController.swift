@@ -49,6 +49,20 @@ class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         selectImageView.userInteractionEnabled = true
         selectImageView.addGestureRecognizer(tapGestureRecognizer)
+        
+        
+        // Title Decoration
+        self.navigationController?.navigationBarHidden =  false
+        self.title = "Post"
+        let attributes: AnyObject = [ NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = attributes as? [String : AnyObject]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Elley", size: 23.0)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        
+        
+        
+        navigationController?.navigationBar.barTintColor = StyleKit.darkRed
+        
     }
     
     func imageTapped(){

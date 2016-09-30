@@ -20,6 +20,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="io7-Up-Hoo">
                         <barButtonItem key="leftBarButtonItem" title="&lt;  Home" style="done" id="71a-nJ-D1D">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onHomeButtonPressed:" destination="3KW-N4-dgg" id="Zrk-IG-jQh"/>
                             </connections>
@@ -27,8 +28,12 @@
                     </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="400" height="600"/>
+                    <connections>
+                        <segue destination="pYv-9c-dlD" kind="unwind" identifier="unwindToInbox" unwindAction="unwindToInbox:" id="Tuc-ef-fdW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IZq-X1-gd3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="pYv-9c-dlD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="627" y="384"/>
         </scene>
