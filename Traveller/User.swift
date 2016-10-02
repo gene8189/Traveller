@@ -11,11 +11,12 @@ import Firebase
 
 class User{
     
-    var uid:String
-    var username: String
-    var profileImage: String
-    var description : String
-    var rating: String
+    var uid:String?
+    var username: String?
+    var profileImage: String?
+    var description : String?
+    var rating: String?
+    var travellerNotification:Bool?
     
     init?(snapshot: FIRDataSnapshot){
         
@@ -51,4 +52,6 @@ class User{
     class func currentUserUid() -> String? {
         return NSUserDefaults.standardUserDefaults().valueForKey("userUID") as? String
     }
+    
+    init(){}
 }
