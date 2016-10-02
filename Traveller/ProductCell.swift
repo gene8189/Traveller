@@ -19,9 +19,10 @@ class ProductCell: UICollectionViewCell {
 
 
 class NotificationCell: UITableViewCell {
-    
     var friendRequesterUID:String!
     
+    @IBOutlet weak var declineButton: UIButton!
+    @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var messageTextView: UITextView!
     @IBOutlet weak var userImageView: UIImageView!
         

@@ -76,6 +76,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="acceptButton" destination="gmG-7a-BKQ" id="CH5-Ko-dLV"/>
+                                    <outlet property="declineButton" destination="Uyd-xO-Fus" id="qgV-8i-RJC"/>
                                     <outlet property="messageTextView" destination="k4f-3d-p44" id="wnX-t3-fSv"/>
                                     <outlet property="userImageView" destination="fNv-ND-e8j" id="yF2-CY-IAF"/>
                                 </connections>

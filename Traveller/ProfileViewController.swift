@@ -33,33 +33,16 @@ class ProfileViewController: UIViewController {
                 if user.profileImage == ""{
                     self.profileImageView.image = UIImage(named: "defaultProfile")
                 }else{
-                    let url = NSURL(string: user.profileImage)
+                    let url = NSURL(string: user.profileImage!)
                     self.profileImageView.sd_setImageWithURL(url)
                 }
                 
                 self.aboutMeLabel.text = user.description
-                self.usernameLabel.attributedText = self.BoldString(user.username)
+                self.usernameLabel.attributedText = self.BoldString(user.username!)
                 self.user = user
                 
             }
         })
-        DataService.usernameRef.child(User.currentUserUid()!).child("pending-friends").observeEventType(.Value, withBlock: { snapshot in
-            if snapshot.hasChildren(){
-                if let image = UIImage(named: "bell") {
-                   
-                    self.notificationButton.setBackgroundImage(image, forState: .Normal, barMetrics: .Default)
-                }
-            }else{
-                if let image = UIImage(named: "bell2") {
-                    self.notificationButton.setBackgroundImage(image, forState: .Normal, barMetrics: .Default)
-//                    var settingsItem = self.tabBar.items?[4] as UITabBarItem
-//                    settingsItem.selectedImage = UIImage(named: "home-selected")
-                }
-            }
-        })
-        
-      
-
         
         // Title Decoration
         self.navigationController?.navigationBarHidden =  false

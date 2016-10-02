@@ -25,7 +25,7 @@ class EditProfileViewController: UIViewController,UIImagePickerControllerDelegat
         if user.profileImage == ""{
             self.profileImageView.image = UIImage(named: "defaultProfile")
         }else{
-            let url = NSURL(string: user.profileImage)
+            let url = NSURL(string: user.profileImage!)
             self.profileImageView.sd_setImageWithURL(url)
         }
         

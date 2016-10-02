@@ -13,6 +13,7 @@ class NotificationTableViewController: UITableViewController {
 
     var listOfUser = [User]()
     var strangerUID:String!
+    var checker:Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,30 +29,80 @@ class NotificationTableViewController: UITableViewController {
             self.tableView.reloadData()
     })
         
-    DataService.usernameRef.child(User.currentUserUid()!).child("post").observeEventType(.Value, withBlock: { snapshot in
-
-        DataService.postRef.child(snapshot.key).child("travellers").observeSingleEventOfType(.Value, withBlock: { userSnapshot in
-//            guard let snapshotDictionary = snapshot.key as? [String:AnyObject] else { return }
-//            
-//            let imageURL = snapshotDictionary["true"] as? String
+        DataService.usernameRef.child(User.currentUserUid()!).child("pending-friends").observeEventType(.ChildRemoved, withBlock: { snapshot in
             
+            for (index,i) in self.listOfUser.enumerate(){
+                if i.uid == snapshot.key{
+                    self.listOfUser.removeAtIndex(index)
+                    self.tableView.reloadData()
+                    
+                }
+            }
         })
-        self.tableView.reloadData()
-    })
-    
-    DataService.usernameRef.child(User.currentUserUid()!).child("pending-friends").observeEventType(.ChildRemoved, withBlock: { snapshot in
         
-        for (index,i) in self.listOfUser.enumerate(){
-            if i.uid == snapshot.key{
-                self.listOfUser.removeAtIndex(index)
-                self.tableView.reloadData()
-                
+        
+        //insert notification
+    DataService.usernameRef.child(User.currentUserUid()!).child("post").observeEventType(.Value, withBlock: { snapshot in
+        if snapshot.hasChildren(){
+            let keyArray = snapshot.value?.allKeys as! [String]
+            for key in keyArray {
+                print(key)
+                DataService.postRef.child(key).child("travellers").observeEventType(.Value, withBlock: { travellerSnapshot in
+                    if travellerSnapshot.hasChildren(){
+                        DataService.postRef.child(key).observeSingleEventOfType(.Value, withBlock: { postSnapshot in
+                            if let post = Post(snapshot: postSnapshot){
+                                let user = User.init()
+                                user.travellerNotification = true
+                                user.profileImage = post.productImage
+                                user.username = post.productName
+                                user.uid = post.uid
+                                for i in self.listOfUser{
+                                    if i.username == post.productName{
+                                        self.checker = false
+                                    }else{
+                                        self.checker = true
+                                    }
+                                }
+                                if self.checker == true{
+                                    self.listOfUser.append(user)
+                                    self.tableView.reloadData()
+                                }
+                            }
+                        })
+                    }
+                    
+                })
             }
         }
     })
+        
+        
+        
+        //remove notification
+        DataService.usernameRef.child(User.currentUserUid()!).child("post").observeEventType(.Value, withBlock: { snapshot in
+            if snapshot.hasChildren(){
+                let keyArray = snapshot.value?.allKeys as! [String]
+                for key in keyArray {
+                    print(key)
+                    DataService.postRef.child(key).child("travellers").observeEventType(.ChildRemoved, withBlock: { travellerSnapshot in
+                        DataService.postRef.child(key).child("travellers").observeEventType(.Value, withBlock: { countSnapshot in
+                            
+                            if countSnapshot.childrenCount == 0{
+                                for (index,i) in self.listOfUser.enumerate(){
+                                    if i.uid == key{
+                                        self.listOfUser.removeAtIndex(index)
+                                        self.tableView.reloadData()
+                                        
+                                    }
+                                }
+                            }
+                            
+                        })
+                    })
+                }
+            }
+        })
     
-        
-        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -63,14 +114,26 @@ class NotificationTableViewController: UITableViewController {
         
         let user = self.listOfUser[indexPath.row]
         
-        cell.messageTextView.text = user.username + " want to add you as friend"
-        let userImageUrl = user.profileImage
-        let url = NSURL(string: userImageUrl)
-        cell.userImageView.sd_setImageWithURL(url)
-        
-        cell.friendRequesterUID = user.uid
-        
-        return cell
+        if user.travellerNotification == true{
+            cell.messageTextView.text = "Traveller requested on your job."
+            let userImageUrl = user.profileImage
+            let url = NSURL(string: userImageUrl!)
+            cell.userImageView.sd_setImageWithURL(url)
+            
+            cell.acceptButton.hidden = true
+            cell.declineButton.hidden = true
+            
+            return cell
+        }else{
+            cell.messageTextView.text = user.username! + " want to add you as friend"
+            let userImageUrl = user.profileImage
+            let url = NSURL(string: userImageUrl!)
+            cell.userImageView.sd_setImageWithURL(url)
+            
+            cell.friendRequesterUID = user.uid
+            
+            return cell
+        }
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
