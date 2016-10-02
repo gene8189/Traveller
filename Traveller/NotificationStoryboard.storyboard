@@ -88,10 +88,30 @@
                             <outlet property="delegate" destination="4nc-cD-7PS" id="0Vo-62-abs"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="8NQ-fN-Gpd" kind="show" identifier="goToStrangerProfile" id="ohB-Xg-CRe"/>
+                        <segue destination="yIB-LL-FhW" kind="show" identifier="jobRequestSegue" id="EQp-dd-0Zn"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AoR-gy-wxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1022" y="666"/>
+        </scene>
+        <!--StrangerProfile-->
+        <scene sceneID="ZP7-AX-kgg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="StrangerProfile" id="8NQ-fN-Gpd" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uee-oB-uKy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1651.5" y="588"/>
+        </scene>
+        <!--ListOfTravellerRequestStoryboard-->
+        <scene sceneID="byk-jl-3Jh">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xiw-nJ-JtE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="ListOfTravellerRequestStoryboard" id="yIB-LL-FhW" sceneMemberID="viewController"/>
+            </objects>
+            <point key="canvasLocation" x="1709" y="697"/>
         </scene>
     </scenes>
 </document>
