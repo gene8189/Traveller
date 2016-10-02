@@ -105,6 +105,14 @@ class HomeTabViewController: UIViewController, UICollectionViewDelegate, UIColle
         cell.productNameLabel.attributedText = self.BoldString(post.productName)
         cell.priceLabel.text = "RM " + post.price
         
+        cell.layer.shadowColor = UIColor.blackColor().CGColor
+        cell.layer.shadowOffset = CGSizeMake(0, 1)
+        cell.layer.shadowOpacity = 1
+        cell.layer.shadowRadius = 1.0
+        cell.clipsToBounds = false
+        cell.layer.masksToBounds = false
+
+        
         
         let userImageUrl = post.productImage
         let url = NSURL(string: userImageUrl)

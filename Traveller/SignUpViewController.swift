@@ -61,7 +61,7 @@ class SignUpViewController: UIViewController, FBSDKLoginButtonDelegate {
         
         registerButton.layer.backgroundColor = StyleKit.paleRed.CGColor
         registerButton.layer.cornerRadius = registerButton.bounds.width / 30
-        loginButton.backgroundColor = StyleKit.lighterRed
+        loginButton.layer.backgroundColor = StyleKit.paleRed.CGColor
         loginButton.layer.cornerRadius = loginButton.bounds.width / 30
         
         self.fbLoginButton.delegate = self
