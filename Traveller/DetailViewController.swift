@@ -15,6 +15,8 @@ class DetailViewController: UIViewController {
         case iWantThisJob
     }
     
+    
+    @IBOutlet var posterUserProfileImg: UIImageView!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var usernameButton: UIButton!
     @IBOutlet weak var productNameLabel: UILabel!
@@ -51,6 +53,16 @@ class DetailViewController: UIViewController {
             let url = NSURL(string: userImageUrl)
             self.productImageView.sd_setImageWithURL(url)
             self.usernameButton.setTitle(post.posterUsername, forState: .Normal)
+            self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+            let attribute = UIFont(name: "Elley", size: 23)
+            UIBarButtonItem.appearance()
+                .setTitleTextAttributes([NSFontAttributeName : attribute!],
+                                        forState: UIControlState.Normal)
+            applyJobButton.layer.backgroundColor = StyleKit.paleRed.CGColor
+            applyJobButton.layer.cornerRadius = applyJobButton.frame.width / 30
+            
+            
+            observePosterProfilePic(self.post.posterUID)
         }
         
     }
@@ -80,5 +92,20 @@ class DetailViewController: UIViewController {
                 DataService.postRef.child(self.post.uid).child("travellers").updateChildValues([User.currentUserUid()!:true])
             }
         }
+        
+        
+        
     }
+    func observePosterProfilePic (userUId: String) {
+        DataService.usernameRef.child(userUId).observeSingleEventOfType(.Value, withBlock: {(snapshot) in
+            if let posterUserProfile = Username(snapshot: snapshot) {
+                let url = NSURL(string: posterUserProfile.profileImage)
+                self.posterUserProfileImg.sd_setImageWithURL(url, placeholderImage: UIImage(named: "profile16"))
+                self.posterUserProfileImg.layer.cornerRadius = self.posterUserProfileImg.frame.width / 2
+                self.posterUserProfileImg.clipsToBounds = true
+                
+            }
+        })
+    }
+    
 }

@@ -35,6 +35,8 @@ extension UIViewController {
 
 class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {
     
+    
+    @IBOutlet var postButton: UIButton!
     @IBOutlet weak var scrollView: UIScrollView!
     var activeTextField:UITextField?
     @IBOutlet weak var priceTextField: UITextField!
@@ -53,7 +55,7 @@ class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {
         self.locationTextField.text = ""
         self.collectionTextField.text = ""
         self.priceTextField.text = ""
-        self.selectImageView.image = UIImage(named: "takePhoto")
+        self.selectImageView.image = UIImage(named: "camera")
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         selectImageView.userInteractionEnabled = true
@@ -66,11 +68,10 @@ class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {
         let attributes: AnyObject = [ NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = attributes as? [String : AnyObject]
         self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Elley", size: 23.0)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
-        
-        
-        
         navigationController?.navigationBar.barTintColor = StyleKit.darkRed
+        
+        postButton.layer.backgroundColor = StyleKit.paleRed.CGColor
+        postButton.layer.cornerRadius = postButton.frame.width / 30
         
     }
     
@@ -87,7 +88,7 @@ class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {
         print("Image selected")
         
         self.selectImageView.image = image
-    
+        
         self.selectedImage = image
         
     }
@@ -98,8 +99,10 @@ class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {
         let uniqueImageName = NSUUID().UUIDString
         let storageRef = FIRStorage.storage().reference().child("\(uniqueImageName).png")
         
-        let selectedImage = UIImageJPEGRepresentation(self.selectedImage, 0.5)!
-            
+        guard
+            let selectedImage = UIImageJPEGRepresentation(self.selectedImage, 0.5) else {return}
+        
+        
         storageRef.putData(selectedImage, metadata: nil, completion: { (metadata, error) in
             if error != nil{
                 print(error)
@@ -108,9 +111,9 @@ class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {
             
             
             let currentUserRef = DataService.postRef.childByAutoId()
-            if let imageURL = metadata?.downloadURL()?.absoluteString, user = User.currentUserUid(),productName = self.productNameTextField.text, location = self.locationTextField.text, collectionMethod = self.collectionTextField.text, price = self.priceTextField.text {
+            if let imageURL = metadata?.downloadURL()?.absoluteString, user = User.currentUserUid(), productName = self.productNameTextField.text, location = self.locationTextField.text, collectionMethod = self.collectionTextField.text, price = self.priceTextField.text {
                 
-                let value = ["imgurl":imageURL, "posterUID":user, "created_at":NSDate().timeIntervalSince1970, "productName":productName, "location":location, "collectionMethod":collectionMethod, "price":price]
+                let value = ["imgurl":imageURL, "posterUID":user, "created_at":NSDate().timeIntervalSince1970, "productName":productName, "location":location, "collectionMethod":collectionMethod, "price":price ]
                 currentUserRef.setValue(value)
                 
                 
@@ -134,7 +137,7 @@ class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {
         })
         
         performSegueWithIdentifier("unwindToHomeTabBar", sender: self)
-
+        
     }
     
     // Return the image but called after is dismissed.
@@ -156,7 +159,7 @@ class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {
     }
     
     func fusumaClosed() {
-        
+        self.dismissViewControllerAnimated(true, completion: nil)
         
     }
     

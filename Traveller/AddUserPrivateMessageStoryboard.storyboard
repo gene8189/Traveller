@@ -35,6 +35,7 @@
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pcg-kE-wrY">
                                                     <rect key="frame" x="8" y="10" width="60" height="60"/>
+                                                    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="Owb-xf-tCn"/>
                                                         <constraint firstAttribute="height" constant="60" id="eTS-TA-8fp"/>

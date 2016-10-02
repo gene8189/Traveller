@@ -14,12 +14,12 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = StyleKit.lighterRed
-//        DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").observeEventType(.Value, withBlock: {(snapshot) in
-//            self.setTabBarItemImage("lock")
+        //        DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").observeEventType(.Value, withBlock: {(snapshot) in
+        //            self.setTabBarItemImage("lock")
         
-
+        
         DataService.usernameRef.child(DataService.currentUserUID).child("pending-friends").observeEventType(.ChildAdded, withBlock: {(snapshot2) in
-            self.setTabBarItemImage("lock")
+            self.setTabBarItemImage("bell")
         })
         
         DataService.usernameRef.child(DataService.currentUserUID).child("pending-friends").observeEventType(.ChildRemoved, withBlock: {(snapshot3) in

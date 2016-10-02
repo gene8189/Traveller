@@ -19,6 +19,9 @@
 		11B7B6DB1D9B69170041E2ED /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6DA1D9B69170041E2ED /* DataService.swift */; };
 		11B7B6DD1D9B7D980041E2ED /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6DC1D9B7D980041E2ED /* NotificationTableViewController.swift */; };
 		4377864557A3748410D8E1F6 /* Pods_TravellerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15795DE704F306F30224DB6A /* Pods_TravellerTests.framework */; };
+		4F17BBA91DA0C3A70075EA31 /* ListOfTravellerRequestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F17BBA81DA0C3A70075EA31 /* ListOfTravellerRequestStoryboard.storyboard */; };
+		4F17BBAB1DA0C3E70075EA31 /* ListOfTravellerRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F17BBAA1DA0C3E70075EA31 /* ListOfTravellerRequestViewController.swift */; };
+		4F17BBAD1DA0C7060075EA31 /* ListOfTravellerRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F17BBAC1DA0C7060075EA31 /* ListOfTravellerRequestTableViewCell.swift */; };
 		4F46C4A21D9D138B00FB39E6 /* elley.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F46C4A11D9D12F700FB39E6 /* elley.otf */; };
 		4F4C76971D99277C006E94D1 /* StyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C76961D99277C006E94D1 /* StyleKit.swift */; };
 		4F4C76991D993D76006E94D1 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4C76981D993D76006E94D1 /* SignUpViewController.swift */; };
@@ -89,6 +92,9 @@
 		1E3E158E97C9C98092B12E6D /* Pods_Traveller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		366CB820EA17A9C4A83E695B /* Pods-Traveller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveller.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveller/Pods-Traveller.debug.xcconfig"; sourceTree = "<group>"; };
 		39E9B465ACF837088CF450E2 /* Pods-TravellerTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TravellerTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TravellerTests/Pods-TravellerTests.release.xcconfig"; sourceTree = "<group>"; };
+		4F17BBA81DA0C3A70075EA31 /* ListOfTravellerRequestStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListOfTravellerRequestStoryboard.storyboard; sourceTree = "<group>"; };
+		4F17BBAA1DA0C3E70075EA31 /* ListOfTravellerRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfTravellerRequestViewController.swift; sourceTree = "<group>"; };
+		4F17BBAC1DA0C7060075EA31 /* ListOfTravellerRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfTravellerRequestTableViewCell.swift; sourceTree = "<group>"; };
 		4F46C4A11D9D12F700FB39E6 /* elley.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = elley.otf; sourceTree = "<group>"; };
 		4F4C76961D99277C006E94D1 /* StyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StyleKit.swift; sourceTree = "<group>"; };
 		4F4C76981D993D76006E94D1 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -169,8 +175,74 @@
 			isa = PBXGroup;
 			children = (
 				4F46C4A11D9D12F700FB39E6 /* elley.otf */,
+				4FEFA3A51D98E91400866794 /* Assets.xcassets */,
+				4FEFA3A71D98E91400866794 /* LaunchScreen.storyboard */,
+				4FEFA3AA1D98E91400866794 /* Info.plist */,
+				4FD581951D98F9440083CCCE /* GoogleService-Info.plist */,
+				4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		4F4EC1D31DA0BB1300820CF4 /* Post */ = {
+			isa = PBXGroup;
+			children = (
+				11B7B6BC1D9909100041E2ED /* PostViewController.swift */,
+				4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */,
+			);
+			name = Post;
+			sourceTree = "<group>";
+		};
+		4F4EC1D41DA0BB2300820CF4 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */,
+				11B7B6D61D9ACC8F0041E2ED /* DetailViewController.swift */,
+				4FD581A71D990AAA0083CCCE /* HomeTabViewController.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		4F4EC1D51DA0BB5000820CF4 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				11B7B6C81D9A225C0041E2ED /* StrangerProfileViewController.swift */,
+				11B7B6C01D9909590041E2ED /* EditProfileViewController.swift */,
+				11B7B6BE1D9909380041E2ED /* ProfileViewController.swift */,
+				11B7B6C61D9A21A80041E2ED /* StrangerProfile.storyboard */,
+				4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		4F4EC1D61DA0BB5800820CF4 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				11B7B6DC1D9B7D980041E2ED /* NotificationTableViewController.swift */,
+				4FADD7C11D9E384D00DA8EBA /* NotificationStoryboard.storyboard */,
+			);
+			name = Notification;
+			sourceTree = "<group>";
+		};
+		4F4EC1D71DA0BB6200820CF4 /* Tab Bar */ = {
+			isa = PBXGroup;
+			children = (
+				4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */,
+				4F7612C61D9CDF4D00649EA6 /* TabBarViewController.swift */,
+			);
+			name = "Tab Bar";
+			sourceTree = "<group>";
+		};
+		4F4EC1D81DA0BB8900820CF4 /* Class */ = {
+			isa = PBXGroup;
+			children = (
+				11B7B6D01D9AB9FD0041E2ED /* ProductCell.swift */,
+				11B7B6C41D9967A00041E2ED /* User.swift */,
+				11B7B6CE1D9A64C10041E2ED /* Post.swift */,
+				4FE3D4321D9B20B50001344C /* Message.swift */,
+				4FE3D42F1D9A463F0001344C /* Username.swift */,
+			);
+			name = Class;
 			sourceTree = "<group>";
 		};
 		4FB07C062F6B55AA6FDD2F56 /* Frameworks */ = {
@@ -183,24 +255,11 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		4FD581A91D990AB80083CCCE /* StoryBoards */ = {
-			isa = PBXGroup;
-			children = (
-				4FE3D42D1D9A39910001344C /* SignIn&SignOut */,
-				4FE3D42E1D9A39A40001344C /* Inbox Storyboard */,
-			);
-			name = StoryBoards;
-			sourceTree = "<group>";
-		};
 		4FD581AA1D990ADF0083CCCE /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				4F46C4A01D9D12D900FB39E6 /* Resources */,
-				11B7B6D01D9AB9FD0041E2ED /* ProductCell.swift */,
-				11B7B6C41D9967A00041E2ED /* User.swift */,
-				11B7B6CE1D9A64C10041E2ED /* Post.swift */,
-				4FE3D4321D9B20B50001344C /* Message.swift */,
-				4FE3D42F1D9A463F0001344C /* Username.swift */,
+				4F4EC1D81DA0BB8900820CF4 /* Class */,
 				4FD5819F1D99059F0083CCCE /* Bolts.framework */,
 				4FD581A01D99059F0083CCCE /* FBSDKCoreKit.framework */,
 				4FD581A11D99059F0083CCCE /* FBSDKLoginKit.framework */,
@@ -213,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				4F4C76981D993D76006E94D1 /* SignUpViewController.swift */,
+				4FEFA39F1D98E91400866794 /* Main.storyboard */,
 			);
 			name = SignUp;
 			sourceTree = "<group>";
@@ -224,25 +284,11 @@
 				4F4C769A1D9960D5006E94D1 /* InboxViewController.swift */,
 				4FE3D4211D9A32F40001344C /* AddUserPrivateMessageViewController.swift */,
 				4F4C76A01D9A00CB006E94D1 /* PrivateMessageViewController.swift */,
-			);
-			name = Inbox;
-			sourceTree = "<group>";
-		};
-		4FE3D42D1D9A39910001344C /* SignIn&SignOut */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "SignIn&SignOut";
-			sourceTree = "<group>";
-		};
-		4FE3D42E1D9A39A40001344C /* Inbox Storyboard */ = {
-			isa = PBXGroup;
-			children = (
 				4FD5818F1D98F6110083CCCE /* InboxTabStoryboard.storyboard */,
 				4FE3D41F1D9A26170001344C /* AddUserPrivateMessageStoryboard.storyboard */,
 				4F4C769E1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard */,
 			);
-			name = "Inbox Storyboard";
+			name = Inbox;
 			sourceTree = "<group>";
 		};
 		4FE3D4311D9A61780001344C /* TableViewCell Class */ = {
@@ -283,28 +329,15 @@
 				4FEFA39B1D98E91400866794 /* AppDelegate.swift */,
 				11B7B6DA1D9B69170041E2ED /* DataService.swift */,
 				4FE3D4251D9A38FF0001344C /* SignUp */,
+				4F4EC1D71DA0BB6200820CF4 /* Tab Bar */,
+				4F4EC1D41DA0BB2300820CF4 /* Home */,
 				4FE3D4261D9A39210001344C /* Inbox */,
-				11B7B6BC1D9909100041E2ED /* PostViewController.swift */,
-				11B7B6C61D9A21A80041E2ED /* StrangerProfile.storyboard */,
-				11B7B6C81D9A225C0041E2ED /* StrangerProfileViewController.swift */,
-				4FD581931D98F6800083CCCE /* ProfileTabStoryboard.storyboard */,
-				11B7B6DC1D9B7D980041E2ED /* NotificationTableViewController.swift */,
-				4FADD7C11D9E384D00DA8EBA /* NotificationStoryboard.storyboard */,
-				11B7B6BE1D9909380041E2ED /* ProfileViewController.swift */,
-				11B7B6C01D9909590041E2ED /* EditProfileViewController.swift */,
-				4FEFA39F1D98E91400866794 /* Main.storyboard */,
-				4FD5818B1D98F37A0083CCCE /* TabBarStoryboard.storyboard */,
-				4F7612C61D9CDF4D00649EA6 /* TabBarViewController.swift */,
-				4FD5818D1D98F5F50083CCCE /* HomeTabStoryboard.storyboard */,
-				11B7B6D61D9ACC8F0041E2ED /* DetailViewController.swift */,
-				4FD581A71D990AAA0083CCCE /* HomeTabViewController.swift */,
-				4FD581911D98F62E0083CCCE /* PostTabStoryboard.storyboard */,
-				4FEFA3A51D98E91400866794 /* Assets.xcassets */,
-				4FEFA3A71D98E91400866794 /* LaunchScreen.storyboard */,
-				4FEFA3AA1D98E91400866794 /* Info.plist */,
-				4FD581951D98F9440083CCCE /* GoogleService-Info.plist */,
-				4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */,
-				4FD581A91D990AB80083CCCE /* StoryBoards */,
+				4F4EC1D61DA0BB5800820CF4 /* Notification */,
+				4F4EC1D31DA0BB1300820CF4 /* Post */,
+				4F17BBAA1DA0C3E70075EA31 /* ListOfTravellerRequestViewController.swift */,
+				4F17BBA81DA0C3A70075EA31 /* ListOfTravellerRequestStoryboard.storyboard */,
+				4F17BBAC1DA0C7060075EA31 /* ListOfTravellerRequestTableViewCell.swift */,
+				4F4EC1D51DA0BB5000820CF4 /* Profile */,
 				4FD581AA1D990ADF0083CCCE /* Models */,
 			);
 			path = Traveller;
@@ -417,7 +450,7 @@
 				TargetAttributes = {
 					4FEFA3971D98E91400866794 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = YXSP9UQVE9;
+						DevelopmentTeam = Z6256L4976;
 					};
 					4FEFA3AE1D98E91400866794 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -466,6 +499,7 @@
 				4FD581961D98F9440083CCCE /* GoogleService-Info.plist in Resources */,
 				4FEFA3A11D98E91400866794 /* Main.storyboard in Resources */,
 				4FD581941D98F6800083CCCE /* ProfileTabStoryboard.storyboard in Resources */,
+				4F17BBA91DA0C3A70075EA31 /* ListOfTravellerRequestStoryboard.storyboard in Resources */,
 				4FADD7C21D9E384D00DA8EBA /* NotificationStoryboard.storyboard in Resources */,
 				4F4C769F1D9A0094006E94D1 /* PrivateMessageStoryboard.storyboard in Resources */,
 			);
@@ -634,10 +668,12 @@
 				4F4C76A11D9A00CB006E94D1 /* PrivateMessageViewController.swift in Sources */,
 				4FE3D4301D9A463F0001344C /* Username.swift in Sources */,
 				4FE3D4221D9A32F40001344C /* AddUserPrivateMessageViewController.swift in Sources */,
+				4F17BBAD1DA0C7060075EA31 /* ListOfTravellerRequestTableViewCell.swift in Sources */,
 				4FEFA39C1D98E91400866794 /* AppDelegate.swift in Sources */,
 				11B7B6CF1D9A64C10041E2ED /* Post.swift in Sources */,
 				11B7B6D11D9AB9FD0041E2ED /* ProductCell.swift in Sources */,
 				4FE3D4241D9A332B0001344C /* AddUserPrivateMessageTableViewCell.swift in Sources */,
+				4F17BBAB1DA0C3E70075EA31 /* ListOfTravellerRequestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -790,7 +826,7 @@
 				);
 				INFOPLIST_FILE = Traveller/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = genecoding.Traveller;
+				PRODUCT_BUNDLE_IDENTIFIER = genecoding.Traveller1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -809,7 +845,7 @@
 				);
 				INFOPLIST_FILE = Traveller/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = genecoding.Traveller;
+				PRODUCT_BUNDLE_IDENTIFIER = genecoding.Traveller1;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

@@ -139,7 +139,7 @@ class NotificationTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let user = self.listOfUser[indexPath.row]
         self.strangerUID = user.uid
-        performSegueWithIdentifier("goToStrangerProfile", sender: self)
+//        performSegueWithIdentifier("ListSegue", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
