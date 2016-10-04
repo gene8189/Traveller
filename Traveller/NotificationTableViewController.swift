@@ -13,9 +13,26 @@ class NotificationTableViewController: UITableViewController {
 
     var listOfUser = [User]()
     var strangerUID:String!
+    var productID : String!
     var checker:Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.separatorColor = StyleKit.darkRed
+        
+        // Title Decoration
+        self.navigationController?.navigationBarHidden =  false
+        self.title = "Notification"
+        let attributes: AnyObject = [ NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = attributes as? [String : AnyObject]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Elley", size: 23.0)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        
+        // navigationBar decoration
+        navigationController?.navigationBar.barTintColor = StyleKit.darkRed
+        
+        let attribute = UIFont(name: "Elley", size: 23.0)
+        navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSFontAttributeName : attribute!], forState: .Normal)
+    
         
         DataService.usernameRef.child(User.currentUserUid()!).child("pending-friends").observeEventType(.ChildAdded, withBlock: { snapshot in
         
@@ -26,6 +43,7 @@ class NotificationTableViewController: UITableViewController {
                     
                 }
             })
+
             self.tableView.reloadData()
     })
         
@@ -46,7 +64,6 @@ class NotificationTableViewController: UITableViewController {
         if snapshot.hasChildren(){
             let keyArray = snapshot.value?.allKeys as! [String]
             for key in keyArray {
-                print(key)
                 DataService.postRef.child(key).child("travellers").observeEventType(.Value, withBlock: { travellerSnapshot in
                     if travellerSnapshot.hasChildren(){
                         DataService.postRef.child(key).observeSingleEventOfType(.Value, withBlock: { postSnapshot in
@@ -56,6 +73,8 @@ class NotificationTableViewController: UITableViewController {
                                 user.profileImage = post.productImage
                                 user.username = post.productName
                                 user.uid = post.uid
+                                self.productID = post.uid
+                                
                                 for i in self.listOfUser{
                                     if i.username == post.productName{
                                         self.checker = false
@@ -150,6 +169,9 @@ class NotificationTableViewController: UITableViewController {
         if segue.identifier == "goToStrangerProfile"{
             let nextScene = segue.destinationViewController as! StrangerProfileViewController
             nextScene.strangerUID = self.strangerUID
+        }else if segue.identifier == "jobRequestSegue" {
+            let destination = segue.destinationViewController as! ListOfTravellerRequestViewController
+            destination.postID = self.productID
         }
     }
     

@@ -14,17 +14,36 @@ class TabBarViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = StyleKit.lighterRed
-        //        DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").observeEventType(.Value, withBlock: {(snapshot) in
-        //            self.setTabBarItemImage("lock")
         
         
-        DataService.usernameRef.child(DataService.currentUserUID).child("pending-friends").observeEventType(.ChildAdded, withBlock: {(snapshot2) in
+        DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").observeEventType(.ChildAdded, withBlock: {(snapshot) in
+            self.setTabBarItemImage("bell")
+            
+        })
+        
+        DataService.usernameRef.child(DataService.currentUserUID).child("pending-friends").observeEventType(.ChildAdded, withBlock: {(snapshot1) in
             self.setTabBarItemImage("bell")
         })
         
-        DataService.usernameRef.child(DataService.currentUserUID).child("pending-friends").observeEventType(.ChildRemoved, withBlock: {(snapshot3) in
+        DataService.usernameRef.child(DataService.currentUserUID).child("Request").observeEventType(.ChildAdded, withBlock: {(snapshot2) in
+            self.setTabBarItemImage("bell")
+            
+        })
+        
+        DataService.usernameRef.child(DataService.currentUserUID).child("RequestStatus").observeEventType(.ChildAdded, withBlock: {(snapshot3) in
+            self.setTabBarItemImage("bell")
+        })
+        
+        
+        DataService.usernameRef.child(DataService.currentUserUID).child("pending-friends").observeEventType(.ChildRemoved, withBlock: {(snapshot4) in
             self.setTabBarItemImage("bell2")
         })
+        
+        DataService.usernameRef.child(DataService.currentUserUID).child("Request").observeEventType(.ChildRemoved, withBlock: {(snapshot5) in
+            self.setTabBarItemImage("bell2")
+        })
+        
+        
     }
     
     

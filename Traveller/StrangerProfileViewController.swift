@@ -188,4 +188,12 @@ class StrangerProfileViewController: UIViewController {
 //            }
         
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let destination = segue.destinationViewController as! UINavigationController
+        let controller = destination.viewControllers.first as! PrivateMessageViewController
+                controller.userUID = self.strangerUID
+        
+    }
 }

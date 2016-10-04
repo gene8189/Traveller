@@ -18,6 +18,8 @@
 		11B7B6D71D9ACC8F0041E2ED /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6D61D9ACC8F0041E2ED /* DetailViewController.swift */; };
 		11B7B6DB1D9B69170041E2ED /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6DA1D9B69170041E2ED /* DataService.swift */; };
 		11B7B6DD1D9B7D980041E2ED /* NotificationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6DC1D9B7D980041E2ED /* NotificationTableViewController.swift */; };
+		11B7B6E51DA35DE40041E2ED /* ListOfJob.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B7B6E41DA35DE40041E2ED /* ListOfJob.storyboard */; };
+		11B7B6E71DA35E150041E2ED /* ListOfJobTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B7B6E61DA35E150041E2ED /* ListOfJobTableViewController.swift */; };
 		4377864557A3748410D8E1F6 /* Pods_TravellerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15795DE704F306F30224DB6A /* Pods_TravellerTests.framework */; };
 		4F17BBA91DA0C3A70075EA31 /* ListOfTravellerRequestStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F17BBA81DA0C3A70075EA31 /* ListOfTravellerRequestStoryboard.storyboard */; };
 		4F17BBAB1DA0C3E70075EA31 /* ListOfTravellerRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F17BBAA1DA0C3E70075EA31 /* ListOfTravellerRequestViewController.swift */; };
@@ -47,6 +49,9 @@
 		4FE3D4241D9A332B0001344C /* AddUserPrivateMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3D4231D9A332B0001344C /* AddUserPrivateMessageTableViewCell.swift */; };
 		4FE3D4301D9A463F0001344C /* Username.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3D42F1D9A463F0001344C /* Username.swift */; };
 		4FE3D4331D9B20B50001344C /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FE3D4321D9B20B50001344C /* Message.swift */; };
+		4FECCE171DA20A8200EF7D26 /* RatingStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FECCE161DA20A8200EF7D26 /* RatingStoryboard.storyboard */; };
+		4FECCE191DA2159600EF7D26 /* CompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FECCE181DA2159600EF7D26 /* CompletionViewController.swift */; };
+		4FECCE1D1DA28B8000EF7D26 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FECCE1C1DA28B8000EF7D26 /* RatingViewController.swift */; };
 		4FEFA39C1D98E91400866794 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA39B1D98E91400866794 /* AppDelegate.swift */; };
 		4FEFA3A11D98E91400866794 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FEFA39F1D98E91400866794 /* Main.storyboard */; };
 		4FEFA3A41D98E91400866794 /* Traveller.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4FEFA3A21D98E91400866794 /* Traveller.xcdatamodeld */; };
@@ -88,6 +93,8 @@
 		11B7B6D61D9ACC8F0041E2ED /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		11B7B6DA1D9B69170041E2ED /* DataService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		11B7B6DC1D9B7D980041E2ED /* NotificationTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationTableViewController.swift; sourceTree = "<group>"; };
+		11B7B6E41DA35DE40041E2ED /* ListOfJob.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ListOfJob.storyboard; sourceTree = "<group>"; };
+		11B7B6E61DA35E150041E2ED /* ListOfJobTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListOfJobTableViewController.swift; sourceTree = "<group>"; };
 		15795DE704F306F30224DB6A /* Pods_TravellerTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TravellerTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E3E158E97C9C98092B12E6D /* Pods_Traveller.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Traveller.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		366CB820EA17A9C4A83E695B /* Pods-Traveller.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Traveller.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Traveller/Pods-Traveller.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +127,9 @@
 		4FE3D4231D9A332B0001344C /* AddUserPrivateMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddUserPrivateMessageTableViewCell.swift; sourceTree = "<group>"; };
 		4FE3D42F1D9A463F0001344C /* Username.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Username.swift; sourceTree = "<group>"; };
 		4FE3D4321D9B20B50001344C /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		4FECCE161DA20A8200EF7D26 /* RatingStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = RatingStoryboard.storyboard; sourceTree = "<group>"; };
+		4FECCE181DA2159600EF7D26 /* CompletionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompletionViewController.swift; sourceTree = "<group>"; };
+		4FECCE1C1DA28B8000EF7D26 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		4FEFA3981D98E91400866794 /* Traveller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Traveller.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FEFA39B1D98E91400866794 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4FEFA3A01D98E91400866794 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -334,9 +344,14 @@
 				4FE3D4261D9A39210001344C /* Inbox */,
 				4F4EC1D61DA0BB5800820CF4 /* Notification */,
 				4F4EC1D31DA0BB1300820CF4 /* Post */,
+				11B7B6E41DA35DE40041E2ED /* ListOfJob.storyboard */,
+				11B7B6E61DA35E150041E2ED /* ListOfJobTableViewController.swift */,
 				4F17BBAA1DA0C3E70075EA31 /* ListOfTravellerRequestViewController.swift */,
-				4F17BBA81DA0C3A70075EA31 /* ListOfTravellerRequestStoryboard.storyboard */,
 				4F17BBAC1DA0C7060075EA31 /* ListOfTravellerRequestTableViewCell.swift */,
+				4FECCE181DA2159600EF7D26 /* CompletionViewController.swift */,
+				4FECCE1C1DA28B8000EF7D26 /* RatingViewController.swift */,
+				4F17BBA81DA0C3A70075EA31 /* ListOfTravellerRequestStoryboard.storyboard */,
+				4FECCE161DA20A8200EF7D26 /* RatingStoryboard.storyboard */,
 				4F4EC1D51DA0BB5000820CF4 /* Profile */,
 				4FD581AA1D990ADF0083CCCE /* Models */,
 			);
@@ -487,6 +502,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FECCE171DA20A8200EF7D26 /* RatingStoryboard.storyboard in Resources */,
+				11B7B6E51DA35DE40041E2ED /* ListOfJob.storyboard in Resources */,
 				4F46C4A21D9D138B00FB39E6 /* elley.otf in Resources */,
 				11B7B6C71D9A21A80041E2ED /* StrangerProfile.storyboard in Resources */,
 				4FD5818E1D98F5F50083CCCE /* HomeTabStoryboard.storyboard in Resources */,
@@ -666,12 +683,15 @@
 				4F4C769D1D99FEDD006E94D1 /* InboxTableViewCell.swift in Sources */,
 				4F7612C71D9CDF4D00649EA6 /* TabBarViewController.swift in Sources */,
 				4F4C76A11D9A00CB006E94D1 /* PrivateMessageViewController.swift in Sources */,
+				4FECCE191DA2159600EF7D26 /* CompletionViewController.swift in Sources */,
 				4FE3D4301D9A463F0001344C /* Username.swift in Sources */,
 				4FE3D4221D9A32F40001344C /* AddUserPrivateMessageViewController.swift in Sources */,
+				11B7B6E71DA35E150041E2ED /* ListOfJobTableViewController.swift in Sources */,
 				4F17BBAD1DA0C7060075EA31 /* ListOfTravellerRequestTableViewCell.swift in Sources */,
 				4FEFA39C1D98E91400866794 /* AppDelegate.swift in Sources */,
 				11B7B6CF1D9A64C10041E2ED /* Post.swift in Sources */,
 				11B7B6D11D9AB9FD0041E2ED /* ProductCell.swift in Sources */,
+				4FECCE1D1DA28B8000EF7D26 /* RatingViewController.swift in Sources */,
 				4FE3D4241D9A332B0001344C /* AddUserPrivateMessageTableViewCell.swift in Sources */,
 				4F17BBAB1DA0C3E70075EA31 /* ListOfTravellerRequestViewController.swift in Sources */,
 			);
