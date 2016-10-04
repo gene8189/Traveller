@@ -30,17 +30,17 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            if self.post.posterUID == User.currentUserUid(){
-                self.applyJobButton.hidden = true
-            }
+        if self.post.posterUID == User.currentUserUid(){
+            self.applyJobButton.hidden = true
+        }
         
         DataService.postRef.child(post.uid).child("travellers").observeEventType(.Value, withBlock: { snapshot in
-                if snapshot.hasChild(User.currentUserUid()!){
-                    self.applyJobButton.setTitle("Applied", forState: .Normal)
-                }else{
-                    self.applyJobButton.setTitle("I want this Job!", forState: .Normal)
-                }
-            })
+            if snapshot.hasChild(User.currentUserUid()!){
+                self.applyJobButton.setTitle("Applied", forState: .Normal)
+            }else{
+                self.applyJobButton.setTitle("I want this Job!", forState: .Normal)
+            }
+        })
         
         
         
@@ -87,9 +87,12 @@ class DetailViewController: UIViewController {
         if let setting = identifier{
             switch setting{
             case .applied:
-                DataService.postRef.child(self.post.uid).child("travellers").child(User.currentUserUid()!).removeValue()
+            DataService.postRef.child(self.post.uid).child("travellers").child(User.currentUserUid()!).removeValue()
+                DataService.usernameRef.child(self.post.posterUID).child("Request").child(self.post.uid).removeValue()
+                
             case .iWantThisJob:
                 DataService.postRef.child(self.post.uid).child("travellers").updateChildValues([User.currentUserUid()!:true])
+                DataService.usernameRef.child(self.post.posterUID).child("Request").updateChildValues([self.post.uid: true])
             }
         }
         
