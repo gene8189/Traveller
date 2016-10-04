@@ -41,15 +41,15 @@ class ListOfTravellerRequestTableViewCell: UITableViewCell {
     @IBAction func onAcceptButtonPressed(sender: AnyObject) {
         
         DataService.postRef.child(self.postID).child("travellers").observeEventType(.ChildAdded, withBlock: {(snapshot) in
-            DataService.postRef.child(self.postID).child("travellers").updateChildValues([snapshot.key : false])
-            DataService.postRef.child(self.postID).child("travellers").updateChildValues([self.userUID: true])
             DataService.postRef.child(self.postID).child("RequestStatus").updateChildValues([snapshot.key: false])
-            DataService.postRef.child(self.postID).child("RequestStatus").updateChildValues([self.userUID:true])
             DataService.usernameRef.child(snapshot.key).child("RequestStatus").updateChildValues([self.postID: false])
+            DataService.postRef.child(self.postID).child("RequestStatus").updateChildValues([self.userUID:true])
+            
             DataService.usernameRef.child(self.userUID).child("RequestStatus").updateChildValues([self.postID: true])
             DataService.postRef.child(self.postID).child("CompletionStatus").updateChildValues([self.userUID:false])
             DataService.usernameRef.child(self.userUID).child("CompletionStatus").updateChildValues([self.postID: false])
         
         })
+       
     }
 }

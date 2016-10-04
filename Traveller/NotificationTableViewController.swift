@@ -64,7 +64,6 @@ class NotificationTableViewController: UITableViewController {
         if snapshot.hasChildren(){
             let keyArray = snapshot.value?.allKeys as! [String]
             for key in keyArray {
-                print(key)
                 DataService.postRef.child(key).child("travellers").observeEventType(.Value, withBlock: { travellerSnapshot in
                     if travellerSnapshot.hasChildren(){
                         DataService.postRef.child(key).observeSingleEventOfType(.Value, withBlock: { postSnapshot in
