@@ -41,7 +41,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Trustworthy:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z0K-RX-qVg">
-                                                <rect key="frame" x="0.0" y="53" width="220" height="24"/>
+                                                <rect key="frame" x="0.0" y="53" width="220" height="33"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="33" id="3DZ-to-xqM"/>
                                                     <constraint firstAttribute="width" constant="220" id="WQ5-F6-XMc"/>
@@ -51,7 +51,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bF-gJ-QJy">
-                                                <rect key="frame" x="0.0" y="97" width="220" height="33"/>
+                                                <rect key="frame" x="0.0" y="106" width="220" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="220" id="D6V-JW-bpw"/>
                                                     <constraint firstAttribute="height" constant="33" id="eMr-BP-JgR"/>

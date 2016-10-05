@@ -17,6 +17,7 @@ class User{
     var description : String?
     var rating: String?
     var travellerNotification:Bool?
+    var jobNotification:Bool?
     
     init?(snapshot: FIRDataSnapshot){
         

@@ -30,6 +30,7 @@ class ListOfTravellerRequestTableViewCell: UITableViewCell {
         if declinebutton.currentTitle == "Decline"{
         DataService.usernameRef.child(userUID).child("RequestStatus").updateChildValues([postID: false])
         DataService.postRef.child(self.postID).child("RequestStatus").updateChildValues([userUID: false])
+            DataService.postRef.child(self.postID).child("travellers").child(self.userUID).removeValue()
         } else if declinebutton.currentTitle == "Task Incomplete" {
             
                 delegate?.listOfTravellerRequestCellDelegate(self, declineButtonStatus: declinebutton.currentTitle!, userUID: userUID)
@@ -43,14 +44,22 @@ class ListOfTravellerRequestTableViewCell: UITableViewCell {
         DataService.postRef.child(self.postID).child("travellers").observeEventType(.ChildAdded, withBlock: {(snapshot) in
 
             DataService.postRef.child(self.postID).child("RequestStatus").updateChildValues([snapshot.key: false])
-            DataService.usernameRef.child(snapshot.key).child("RequestStatus").updateChildValues([self.postID: false])
             DataService.postRef.child(self.postID).child("RequestStatus").updateChildValues([self.userUID:true])
             
+            DataService.usernameRef.child(snapshot.key).child("RequestStatus").updateChildValues([self.postID: false])
+
             DataService.usernameRef.child(self.userUID).child("RequestStatus").updateChildValues([self.postID: true])
-            DataService.postRef.child(self.postID).child("CompletionStatus").updateChildValues([self.userUID:false])
+            
             DataService.usernameRef.child(self.userUID).child("CompletionStatus").updateChildValues([self.postID: false])
-        
+            
         })
+        
+        DataService.postRef.child(self.postID).child("CompletionStatus").updateChildValues([self.userUID:false])
+        
+        //self.postID = postID
+        //snapshot.key = person who requested
+        //self.userUID = selected person
+
        
     }
 }
