@@ -29,7 +29,6 @@ class ListOfTravellerRequestTableViewCell: UITableViewCell {
 //        let listOfTravellerRequestCellDelegate = self.delegate
         if declinebutton.currentTitle == "Decline"{
         DataService.usernameRef.child(userUID).child("RequestStatus").updateChildValues([postID: false])
-        DataService.postRef.child(self.postID).child("RequestStatus").updateChildValues([userUID: false])
             DataService.postRef.child(self.postID).child("travellers").child(self.userUID).removeValue()
         } else if declinebutton.currentTitle == "Task Incomplete" {
             

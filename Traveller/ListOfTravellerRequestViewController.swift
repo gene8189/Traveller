@@ -56,6 +56,17 @@ class ListOfTravellerRequestViewController: UIViewController, UITableViewDelegat
             })
             
         })
+        
+        DataService.postRef.child(self.postID!).child("travellers").observeEventType(.ChildRemoved, withBlock: {(snapshot) in
+            
+            for (index,i) in self.listOfUser.enumerate(){
+                if i.userUID == snapshot.key{
+                    self.listOfUser.removeAtIndex(index)
+                    self.tableView.reloadData()
+                }
+            }
+            
+        })
     }
     
     
