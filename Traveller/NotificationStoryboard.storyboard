@@ -91,11 +91,12 @@
                     <connections>
                         <segue destination="8NQ-fN-Gpd" kind="show" identifier="goToStrangerProfile" id="ohB-Xg-CRe"/>
                         <segue destination="yIB-LL-FhW" kind="show" identifier="jobRequestSegue" id="EQp-dd-0Zn"/>
+                        <segue destination="PqB-dd-03c" kind="show" identifier="DetailSegue" id="Kai-wN-XLM"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AoR-gy-wxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1022" y="666"/>
+            <point key="canvasLocation" x="1074" y="626"/>
         </scene>
         <!--StrangerProfile-->
         <scene sceneID="ZP7-AX-kgg">
@@ -112,6 +113,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xiw-nJ-JtE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1709" y="697"/>
+        </scene>
+        <!--DetailStoryBoard-->
+        <scene sceneID="AU2-H5-LWy">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DetailStoryBoard" id="PqB-dd-03c" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9nF-UN-tMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1659.5" y="808"/>
         </scene>
     </scenes>
 </document>

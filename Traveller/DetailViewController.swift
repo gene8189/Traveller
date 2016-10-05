@@ -27,15 +27,84 @@ class DetailViewController: UIViewController {
     
     var post:Post!
     var identifier:Situation?
+    var choosen:Bool = false
+    var rejected:Bool = false
+    var productID:String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        if productID != nil{
+            if let productID = self.productID{
+                DataService.postRef.child(productID).observeEventType(.Value, withBlock: { snapshot in
+                    if let post = Post(snapshot: snapshot){
+                        DataService.usernameRef.child(post.posterUID).observeEventType(.Value, withBlock: { userSnapshot in
+                            if let user = User(snapshot: userSnapshot){
+                                post.posterUsername = user.username
+                                self.post = post
+                                self.setupPost()
+                            }
+                        })
+                    }
+                })
+            }
+        }
+        
+        if self.post != nil {
+            self.setupPost()
+        }
+
+        
+    }
+    
+    func setupPost(){
         if self.post.posterUID == User.currentUserUid(){
             self.applyJobButton.hidden = true
         }
         
+        
+        DataService.postRef.child(self.post.uid).child("RequestStatus").observeEventType(.Value, withBlock: { snapshot in
+            if snapshot.hasChildren(){
+                let keyArray = snapshot.value?.allKeys as! [String]
+                let keyArray2 = snapshot.value?.allValues as! [Int]
+                
+                if keyArray2.contains(1){
+                    for (index,key) in keyArray2.enumerate() {
+                        if key == 0{
+                            if keyArray[index] == User.currentUserUid(){
+    
+                                self.rejected = true
+                            }
+                        }
+                    }
+                }
+            }
+        })
+        
+        DataService.postRef.child(self.post.uid).child("RequestStatus").observeEventType(.Value, withBlock: { snapshot in
+            if snapshot.hasChildren(){
+                let keyArray = snapshot.value?.allKeys as! [String]
+                let keyArray2 = snapshot.value?.allValues as! [Int]
+                for (index,key) in keyArray2.enumerate() {
+                    if key == 1{
+                        if keyArray[index] == User.currentUserUid(){
+                            
+                            self.choosen = true
+                        }
+                    }
+                }
+            }
+        })
+        
         DataService.postRef.child(post.uid).child("travellers").observeEventType(.Value, withBlock: { snapshot in
-            if snapshot.hasChild(User.currentUserUid()!){
+            if self.choosen{
+                self.applyJobButton.setTitle("You have been Choosen", forState: .Normal)
+                self.applyJobButton.userInteractionEnabled = false
+            }else if self.rejected{
+                self.applyJobButton.setTitle("Somebody took the job", forState: .Normal)
+                self.applyJobButton.userInteractionEnabled = false
+            }else if snapshot.hasChild(User.currentUserUid()!){
                 self.applyJobButton.setTitle("Applied", forState: .Normal)
             }else{
                 self.applyJobButton.setTitle("I want this Job!", forState: .Normal)
@@ -64,7 +133,6 @@ class DetailViewController: UIViewController {
             
             observePosterProfilePic(self.post.posterUID)
         }
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -15,6 +15,7 @@ class NotificationTableViewController: UITableViewController {
     var strangerUID:String!
     var productID : String!
     var checker:Bool = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.separatorColor = StyleKit.darkRed
@@ -33,7 +34,7 @@ class NotificationTableViewController: UITableViewController {
         let attribute = UIFont(name: "Elley", size: 23.0)
         navigationItem.rightBarButtonItem?.setTitleTextAttributes([NSFontAttributeName : attribute!], forState: .Normal)
     
-        
+        //friend request notificaiton
         DataService.usernameRef.child(User.currentUserUid()!).child("pending-friends").observeEventType(.ChildAdded, withBlock: { snapshot in
         
             DataService.usernameRef.child(snapshot.key).observeSingleEventOfType(.Value, withBlock: { userSnapshot in
@@ -54,7 +55,7 @@ class NotificationTableViewController: UITableViewController {
                     self.listOfUser.removeAtIndex(index)
                     self.tableView.reloadData()
                     
-                }
+                } 
             }
         })
         
@@ -121,6 +122,48 @@ class NotificationTableViewController: UITableViewController {
                 }
             }
         })
+        
+        
+        //job request notification
+    DataService.usernameRef.child(User.currentUserUid()!).child("RequestStatus").observeEventType(.Value, withBlock: { snapshot in
+            if snapshot.hasChildren(){
+                let keyArray = snapshot.value?.allKeys as! [String]
+                let keyArray2 = snapshot.value?.allValues as! [Int]
+                
+                for (index,key2) in keyArray2.enumerate(){
+                    
+                    if key2 == 1{
+                        DataService.postRef.child(keyArray[index]).observeEventType(.Value, withBlock: { postSnapshot in
+                            if let post = Post(snapshot: postSnapshot){
+                                let user = User.init()
+                                user.jobNotification = true
+                                user.profileImage = post.productImage
+                                user.username = post.productName
+                                user.uid = post.uid
+                                self.listOfUser.append(user)
+                                self.tableView.reloadData()
+                            }
+                        })
+                    
+                    }else{
+                        DataService.postRef.child(keyArray[index]).observeEventType(.Value, withBlock: { postSnapshot in
+                            if let post = Post(snapshot: postSnapshot){
+                                let user = User.init()
+                                user.jobNotification = false
+                                user.profileImage = post.productImage
+                                user.username = post.productName
+                                user.uid = post.uid
+                                self.listOfUser.append(user)
+                                self.tableView.reloadData()
+                            }
+                        })
+                    }
+                    
+                }
+            }
+        })
+        
+        //job reject notification
     
     }
     
@@ -132,8 +175,32 @@ class NotificationTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("NotificationCell") as! NotificationCell
         
         let user = self.listOfUser[indexPath.row]
-        
-        if user.travellerNotification == true{
+        if user.jobNotification == true{
+            
+            //traveller selected
+            cell.messageTextView.text = "Congrats! You have been choosen to be travller!"
+            let userImageUrl = user.profileImage
+            let url = NSURL(string: userImageUrl!)
+            cell.userImageView.sd_setImageWithURL(url)
+            
+            cell.acceptButton.hidden = true
+            cell.declineButton.hidden = true
+            
+            return cell
+        }else if user.jobNotification == false{
+            
+            //have been rejected
+            
+            cell.messageTextView.text = "Too bad you have been rejected."
+            let userImageUrl = user.profileImage
+            let url = NSURL(string: userImageUrl!)
+            cell.userImageView.sd_setImageWithURL(url)
+            
+            cell.acceptButton.hidden = true
+            cell.declineButton.hidden = true
+            
+            return cell
+        }else if user.travellerNotification == true{
             cell.messageTextView.text = "Traveller requested on your job."
             let userImageUrl = user.profileImage
             let url = NSURL(string: userImageUrl!)
@@ -157,10 +224,16 @@ class NotificationTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let user = self.listOfUser[indexPath.row]
+        
+        self.strangerUID = user.uid
         if user.travellerNotification == true{
+            self.productID = user.uid
             performSegueWithIdentifier("jobRequestSegue", sender: self)
+        }else if user.jobNotification == true{
+            performSegueWithIdentifier("DetailSegue", sender: self)
+        }else if user.jobNotification == false{
+            performSegueWithIdentifier("DetailSegue", sender: self)
         }else{
-            self.strangerUID = user.uid
             performSegueWithIdentifier("goToStrangerProfile", sender: self)
         }
     }
@@ -172,6 +245,9 @@ class NotificationTableViewController: UITableViewController {
         }else if segue.identifier == "jobRequestSegue" {
             let destination = segue.destinationViewController as! ListOfTravellerRequestViewController
             destination.postID = self.productID
+        }else if segue.identifier == "DetailSegue"{
+            let nextScene = segue.destinationViewController as! DetailViewController
+            nextScene.productID = self.strangerUID
         }
     }
     
