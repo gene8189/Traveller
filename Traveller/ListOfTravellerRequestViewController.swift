@@ -69,6 +69,19 @@ class ListOfTravellerRequestViewController: UIViewController, UITableViewDelegat
         cell.requesterUsername.setTitle(user.username, forState: .Normal)
         cell.requesterProfileImg.layer.cornerRadius = cell.requesterProfileImg.bounds.width / 2
         cell.requesterProfileImg.clipsToBounds = true
+        if user.trustworthy == 0 {
+            cell.requesterRating.image = UIImage(named: "empty")
+        } else if user.trustworthy == 1{
+            cell.requesterRating.image = UIImage(named: "1")
+        } else if user.trustworthy == 2 {
+            cell.requesterRating.image = UIImage(named: "2")
+        }else if user.trustworthy == 3 {
+            cell.requesterRating.image = UIImage(named: "3")
+        }else if user.trustworthy == 4 {
+            cell.requesterRating.image = UIImage(named: "4")
+        }else if user.trustworthy == 5 {
+            cell.requesterRating.image = UIImage(named: "5")
+        }
         cell.delegate = self
         
         

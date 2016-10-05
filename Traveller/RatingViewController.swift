@@ -25,6 +25,7 @@ class RatingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         observeTravellerProfile(travellerID!)
+        numberOfStars = 0
     }
     
     
@@ -52,58 +53,82 @@ class RatingViewController: UIViewController {
     
     var pressed2 = false
     @IBAction func onButton2Pressed(sender: AnyObject) {
-        if numberOfStars == 1{
+       
             if !pressed2 {
+                button1.setImage(UIImage(named:"Star" ), forState: .Normal)
                 button2.setImage(UIImage(named:"Star" ), forState: .Normal)
                 pressed2 = true
                 self.numberOfStars = 2
             } else {
+                button1.setImage(UIImage(named:"emptyStar" ), forState: .Normal)
                 button2.setImage(UIImage(named: "emptyStar"), forState: .Normal)
                 pressed2 = false
             }
-        }
+        
     }
     var pressed3 = false
     @IBAction func onButton3Pressed(sender: AnyObject) {
-        if numberOfStars == 2 {
+       
             if !pressed3 {
+                button1.setImage(UIImage(named:"Star" ), forState: .Normal)
+                button2.setImage(UIImage(named:"Star" ), forState: .Normal)
                 button3.setImage(UIImage(named:"Star" ), forState: .Normal)
                 pressed3 = true
                 self.numberOfStars = 3
             } else {
+                button1.setImage(UIImage(named:"emptyStar" ), forState: .Normal)
+                button2.setImage(UIImage(named:"emptyStar" ), forState: .Normal)
                 button3.setImage(UIImage(named: "emptyStar"), forState: .Normal)
                 pressed3 = false
             }
-        }
+        
         
     }
     
     var pressed4 = false
     @IBAction func onButton4Pressed(sender: AnyObject) {
-        if numberOfStars == 3 {
+        
             if !pressed4 {
+                button1.setImage(UIImage(named:"Star" ), forState: .Normal)
+                button2.setImage(UIImage(named:"Star" ), forState: .Normal)
+                button3.setImage(UIImage(named:"Star" ), forState: .Normal)
                 button4.setImage(UIImage(named:"Star" ), forState: .Normal)
                 pressed4 = true
                 self.numberOfStars = 4
             } else {
+                button1.setImage(UIImage(named:"emptyStar" ), forState: .Normal)
+                button2.setImage(UIImage(named:"emptyStar" ), forState: .Normal)
+                button3.setImage(UIImage(named:"emptyStar" ), forState: .Normal)
                 button4.setImage(UIImage(named: "emptyStar"), forState: .Normal)
                 pressed4 = false
             }
-        }
+        
     }
     
     var pressed5 = false
     @IBAction func onButton5Pressed(sender: AnyObject) {
-        if numberOfStars == 4 {
+        
             if !pressed5 {
+                button1.setImage(UIImage(named:"Star" ), forState: .Normal)
+                button2.setImage(UIImage(named:"Star" ), forState: .Normal)
+                button3.setImage(UIImage(named:"Star" ), forState: .Normal)
+                button4.setImage(UIImage(named:"Star" ), forState: .Normal)
                 button5.setImage(UIImage(named:"Star" ), forState: .Normal)
                 pressed5 = true
                 self.numberOfStars = 5
             } else {
+                button1.setImage(UIImage(named:"emptyStar" ), forState: .Normal)
+                button2.setImage(UIImage(named:"emptyStar" ), forState: .Normal)
+                button3.setImage(UIImage(named:"emptyStar" ), forState: .Normal)
+                button4.setImage(UIImage(named:"emptyStar" ), forState: .Normal)
                 button5.setImage(UIImage(named: "emptyStar"), forState: .Normal)
                 pressed5 = false
             }
-        }
+        
+        
+    }
+    @IBAction func onSubmitButtonPressed(sender: AnyObject) {
+        DataService.usernameRef.child(travellerID!).updateChildValues(["trustworthy" : self.numberOfStars!])
         
     }
     

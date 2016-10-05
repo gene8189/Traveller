@@ -41,6 +41,7 @@ class ListOfTravellerRequestTableViewCell: UITableViewCell {
     @IBAction func onAcceptButtonPressed(sender: AnyObject) {
         
         DataService.postRef.child(self.postID).child("travellers").observeEventType(.ChildAdded, withBlock: {(snapshot) in
+
             DataService.postRef.child(self.postID).child("RequestStatus").updateChildValues([snapshot.key: false])
             DataService.usernameRef.child(snapshot.key).child("RequestStatus").updateChildValues([self.postID: false])
             DataService.postRef.child(self.postID).child("RequestStatus").updateChildValues([self.userUID:true])
