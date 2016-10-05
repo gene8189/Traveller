@@ -157,6 +157,7 @@ class DetailViewController: UIViewController {
             case .applied:
             DataService.postRef.child(self.post.uid).child("travellers").child(User.currentUserUid()!).removeValue()
                 DataService.usernameRef.child(self.post.posterUID).child("Request").child(self.post.uid).removeValue()
+                DataService.postRef.child(self.post.uid).child("RequestStatus").child(User.currentUserUid()!).removeValue()
                 
             case .iWantThisJob:
                 DataService.postRef.child(self.post.uid).child("travellers").updateChildValues([User.currentUserUid()!:true])
