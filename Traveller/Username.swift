@@ -16,7 +16,7 @@ class Username {
     var profileImage : String
     var description : String
     var username : String
-    var trustworthy : String
+    var trustworthy : Int
     var friends : [String]
     
     init?(snapshot: FIRDataSnapshot){
@@ -38,10 +38,10 @@ class Username {
         }else {
             self.username = ""
         }
-        if let dictTrustworthy = dict["trustworthy"] as? String {
+        if let dictTrustworthy = dict["trustworthy"] as? Int {
             self.trustworthy = dictTrustworthy
         }else {
-            self.trustworthy = ""
+            self.trustworthy = 0
         }
         if let dictFriends = dict["friends"] as? [String] {
             self.friends = dictFriends
