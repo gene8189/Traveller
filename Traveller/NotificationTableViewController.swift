@@ -86,8 +86,8 @@ class NotificationTableViewController: UITableViewController {
                                 if self.checker == true{
                                     
                                     self.listOfUser.append(user)
-                                    self.removeAcceptedNotification()
-//                                    self.tableView.reloadData()
+//                                    self.removeAcceptedNotification()
+                                    self.tableView.reloadData()
                                     
                                 }
                                 
