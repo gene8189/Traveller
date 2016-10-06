@@ -22,6 +22,7 @@ class StrangerProfileViewController: UIViewController {
     @IBOutlet weak var aboutMeLabel: UITextView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet var userRating: UIImageView!
     
     var checker:Bool = true
     var identifier:Situation?
@@ -65,6 +66,23 @@ class StrangerProfileViewController: UIViewController {
                 
                 self.aboutMeLabel.text = user.description
                 self.usernameLabel.text = user.username
+                
+                
+                if user.rating == 0 {
+                    self.userRating.image = UIImage(named: "empty")
+                } else if user.rating == 1{
+                    self.userRating.image = UIImage(named: "1")
+                } else if user.rating == 2 {
+                    self.userRating.image = UIImage(named: "2")
+                }else if user.rating == 3 {
+                    self.userRating.image = UIImage(named: "3")
+                }else if user.rating == 4 {
+                    self.userRating.image = UIImage(named: "4")
+                }else if user.rating == 5 {
+                    self.userRating.image = UIImage(named: "5")
+                }
+
+                
                 
             }
         })
