@@ -16,6 +16,7 @@ class DetailViewController: UIViewController {
     }
     
     
+    @IBOutlet weak var ratingButton: UIButton!
     @IBOutlet var posterUserProfileImg: UIImageView!
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var usernameButton: UIButton!
@@ -33,7 +34,7 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        self.ratingButton.hidden = true
         
         if productID != nil{
             if let productID = self.productID{
@@ -62,6 +63,23 @@ class DetailViewController: UIViewController {
         if self.post.posterUID == User.currentUserUid(){
             self.applyJobButton.hidden = true
         }
+        
+        //check whether this job completed
+        DataService.postRef.child(self.post.uid).child("CompletionStatus").observeEventType(.Value, withBlock: { snapshot in
+                if snapshot.hasChildren(){
+                    let keyArray = snapshot.value?.allKeys as! [String]
+                    let keyArray2 = snapshot.value?.allValues as! [Int]
+                    
+                    for (index,i) in keyArray2.enumerate(){
+                        if i == 1{
+                            if keyArray[index] == User.currentUserUid(){
+                                self.ratingButton.hidden = false
+                            }
+                        }
+                    }
+                    
+                }
+            })
         
         
         DataService.postRef.child(self.post.uid).child("RequestStatus").observeEventType(.Value, withBlock: { snapshot in
@@ -136,8 +154,13 @@ class DetailViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let nextScene = segue.destinationViewController as! StrangerProfileViewController
-        nextScene.strangerUID = self.post.posterUID
+        if segue.identifier == "StrangerSegue"{
+            let nextScene = segue.destinationViewController as! StrangerProfileViewController
+            nextScene.strangerUID = self.post.posterUID
+        }else if segue.identifier == "RatingSegue"{
+            let nextScene = segue.destinationViewController as! RatingViewController
+//            nextScene.strangerUID = self.post.posterUID
+        }
     }
     
     @IBAction func onApplyJobButtonPressed(sender: AnyObject) {

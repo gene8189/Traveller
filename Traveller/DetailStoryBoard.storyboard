@@ -55,7 +55,7 @@
                                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                         </state>
                                                         <connections>
-                                                            <segue destination="cPE-El-MYw" kind="show" id="isH-n9-QjF"/>
+                                                            <segue destination="cPE-El-MYw" kind="show" identifier="StrangerSegue" id="isH-n9-QjF"/>
                                                         </connections>
                                                     </button>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VKa-Ph-O5A">
@@ -122,6 +122,21 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ajd-32-BUS">
+                                                <rect key="frame" x="185" y="528" width="230" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="BKS-Jw-eJ1"/>
+                                                    <constraint firstAttribute="width" constant="230" id="JNN-LJ-10C"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                                <state key="normal" title="Give Rating">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="onApplyJobButtonPressed:" destination="8gv-xQ-Pgv" eventType="touchUpInside" id="cfo-eY-UzX"/>
+                                                    <segue destination="Wbt-NI-pFS" kind="show" identifier="RatingSegue" id="zd8-0k-DIV"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -133,7 +148,9 @@
                                             <constraint firstAttribute="trailing" secondItem="w6u-hy-Vrj" secondAttribute="trailing" id="fjh-Jp-1kQ"/>
                                             <constraint firstItem="w6u-hy-Vrj" firstAttribute="leading" secondItem="NMu-sM-Hmo" secondAttribute="leading" id="h7o-OA-AGZ"/>
                                             <constraint firstItem="HZi-1E-3Ov" firstAttribute="top" secondItem="w6u-hy-Vrj" secondAttribute="bottom" constant="20" id="hUK-gZ-Xk3"/>
+                                            <constraint firstItem="ajd-32-BUS" firstAttribute="top" secondItem="d13-LM-59t" secondAttribute="bottom" constant="14" id="lup-Ze-cTj"/>
                                             <constraint firstAttribute="trailing" secondItem="jRE-SQ-NR4" secondAttribute="trailing" id="s74-bz-aFe"/>
+                                            <constraint firstItem="ajd-32-BUS" firstAttribute="centerX" secondItem="NMu-sM-Hmo" secondAttribute="centerX" id="wgQ-kq-S6j"/>
                                             <constraint firstItem="HZi-1E-3Ov" firstAttribute="centerX" secondItem="NMu-sM-Hmo" secondAttribute="centerX" id="xli-3a-uBo"/>
                                             <constraint firstItem="w6u-hy-Vrj" firstAttribute="top" secondItem="jRE-SQ-NR4" secondAttribute="bottom" id="ygG-fd-nhs"/>
                                         </constraints>
@@ -164,12 +181,21 @@
                         <outlet property="priceLabel" destination="2fI-hw-2va" id="Aha-oz-lyD"/>
                         <outlet property="productImageView" destination="w6u-hy-Vrj" id="CtS-O3-eJE"/>
                         <outlet property="productNameLabel" destination="eNC-Zs-7DC" id="tJi-mu-tLS"/>
+                        <outlet property="ratingButton" destination="ajd-32-BUS" id="bjp-hW-HdP"/>
                         <outlet property="usernameButton" destination="Dly-sT-rkt" id="yoR-iV-2qU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="buK-2m-O7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1110" y="-143"/>
+        </scene>
+        <!--RatingStoryboard-->
+        <scene sceneID="sMx-mh-WXN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="RatingStoryboard" id="Wbt-NI-pFS" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HmE-AC-SL2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1110" y="327"/>
         </scene>
         <!--StrangerProfile-->
         <scene sceneID="78J-jA-xqs">
