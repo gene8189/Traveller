@@ -11,6 +11,7 @@ import FirebaseStorage
 
 class EditProfileViewController: UIViewController,UIImagePickerControllerDelegate,UINavigationControllerDelegate {
     
+    @IBOutlet var starCount: UIImageView!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var aboutMeTextView: UITextView!
     @IBOutlet weak var usernameTextField: UITextField!
@@ -32,6 +33,22 @@ class EditProfileViewController: UIViewController,UIImagePickerControllerDelegat
         profileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(selectProfileImage)))
         profileImageView.userInteractionEnabled = true
         
+        
+        
+        if user.rating == 0 {
+           starCount.image = UIImage(named: "empty")
+        } else if user.rating == 1{
+            starCount.image = UIImage(named: "1")
+        } else if user.rating == 2 {
+            starCount.image = UIImage(named: "2")
+        }else if user.rating == 3 {
+            starCount.image = UIImage(named: "3")
+        }else if user.rating == 4 {
+            starCount.image = UIImage(named: "4")
+        }else if user.rating == 5 {
+            starCount.image = UIImage(named: "5")
+        }
+
         
     }
     

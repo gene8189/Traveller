@@ -13,9 +13,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var aboutMeLabel: UITextView!
     @IBOutlet weak var trustworthyLabel: UILabel!
     @IBOutlet weak var usernameLabel: UILabel!
-    @IBOutlet weak var notificationButton: UIBarButtonItem!
+
     @IBOutlet weak var profileImageView: UIImageView!
-    
+    @IBOutlet var profileRating: UIImageView!
     
     
     
@@ -40,6 +40,21 @@ class ProfileViewController: UIViewController {
                 self.aboutMeLabel.text = user.description
                 self.usernameLabel.attributedText = self.BoldString(user.username!)
                 self.user = user
+                
+                if user.rating == 0 {
+                    self.profileRating.image = UIImage(named: "empty")
+                } else if user.rating == 1{
+                    self.profileRating.image = UIImage(named: "1")
+                } else if user.rating == 2 {
+                    self.profileRating.image = UIImage(named: "2")
+                }else if user.rating == 3 {
+                    self.profileRating.image = UIImage(named: "3")
+                }else if user.rating == 4 {
+                    self.profileRating.image = UIImage(named: "4")
+                }else if user.rating == 5 {
+                    self.profileRating.image = UIImage(named: "5")
+                }
+
                 
             }
         })
