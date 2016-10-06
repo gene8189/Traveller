@@ -15,7 +15,7 @@ class User{
     var username: String?
     var profileImage: String?
     var description : String?
-    var rating: String?
+    var rating: Int?
     var travellerNotification:Bool?
     var jobNotification:Bool?
     
@@ -43,10 +43,10 @@ class User{
             self.description = ""
         }
         
-        if let dictRating = dict["trustworthy"] as? String{
+        if let dictRating = dict["trustworthy"] as? Int{
             self.rating = dictRating
         }else{
-            self.rating = ""
+            self.rating = 0
         }
     }
 
