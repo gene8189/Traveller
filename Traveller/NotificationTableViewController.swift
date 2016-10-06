@@ -84,9 +84,13 @@ class NotificationTableViewController: UITableViewController {
                                     }
                                 }
                                 if self.checker == true{
+                                    
                                     self.listOfUser.append(user)
-                                    self.tableView.reloadData()
+                                    self.removeAcceptedNotification()
+//                                    self.tableView.reloadData()
+                                    
                                 }
+                                
                             }
                         })
                     }
@@ -146,6 +150,7 @@ class NotificationTableViewController: UITableViewController {
                         })
                     
                     }else{
+                        //job reject notification
                         DataService.postRef.child(keyArray[index]).observeEventType(.Value, withBlock: { postSnapshot in
                             if let post = Post(snapshot: postSnapshot){
                                 let user = User.init()
@@ -162,9 +167,37 @@ class NotificationTableViewController: UITableViewController {
                 }
             }
         })
-        
-        //job reject notification
     
+    }
+    
+    func removeAcceptedNotification(){
+        //remove notification if User choosen traveller
+        DataService.usernameRef.child(User.currentUserUid()!).child("post").observeEventType(.Value, withBlock: { snapshot in
+            if snapshot.hasChildren(){
+                let keyArray = snapshot.value?.allKeys as! [String]
+                for key in keyArray {
+                    DataService.postRef.child(key).child("RequestStatus").observeEventType(.Value, withBlock: { acceptedSnapshot in
+                        if acceptedSnapshot.hasChildren(){
+                            let keyArray2 = snapshot.value?.allValues as! [Int]
+                            if keyArray2.contains(1){
+                                
+                                for (index,x) in self.listOfUser.enumerate(){
+                                    
+                                    if x.uid == key{
+                                        self.listOfUser.removeAtIndex(index)
+                                        self.tableView.reloadData()
+                                    }
+                                    
+                                }
+                                
+                            }
+                        }
+                        
+                    })
+                }
+            }
+            self.tableView.reloadData()
+        })
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
