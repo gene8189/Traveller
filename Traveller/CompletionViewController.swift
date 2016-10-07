@@ -57,6 +57,7 @@ class CompletionController: UIViewController {
         if segue.identifier == "RateTravellerSegue"{
             let destination = segue.destinationViewController as! RatingViewController
             destination.travellerID = self.travellerID
+            destination.postID = self.postID
         }
     }
 }

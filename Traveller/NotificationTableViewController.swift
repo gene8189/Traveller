@@ -89,6 +89,7 @@ class NotificationTableViewController: UITableViewController {
                                         }
                                     }
                                 }else{
+
                                     
                                     if !postSnapshot.childSnapshotForPath("RequestStatus").exists(){
                                         self.listOfUser.append(user)
