@@ -30,7 +30,7 @@ class RatingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         observeTravellerProfile(travellerID!)
-//        numberOfStars = 0
+        numberOfStars = 0
         
         
         DataService.postRef.child(self.postID!).child("reviews").observeEventType(.ChildAdded, withBlock: {(snapshot) in
@@ -184,15 +184,16 @@ class RatingViewController: UIViewController {
     @IBAction func onSubmitButtonPressed(sender: AnyObject) {
         guard let review = textView.text else {return}
         let dict = ["review" : review, "starCount": self.numberOfStars]
-        DataService.usernameRef.child(travellerID!).child("reviews").child(DataService.currentUserUID).setValue(dict)
+        DataService.usernameRef.child(travellerID!).child("reviews").child(postID!).child(DataService.currentUserUID).setValue(dict)
         
         DataService.usernameRef.child(travellerID!).child("reviews").observeEventType(.ChildAdded, withBlock: {(snapshot2) in
             let userKey = snapshot2.key
             DataService.usernameRef.child(self.travellerID!).child("reviews").child(userKey).child("starCount").observeSingleEventOfType(.Value, withBlock: {(snapshot3) in
                 
-                let starCount = snapshot3.value as? Int
+                guard let starCount = snapshot3.value as? Int else { return}
                 print("this is the starcount \(starCount)")
-               let average = self.average(starCount!)
+                
+               let average = self.average(starCount)
                 print(" this is the average \(average)")
                 DataService.usernameRef.child(self.travellerID!).updateChildValues(["trustworthy" : average])
             
