@@ -20,6 +20,7 @@ class HomeTabViewController: UIViewController, UICollectionViewDelegate, UIColle
     var post:Post!
     override func viewDidLoad() {
         super.viewDidLoad()
+      
         
         // Title Decoration
         self.navigationController?.navigationBarHidden =  false

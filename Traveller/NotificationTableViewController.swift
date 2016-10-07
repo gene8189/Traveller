@@ -20,6 +20,7 @@ class NotificationTableViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.separatorColor = StyleKit.darkRed
         
+        
         // Title Decoration
         self.navigationController?.navigationBarHidden =  false
         self.title = "Notification"
@@ -283,6 +284,9 @@ class NotificationTableViewController: UITableViewController {
             nextScene.productID = self.strangerUID
         }
     }
+    
+    
+    
     
 }
         
