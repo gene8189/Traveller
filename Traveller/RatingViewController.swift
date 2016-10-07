@@ -36,7 +36,7 @@ class RatingViewController: UIViewController {
         DataService.postRef.child(self.postID!).child("reviews").observeEventType(.ChildAdded, withBlock: {(snapshot) in
             let userKey = snapshot.key
             if userKey == DataService.currentUserUID {
-                self.submitButton.hidden = true
+//                self.submitButton.hidden = true
                 
                 DataService.usernameRef.child(self.travellerID!).child("reviews").child(DataService.currentUserUID).observeSingleEventOfType(.Value, withBlock: {(snapshot) in
                     guard let dict = snapshot.value as? [String: AnyObject] else {return}
