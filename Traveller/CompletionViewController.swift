@@ -45,6 +45,7 @@ class CompletionController: UIViewController {
         let completionSheet = UIAlertController(title: "Task Completed?", message: nil, preferredStyle: .ActionSheet)
         let yesAction = UIAlertAction(title: "Yes", style: .Default) { (action) in
             self.performSegueWithIdentifier("RateTravellerSegue", sender: self.travellerID)
+            DataService.postRef.child(self.postID!).child("CompletionStatus").updateChildValues([self.travellerID! : true])
         }
         let noAction = UIAlertAction(title: "No", style: .Default, handler: nil)
         completionSheet.addAction(yesAction)
