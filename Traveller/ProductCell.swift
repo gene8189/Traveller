@@ -40,3 +40,23 @@ class NotificationCell: UITableViewCell {
     }
     
 }
+
+protocol JobCellDelegate{
+    func passThisPostIDToViewTravellerList(postID:String)
+}
+
+class JobCell: UITableViewCell {
+    
+    var delegate : JobCellDelegate?
+    var job:Post!
+    @IBOutlet weak var myDetailLabel: UILabel!
+    @IBOutlet weak var myTextLabel: UILabel!
+    @IBOutlet weak var niceImageView: UIImageView!
+    
+    
+    @IBAction func onTravellerButtonPressed(sender: AnyObject) {
+        self.delegate?.passThisPostIDToViewTravellerList(self.job.uid)
+        
+    }
+    
+}

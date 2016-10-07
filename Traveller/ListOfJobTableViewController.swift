@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class ListOfJobTableViewController: UITableViewController {
+class ListOfJobTableViewController: UITableViewController, JobCellDelegate {
 
     
     
@@ -49,10 +49,12 @@ class ListOfJobTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("JobCell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("JobCell") as! JobCell
 
         let job = self.listOfJob[indexPath.row]
         
+        cell.job = job
+        cell.delegate = self
         DataService.postRef.child(job.uid).observeEventType(.Value, withBlock: { snapshot in
             
             if snapshot.childSnapshotForPath("travellers").exists(){
@@ -62,84 +64,53 @@ class ListOfJobTableViewController: UITableViewController {
                         let completeArray = completeSnapshot.value?.allObjects as! [Int]
 
                         if completeArray.contains(1){
-                            cell?.detailTextLabel?.text = "Completed"
+                            cell.myDetailLabel?.text = "Completed"
                         }else{
-                            cell?.detailTextLabel?.text = "In Progress"
+                            cell.myDetailLabel?.text = "In Progress"
                         }
                     })
                 }else{
-                    cell?.detailTextLabel?.text = "Waiting for Approval"
+                    cell.myDetailLabel.text = "Waiting for Approval"
                 }
             }else{
-                cell?.detailTextLabel?.text = "Waiting For Travellers"
+                cell.myDetailLabel.text = "Waiting For Travellers"
+                
             }
             
         })
-
-//        if postSnapshot.childSnapshotForPath("travellers").exists(){
         
-            
-            //
-            //                            if postSnapshot.childSnapshotForPath("CompletionStatus").exists(){
-            //
-            //                                DataService.postRef.child(key).child("CompletionStatus").observeEventType(.Value, withBlock: { completeSnapshot in
-            //                                    let completeArray = completeSnapshot.value?.allObjects as! [Int]
-            //                                    if completeArray.contains(1){
-            //                                        post.postStatus = "Completed"
-            //                                        self.listOfJob.append(post)
-            //                                        self.tableView.reloadData()
-            //
-            //                                    }else{
-            //                                        post.postStatus = "In Progress"
-            //                                        self.listOfJob.append(post)
-            //                                        self.tableView.reloadData()
-            //                                    }
-            //                                })
-            //                            }else{
-            //                                post.postStatus = "Pending For Approval"
-            //                                self.listOfJob.append(post)
-            //                                self.tableView.reloadData()
-            //                            }
-            //
-            //                        }else{
-            //                            post.postStatus = "Waiting For Traveller"
-            //                            self.listOfJob.append(post)
-            //                            self.tableView.reloadData()
-            //                            
-            //                        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        cell?.textLabel?.text = job.productName
+        cell.myTextLabel.text = job.productName
         let userImageUrl = job.productImage
         let url = NSURL(string: userImageUrl)
-        cell?.imageView!.sd_setImageWithURL(url)
+        cell.niceImageView!.sd_setImageWithURL(url)
         
         
         
 
-        return cell!
+        return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let job = self.listOfJob[indexPath.row]
         self.productID = job.uid
         
-        performSegueWithIdentifier("ListOfJobRequestSegue", sender: self)
-        
+        performSegueWithIdentifier("DetailSegue", sender: self)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let nextScene = segue.destinationViewController as! ListOfTravellerRequestViewController
-            nextScene.postID = self.productID
+        if segue.identifier == "DetailSegue"{
+            let nextScene = segue.destinationViewController as! DetailViewController
+                nextScene.productID = self.productID
+        }else if segue.identifier == "ListOfJobRequestSegue" {
+            let nextScene = segue.destinationViewController as! ListOfTravellerRequestViewController
+                nextScene.postID = self.productID
+        }
+    }
+    
+    func passThisPostIDToViewTravellerList(postID: String) {
+        self.productID = postID
+        performSegueWithIdentifier("ListOfJobRequestSegue", sender: self)
+        
     }
 
 }

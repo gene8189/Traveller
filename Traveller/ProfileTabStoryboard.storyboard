@@ -133,10 +133,17 @@
                                 </variation>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFO-fX-IWu">
-                                <rect key="frame" x="274.5" y="396" width="51" height="30"/>
+                                <rect key="frame" x="274" y="396" width="51" height="30"/>
                                 <state key="normal" title="My Job"/>
                                 <connections>
                                     <segue destination="0QO-V2-huK" kind="show" identifier="" id="SXq-OB-n3w"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhs-8e-Mdr">
+                                <rect key="frame" x="263" y="441" width="74" height="30"/>
+                                <state key="normal" title="My Review"/>
+                                <connections>
+                                    <segue destination="Abd-va-7WN" kind="show" id="tRF-i9-WOk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -144,6 +151,8 @@
                         <constraints>
                             <constraint firstItem="jRX-b4-Vov" firstAttribute="centerX" secondItem="NxO-mM-88G" secondAttribute="centerX" id="5jk-sx-RBH"/>
                             <constraint firstItem="Mbm-gh-yDw" firstAttribute="top" secondItem="jRX-b4-Vov" secondAttribute="bottom" constant="50" id="86P-ey-Mpa"/>
+                            <constraint firstItem="Yhs-8e-Mdr" firstAttribute="centerX" secondItem="NxO-mM-88G" secondAttribute="centerX" id="DKR-8L-Nym"/>
+                            <constraint firstItem="Yhs-8e-Mdr" firstAttribute="top" secondItem="wFO-fX-IWu" secondAttribute="bottom" constant="15" id="PL6-LG-duY"/>
                             <constraint firstItem="Mbm-gh-yDw" firstAttribute="centerX" secondItem="NxO-mM-88G" secondAttribute="centerX" id="VPn-HO-gRS"/>
                             <constraint firstItem="wFO-fX-IWu" firstAttribute="centerX" secondItem="NxO-mM-88G" secondAttribute="centerX" id="Ygf-gJ-jez"/>
                             <constraint firstItem="Mbm-gh-yDw" firstAttribute="centerX" secondItem="NxO-mM-88G" secondAttribute="centerX" id="aYN-Eh-b6o"/>
@@ -169,6 +178,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nmf-oZ-aES" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="316" y="831"/>
+        </scene>
+        <!--Review-->
+        <scene sceneID="k8k-zk-PYw">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Review" id="Abd-va-7WN" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YUt-O3-dUX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="104.5" y="1260"/>
         </scene>
         <!--ListOfJob-->
         <scene sceneID="gO1-be-YeD">
