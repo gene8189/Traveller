@@ -159,7 +159,7 @@ class DetailViewController: UIViewController {
             nextScene.strangerUID = self.post.posterUID
         }else if segue.identifier == "RatingSegue"{
             let nextScene = segue.destinationViewController as! RatingViewController
-//            nextScene.strangerUID = self.post.posterUID
+            nextScene.travellerID = self.post.posterUID
         }
     }
     

@@ -15,6 +15,7 @@ class NotificationTableViewController: UITableViewController {
     var strangerUID:String!
     var productID : String!
     var checker:Bool = true
+    var uniqueID = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,20 +78,40 @@ class NotificationTableViewController: UITableViewController {
                                 user.uid = post.uid
                                 self.productID = post.uid
                                 
-                                for i in self.listOfUser{
-                                    if i.username == post.productName{
-                                        self.checker = false
-                                    }else{
-                                        self.checker = true
+                                if self.listOfUser.count > 0{
+                                    for i in self.listOfUser{
+                                        self.uniqueID.append(i.uid!)
+                                    }
+                                    if !self.uniqueID.contains(post.uid){
+                                        
+                                        if !postSnapshot.childSnapshotForPath("RequestStatus").exists(){
+                                            self.listOfUser.append(user)
+                                            self.tableView.reloadData()
+                                        }
+                                    }
+                                }else{
+
+                                    
+                                    if !postSnapshot.childSnapshotForPath("RequestStatus").exists(){
+                                        self.listOfUser.append(user)
+                                        self.tableView.reloadData()
                                     }
                                 }
-                                if self.checker == true{
-                                    
-                                    self.listOfUser.append(user)
-//                                    self.removeAcceptedNotification()
-                                    self.tableView.reloadData()
-                                    
-                                }
+                                
+                                self.removeAcceptedNotification()
+//                                DataService.postRef.child(key).child("RequestStatus").observeEventType(.Value, withBlock: { acceptedSnapshot in
+//                                    if acceptedSnapshot.hasChildren(){
+//                                        let checkArray = acceptedSnapshot.value?.allValues as! [Int]
+//                                        if !checkArray.contains(1){
+//                                            self.listOfUser.append(user)
+//                                            self.tableView.reloadData()
+//                                            
+//                                        }
+//                                        
+//                                    }
+//                                })
+                                
+                                
                                 
                             }
                         })
@@ -108,7 +129,6 @@ class NotificationTableViewController: UITableViewController {
             if snapshot.hasChildren(){
                 let keyArray = snapshot.value?.allKeys as! [String]
                 for key in keyArray {
-                    print(key)
                     DataService.postRef.child(key).child("travellers").observeEventType(.ChildRemoved, withBlock: { travellerSnapshot in
                         DataService.postRef.child(key).child("travellers").observeEventType(.Value, withBlock: { countSnapshot in
                             
@@ -168,11 +188,12 @@ class NotificationTableViewController: UITableViewController {
                 }
             }
         })
+        
     
     }
     
+    //just removing local array , accepted noti will not be load
     func removeAcceptedNotification(){
-        //remove notification if User choosen traveller
         DataService.usernameRef.child(User.currentUserUid()!).child("post").observeEventType(.Value, withBlock: { snapshot in
             if snapshot.hasChildren(){
                 let keyArray = snapshot.value?.allKeys as! [String]
@@ -181,7 +202,7 @@ class NotificationTableViewController: UITableViewController {
                         if acceptedSnapshot.hasChildren(){
                             let keyArray2 = snapshot.value?.allValues as! [Int]
                             if keyArray2.contains(1){
-                                
+
                                 for (index,x) in self.listOfUser.enumerate(){
                                     
                                     if x.uid == key{
@@ -190,14 +211,13 @@ class NotificationTableViewController: UITableViewController {
                                     }
                                     
                                 }
-                                
+
                             }
                         }
                         
                     })
                 }
             }
-            self.tableView.reloadData()
         })
     }
     

@@ -26,12 +26,14 @@ class ListOfJobTableViewController: UITableViewController {
                     
                     DataService.postRef.child(key).observeEventType(.Value, withBlock: { postSnapshot in
                         guard let post = Post(snapshot: postSnapshot) else {return}
-                        
-                        
+
+                        for (index, job) in self.listOfJob.enumerate(){
+                            if job.uid == post.uid {
+                                self.listOfJob.removeAtIndex(index)
+                            }
+                        }
                         self.listOfJob.append(post)
                         self.tableView.reloadData()
-                        
-                        
                     })
                 }
             }
@@ -50,6 +52,70 @@ class ListOfJobTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("JobCell")
 
         let job = self.listOfJob[indexPath.row]
+        
+        DataService.postRef.child(job.uid).observeEventType(.Value, withBlock: { snapshot in
+            
+            if snapshot.childSnapshotForPath("travellers").exists(){
+                if snapshot.childSnapshotForPath("CompletionStatus").exists(){
+                    
+                DataService.postRef.child(job.uid).child("CompletionStatus").observeEventType(.Value, withBlock: { completeSnapshot in
+                        let completeArray = completeSnapshot.value?.allObjects as! [Int]
+
+                        if completeArray.contains(1){
+                            cell?.detailTextLabel?.text = "Completed"
+                        }else{
+                            cell?.detailTextLabel?.text = "In Progress"
+                        }
+                    })
+                }else{
+                    cell?.detailTextLabel?.text = "Waiting for Approval"
+                }
+            }else{
+                cell?.detailTextLabel?.text = "Waiting For Travellers"
+            }
+            
+        })
+
+//        if postSnapshot.childSnapshotForPath("travellers").exists(){
+        
+            
+            //
+            //                            if postSnapshot.childSnapshotForPath("CompletionStatus").exists(){
+            //
+            //                                DataService.postRef.child(key).child("CompletionStatus").observeEventType(.Value, withBlock: { completeSnapshot in
+            //                                    let completeArray = completeSnapshot.value?.allObjects as! [Int]
+            //                                    if completeArray.contains(1){
+            //                                        post.postStatus = "Completed"
+            //                                        self.listOfJob.append(post)
+            //                                        self.tableView.reloadData()
+            //
+            //                                    }else{
+            //                                        post.postStatus = "In Progress"
+            //                                        self.listOfJob.append(post)
+            //                                        self.tableView.reloadData()
+            //                                    }
+            //                                })
+            //                            }else{
+            //                                post.postStatus = "Pending For Approval"
+            //                                self.listOfJob.append(post)
+            //                                self.tableView.reloadData()
+            //                            }
+            //
+            //                        }else{
+            //                            post.postStatus = "Waiting For Traveller"
+            //                            self.listOfJob.append(post)
+            //                            self.tableView.reloadData()
+            //                            
+            //                        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
         
         
         cell?.textLabel?.text = job.productName
