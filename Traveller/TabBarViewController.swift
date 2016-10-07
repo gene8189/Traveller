@@ -9,11 +9,13 @@
 import UIKit
 import FirebaseDatabase
 
-class TabBarViewController: UITabBarController {
+class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.tintColor = StyleKit.lighterRed
+        self.delegate = self
+        
         
         
         DataService.usernameRef.child(DataService.currentUserUID).child("chatroom").observeEventType(.ChildAdded, withBlock: {(snapshot) in
@@ -46,10 +48,17 @@ class TabBarViewController: UITabBarController {
         
     }
     
+    func tabBarController(tabBarController: UITabBarController,
+                          didSelectViewController viewController: UIViewController) {
+        if let vc = viewController as? UINavigationController {
+            vc.popViewControllerAnimated(false);
+        }
+    }
     
     func setTabBarItemImage(image:String){
         let items = self.tabBar.items![2]
         items.image = UIImage(named: image)
     }
+    
     
 }
