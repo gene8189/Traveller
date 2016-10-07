@@ -164,7 +164,7 @@
                         <outlet property="textView" destination="z8Y-at-VbC" id="iBk-iJ-X7x"/>
                         <outlet property="travellerProfileImage" destination="mbU-Es-Ygu" id="hTS-2d-2iV"/>
                         <outlet property="username" destination="RvG-4a-xkK" id="4Kb-1r-Kta"/>
-                        <segue destination="GPe-eh-dpu" kind="unwind" identifier="unwindToHome" unwindAction="unwindToHomeTabBar:" id="H3z-n6-rvv"/>
+                        <segue destination="GPe-eh-dpu" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfile:" id="H3z-n6-rvv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HhI-Yp-2iq" userLabel="First Responder" sceneMemberID="firstResponder"/>
