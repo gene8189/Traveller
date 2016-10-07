@@ -30,13 +30,13 @@ class RatingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         observeTravellerProfile(travellerID!)
-        numberOfStars = 0
+//        numberOfStars = 0
         
         
         DataService.postRef.child(self.postID!).child("reviews").observeEventType(.ChildAdded, withBlock: {(snapshot) in
             let userKey = snapshot.key
             if userKey == DataService.currentUserUID {
-//                self.submitButton.hidden = true
+                self.submitButton.hidden = true
                 
                 DataService.usernameRef.child(self.travellerID!).child("reviews").child(DataService.currentUserUID).observeSingleEventOfType(.Value, withBlock: {(snapshot) in
                     guard let dict = snapshot.value as? [String: AnyObject] else {return}
@@ -201,7 +201,7 @@ class RatingViewController: UIViewController {
             })
         })
         sleep(1)
-        self.performSegueWithIdentifier("unwindToHome", sender: self)
+        self.performSegueWithIdentifier("unwindToProfile", sender: self)
       
     }
     
