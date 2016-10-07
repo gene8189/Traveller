@@ -20,6 +20,7 @@ class Post{
     var posterUID: String
     var date: Double
     var posterUsername:String?
+    var postStatus:String?
     
     init?(snapshot: FIRDataSnapshot){
         
