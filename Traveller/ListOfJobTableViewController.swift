@@ -55,6 +55,12 @@ class ListOfJobTableViewController: UITableViewController, JobCellDelegate {
         
         cell.job = job
         cell.delegate = self
+        
+        cell.travellerButton.layer.backgroundColor = StyleKit.paleRed.CGColor
+        cell.travellerButton.layer.cornerRadius = cell.travellerButton.frame.width / 30
+        
+        
+        
         DataService.postRef.child(job.uid).observeEventType(.Value, withBlock: { snapshot in
             
             if snapshot.childSnapshotForPath("travellers").exists(){

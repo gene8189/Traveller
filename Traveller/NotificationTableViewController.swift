@@ -272,6 +272,12 @@ class NotificationTableViewController: UITableViewController {
             
             cell.friendRequesterUID = user.uid
             
+            cell.acceptButton.layer.backgroundColor = StyleKit.brightBlue.CGColor
+            cell.acceptButton.layer.cornerRadius = cell.acceptButton.frame.width / 30
+            
+            cell.declineButton.layer.backgroundColor = StyleKit.paleRed.CGColor
+            cell.declineButton.layer.cornerRadius = cell.declineButton.frame.width / 30
+            
             return cell
         }
     }

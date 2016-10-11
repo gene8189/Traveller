@@ -14,6 +14,7 @@ class Review{
     var poster:String?
     var text:String?
     var star:Int?
+    var profileImage:String?
     
     
     init?(snapshot: FIRDataSnapshot){

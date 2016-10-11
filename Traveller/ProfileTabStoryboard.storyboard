@@ -47,16 +47,6 @@
                                             </mask>
                                         </variation>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bF-gJ-QJy">
-                                        <rect key="frame" x="140" y="81" width="250" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="i29-Xp-L0T"/>
-                                        </constraints>
-                                        <state key="normal" title="Edit profile"/>
-                                        <connections>
-                                            <segue destination="DKT-fE-tEC" kind="show" identifier="EditSegue" id="8wa-Zf-FS2"/>
-                                        </connections>
-                                    </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3VV-X9-SrK">
                                         <rect key="frame" x="246" y="41" width="144" height="30"/>
                                     </imageView>
@@ -73,6 +63,18 @@
                                             </mask>
                                         </variation>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2bF-gJ-QJy">
+                                        <rect key="frame" x="140" y="81" width="250" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="i29-Xp-L0T"/>
+                                        </constraints>
+                                        <state key="normal" title="Edit profile">
+                                            <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="DKT-fE-tEC" kind="show" identifier="EditSegue" id="8wa-Zf-FS2"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -95,8 +97,8 @@
                                     <constraint firstAttribute="trailing" secondItem="GWw-t0-qIJ" secondAttribute="trailing" id="yRR-Ch-6jp"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Mbm-gh-yDw">
-                                <rect key="frame" x="140" y="240" width="320" height="163"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Mbm-gh-yDw">
+                                <rect key="frame" x="140" y="200" width="320" height="163"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Me:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bbY-tp-nWa">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
@@ -133,15 +135,25 @@
                                 </variation>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wFO-fX-IWu">
-                                <rect key="frame" x="274" y="396" width="51" height="30"/>
-                                <state key="normal" title="My Job"/>
+                                <rect key="frame" x="239.5" y="396" width="120" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="wOW-sA-mPk"/>
+                                </constraints>
+                                <state key="normal" title="My Job">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="0QO-V2-huK" kind="show" identifier="" id="SXq-OB-n3w"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhs-8e-Mdr">
-                                <rect key="frame" x="263" y="441" width="74" height="30"/>
-                                <state key="normal" title="My Review"/>
+                                <rect key="frame" x="240" y="441" width="120" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="hf9-YC-XHq"/>
+                                </constraints>
+                                <state key="normal" title="My Review">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                                 <connections>
                                     <segue destination="Abd-va-7WN" kind="show" id="tRF-i9-WOk"/>
                                 </connections>
@@ -168,7 +180,10 @@
                     <navigationItem key="navigationItem" title="Title" id="3Ya-nc-lYt"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="EditProfileButton" destination="2bF-gJ-QJy" id="Lzc-5s-Aj8"/>
                         <outlet property="aboutMeLabel" destination="v4n-U5-GYt" id="TMe-Zn-a0d"/>
+                        <outlet property="myJobButton" destination="wFO-fX-IWu" id="0l4-0c-mJr"/>
+                        <outlet property="myReviewButton" destination="Yhs-8e-Mdr" id="PHF-pn-zat"/>
                         <outlet property="profileImageView" destination="8nW-sZ-z0e" id="GX5-he-vKt"/>
                         <outlet property="profileRating" destination="3VV-X9-SrK" id="BHS-uO-0v8"/>
                         <outlet property="trustworthyLabel" destination="z0K-RX-qVg" id="gLt-XG-Q7y"/>
@@ -292,6 +307,7 @@
                     <connections>
                         <outlet property="aboutMeTextView" destination="N80-He-alV" id="k9I-Qf-jab"/>
                         <outlet property="profileImageView" destination="Ql9-L0-n14" id="opM-T1-I8F"/>
+                        <outlet property="saveButton" destination="huq-vM-Bdz" id="XAg-h6-pkZ"/>
                         <outlet property="starCount" destination="c8K-Te-sCw" id="Y4c-QQ-E33"/>
                         <outlet property="usernameTextField" destination="3rX-JC-wI3" id="n4Y-4s-co7"/>
                         <segue destination="7q2-5E-ep6" kind="unwind" identifier="unwindToProfile" unwindAction="unwindToProfile:" id="hI3-o5-j0U"/>

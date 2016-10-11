@@ -29,35 +29,24 @@
                                                 <constraint firstAttribute="height" constant="43.5" id="fXO-bn-GeQ"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAj-ri-Q2V">
-                                            <rect key="frame" x="331" y="5" width="67" height="30"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="67" id="GFi-NS-xqk"/>
-                                                <constraint firstAttribute="height" constant="30" id="JGE-iv-Pf4"/>
-                                            </constraints>
-                                            <state key="normal" title="Travellers"/>
-                                            <connections>
-                                                <action selector="onTravellerButtonPressed:" destination="50f-ej-5XK" eventType="touchUpInside" id="GvG-Rn-fND"/>
-                                            </connections>
-                                        </button>
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XDc-lp-bba">
-                                            <rect key="frame" x="96" y="0.0" width="200" height="42"/>
+                                            <rect key="frame" x="96" y="0.0" width="180" height="44"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FiD-dU-VXr">
-                                                    <rect key="frame" x="0.0" y="0.0" width="200" height="21"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="180" height="29"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="Fc0-Tg-rdH"/>
-                                                        <constraint firstAttribute="width" constant="200" id="Ycc-JB-8pD"/>
+                                                        <constraint firstAttribute="height" constant="29" id="4ib-Ek-uaF"/>
+                                                        <constraint firstAttribute="width" constant="180" id="rIt-VO-84W"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OFd-EV-gCy">
-                                                    <rect key="frame" x="0.0" y="21" width="200" height="21"/>
+                                                    <rect key="frame" x="0.0" y="29" width="180" height="15"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="200" id="n9p-R3-Cu4"/>
-                                                        <constraint firstAttribute="height" constant="21" id="qiz-q6-t83"/>
+                                                        <constraint firstAttribute="height" constant="15" id="iUv-7s-7zC"/>
+                                                        <constraint firstAttribute="width" constant="180" id="jO7-AQ-5Od"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -65,27 +54,41 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="42" id="1sP-Yh-TnP"/>
-                                                <constraint firstAttribute="width" constant="200" id="ueN-UW-UTy"/>
+                                                <constraint firstAttribute="width" constant="180" id="dU1-aW-OSc"/>
+                                                <constraint firstAttribute="height" constant="44" id="jL3-A6-QQY"/>
                                             </constraints>
                                         </stackView>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EAj-ri-Q2V">
+                                            <rect key="frame" x="303" y="5" width="90" height="30"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="7Nc-wm-q7O"/>
+                                                <constraint firstAttribute="width" constant="90" id="lEq-1N-G6K"/>
+                                            </constraints>
+                                            <state key="normal" title="Travellers">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="onTravellerButtonPressed:" destination="50f-ej-5XK" eventType="touchUpInside" id="GvG-Rn-fND"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="XDc-lp-bba" firstAttribute="leading" secondItem="srK-Lh-6OI" secondAttribute="trailing" constant="25" id="71B-wL-gOQ"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="srK-Lh-6OI" secondAttribute="bottom" constant="-7" id="AbB-t4-GUH"/>
                                         <constraint firstItem="srK-Lh-6OI" firstAttribute="leading" secondItem="a5P-DH-hrc" secondAttribute="leadingMargin" constant="14" id="GWN-36-Odw"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="EAj-ri-Q2V" secondAttribute="bottom" constant="0.5" id="Gok-ZZ-obF"/>
-                                        <constraint firstItem="EAj-ri-Q2V" firstAttribute="top" secondItem="a5P-DH-hrc" secondAttribute="topMargin" constant="-3" id="IhE-ig-ScZ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="EAj-ri-Q2V" secondAttribute="bottom" constant="0.5" id="HDZ-89-mGJ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="XDc-lp-bba" secondAttribute="bottom" constant="-8.5" id="Hit-PH-Tlh"/>
                                         <constraint firstItem="srK-Lh-6OI" firstAttribute="top" secondItem="a5P-DH-hrc" secondAttribute="topMargin" constant="-9" id="JB8-D6-l5F"/>
-                                        <constraint firstItem="XDc-lp-bba" firstAttribute="top" secondItem="a5P-DH-hrc" secondAttribute="topMargin" constant="-8" id="N18-Lz-8LM"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="XDc-lp-bba" secondAttribute="bottom" constant="-6.5" id="mZm-Wd-kO1"/>
-                                        <constraint firstItem="EAj-ri-Q2V" firstAttribute="leading" secondItem="XDc-lp-bba" secondAttribute="trailing" constant="35" id="uKW-Xc-gTh"/>
+                                        <constraint firstItem="EAj-ri-Q2V" firstAttribute="top" secondItem="a5P-DH-hrc" secondAttribute="topMargin" constant="-3" id="Olg-mA-lqY"/>
+                                        <constraint firstItem="EAj-ri-Q2V" firstAttribute="leading" secondItem="XDc-lp-bba" secondAttribute="trailing" constant="27" id="TDU-ZQ-4iw"/>
+                                        <constraint firstItem="XDc-lp-bba" firstAttribute="top" secondItem="a5P-DH-hrc" secondAttribute="topMargin" constant="-8" id="lAK-Ln-JWA"/>
+                                        <constraint firstItem="XDc-lp-bba" firstAttribute="leading" secondItem="srK-Lh-6OI" secondAttribute="trailing" constant="25" id="qw7-aB-YMQ"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="myDetailLabel" destination="OFd-EV-gCy" id="fff-7z-w54"/>
                                     <outlet property="myTextLabel" destination="FiD-dU-VXr" id="VM7-ws-hnc"/>
                                     <outlet property="niceImageView" destination="srK-Lh-6OI" id="dmU-Lw-UWN"/>
+                                    <outlet property="travellerButton" destination="EAj-ri-Q2V" id="ejL-ek-1uR"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

@@ -17,15 +17,30 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet var profileRating: UIImageView!
     
-    
+    @IBOutlet weak var myReviewButton: UIButton!
+    @IBOutlet weak var myJobButton: UIButton!
+    @IBOutlet weak var EditProfileButton: UIButton!
     
     var user:User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
         profileImageView!.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView!.clipsToBounds = true
+        
+        
+        myReviewButton.layer.backgroundColor = StyleKit.paleRed.CGColor
+        myReviewButton.layer.cornerRadius = myReviewButton.frame.width / 30
+        
+        myJobButton.layer.backgroundColor = StyleKit.paleRed.CGColor
+        myJobButton.layer.cornerRadius = myJobButton.frame.width / 30
+        
+        EditProfileButton.layer.backgroundColor = StyleKit.paleRed.CGColor
+        EditProfileButton.layer.cornerRadius = EditProfileButton.frame.width / 30
+        
         
         DataService.usernameRef.child(User.currentUserUid()!).observeEventType(.Value, withBlock: { userSnapshot in
             if let user = User(snapshot: userSnapshot){

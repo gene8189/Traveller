@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ReviewTableViewController: UITableViewController {
 
@@ -21,12 +22,27 @@ class ReviewTableViewController: UITableViewController {
             let keyArray = reviewSnapshot.value?.allKeys as! [String]
             for key in keyArray{
             DataService.usernameRef.child(User.currentUserUid()!).child("reviews").child(key).observeEventType(.Value, withBlock: { reviewSnapshot2 in
-                if let review = Review(snapshot: reviewSnapshot2){
+                    let keyArray2 = reviewSnapshot2.value?.allKeys as! [String]
+                    for key2 in keyArray2{
                     
-                    self.reviewArray.append(review)
-                    self.tableView.reloadData()
-                    
+                        DataService.usernameRef.child(User.currentUserUid()!).child("reviews").child(key).child(key2).observeEventType(.Value, withBlock: { reviewSnapshot3 in
                         
+                        if let review = Review(snapshot: reviewSnapshot3){
+                            
+                                DataService.usernameRef.child(review.poster!).observeEventType(.Value, withBlock: { userSnapshot in
+                                    if let user = User(snapshot: userSnapshot){
+                                        review.poster = user.username
+                                        review.profileImage = user.profileImage
+                                
+                                    self.reviewArray.append(review)
+                                    self.tableView.reloadData()
+                                    }
+                                })
+
+
+                                
+                            }
+                        })
                     }
                 })
             }
@@ -44,7 +60,15 @@ class ReviewTableViewController: UITableViewController {
         
         let review = self.reviewArray[indexPath.row]
         
-        cell?.detailTextLabel?.text = review.poster
+        cell?.textLabel?.text = review.poster
+        cell?.detailTextLabel?.text = review.text
+        
+        if let userImageUrl = review.profileImage{
+        let url = NSURL(string: userImageUrl)
+        cell!.imageView!.sd_setImageWithURL(url)
+        cell?.imageView?.layer.cornerRadius = 20
+        cell?.imageView!.layer.masksToBounds = true
+        }
         
         return cell!
     }

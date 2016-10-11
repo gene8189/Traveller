@@ -115,7 +115,9 @@
                                                             <constraint firstAttribute="height" constant="30" id="6uU-sd-PSx"/>
                                                             <constraint firstAttribute="width" constant="96" id="PqY-Vd-Dm1"/>
                                                         </constraints>
-                                                        <state key="normal" title="Add As Friend"/>
+                                                        <state key="normal" title="Add As Friend">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="onAddFriendButtonPressed:" destination="eSe-7O-3Hv" eventType="touchUpInside" id="ePO-Dj-ho1"/>
                                                         </connections>
@@ -126,7 +128,9 @@
                                                             <constraint firstAttribute="height" constant="30" id="WCZ-CM-Eox"/>
                                                             <constraint firstAttribute="width" constant="96" id="qt7-nk-r3l"/>
                                                         </constraints>
-                                                        <state key="normal" title="Message Me"/>
+                                                        <state key="normal" title="Message Me">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="onMessageButtonPressed:" destination="eSe-7O-3Hv" eventType="touchUpInside" id="cig-S9-Iar"/>
                                                             <segue destination="8M7-l7-OVZ" kind="show" id="TTi-d9-Y5Q"/>

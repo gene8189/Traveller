@@ -53,10 +53,12 @@ class JobCell: UITableViewCell {
     @IBOutlet weak var myTextLabel: UILabel!
     @IBOutlet weak var niceImageView: UIImageView!
     
+    @IBOutlet weak var travellerButton: UIButton!
     
     @IBAction func onTravellerButtonPressed(sender: AnyObject) {
         self.delegate?.passThisPostIDToViewTravellerList(self.job.uid)
         
     }
+    
     
 }

@@ -16,12 +16,30 @@ class EditProfileViewController: UIViewController,UIImagePickerControllerDelegat
     @IBOutlet weak var aboutMeTextView: UITextView!
     @IBOutlet weak var usernameTextField: UITextField!
     
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     var selectedImage:UIImage!
     var user:User!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.aboutMeTextView.text = self.user.description
         self.usernameTextField.text = self.user.username
+        
+        self.title = "Edit Profile"
+        let attributes: AnyObject = [ NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController!.navigationBar.titleTextAttributes = attributes as? [String : AnyObject]
+        self.navigationController!.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name: "Elley", size: 23.0)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        self.saveButton.setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Elley", size: 23.0)!], forState: UIControlState.Normal)
+        self.saveButton.tintColor = UIColor.grayColor()
+        
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        let attribute = UIFont(name: "Elley", size: 23.0)
+        UIBarButtonItem.appearance()
+            .setTitleTextAttributes([NSFontAttributeName : attribute!],
+                                    forState: UIControlState.Normal)
+        
+        
+
         
         if user.profileImage == ""{
             self.profileImageView.image = UIImage(named: "defaultProfile")

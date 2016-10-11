@@ -33,6 +33,12 @@ class StrangerProfileViewController: UIViewController {
         profileImageView!.layer.cornerRadius = profileImageView.frame.size.width / 2
         profileImageView!.clipsToBounds = true
         
+        addFriendButton.layer.cornerRadius = addFriendButton.frame.width / 30
+        
+        messageMeButton.layer.backgroundColor = StyleKit.paleRed.CGColor
+        messageMeButton.layer.cornerRadius = messageMeButton.frame.width / 30
+        
+        
         if strangerUID == User.currentUserUid(){
             self.addFriendButton.hidden = true
             self.messageMeButton.hidden = true
@@ -43,12 +49,16 @@ class StrangerProfileViewController: UIViewController {
                     DataService.usernameRef.child(self.strangerUID).child("pending-friends").observeEventType(.Value, withBlock: { pendingFriendSnapshot in
                         if friendSnapshot.hasChild(self.strangerUID){
                             self.addFriendButton.setTitle("Friend", forState: .Normal)
+                            self.addFriendButton.layer.backgroundColor = StyleKit.darkBlue.CGColor
                         }else if confirmFriendSnapshot.hasChild(self.strangerUID){
                             self.addFriendButton.setTitle("Confirm Friend", forState: .Normal)
+                            self.addFriendButton.layer.backgroundColor = StyleKit.brightBlue.CGColor
                         }else if pendingFriendSnapshot.hasChild(User.currentUserUid()!){
                             self.addFriendButton.setTitle("Pending", forState: .Normal)
+                            self.addFriendButton.layer.backgroundColor = StyleKit.brightBlue.CGColor
                         }else{
                             self.addFriendButton.setTitle("Add as Friend", forState: .Normal)
+                            self.addFriendButton.layer.backgroundColor = StyleKit.paleRed.CGColor
                         }
                     })
                 })
@@ -65,7 +75,7 @@ class StrangerProfileViewController: UIViewController {
                 }
                 
                 self.aboutMeLabel.text = user.description
-                self.usernameLabel.text = user.username
+                self.usernameLabel.attributedText = self.BoldString(user.username!)
                 
                 
                 if user.rating == 0 {
