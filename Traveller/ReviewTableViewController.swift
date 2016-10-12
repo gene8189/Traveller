@@ -18,33 +18,34 @@ class ReviewTableViewController: UITableViewController {
         super.viewDidLoad()
         
         DataService.usernameRef.child(User.currentUserUid()!).child("reviews").observeEventType(.Value, withBlock: { reviewSnapshot in
-            
-            let keyArray = reviewSnapshot.value?.allKeys as! [String]
-            for key in keyArray{
-            DataService.usernameRef.child(User.currentUserUid()!).child("reviews").child(key).observeEventType(.Value, withBlock: { reviewSnapshot2 in
-                    let keyArray2 = reviewSnapshot2.value?.allKeys as! [String]
-                    for key2 in keyArray2{
-                    
-                        DataService.usernameRef.child(User.currentUserUid()!).child("reviews").child(key).child(key2).observeEventType(.Value, withBlock: { reviewSnapshot3 in
+            if reviewSnapshot.hasChildren(){
+                let keyArray = reviewSnapshot.value?.allKeys as! [String]
+                for key in keyArray{
+                DataService.usernameRef.child(User.currentUserUid()!).child("reviews").child(key).observeEventType(.Value, withBlock: { reviewSnapshot2 in
+                        let keyArray2 = reviewSnapshot2.value?.allKeys as! [String]
+                        for key2 in keyArray2{
                         
-                        if let review = Review(snapshot: reviewSnapshot3){
+                            DataService.usernameRef.child(User.currentUserUid()!).child("reviews").child(key).child(key2).observeEventType(.Value, withBlock: { reviewSnapshot3 in
                             
-                                DataService.usernameRef.child(review.poster!).observeEventType(.Value, withBlock: { userSnapshot in
-                                    if let user = User(snapshot: userSnapshot){
-                                        review.poster = user.username
-                                        review.profileImage = user.profileImage
+                            if let review = Review(snapshot: reviewSnapshot3){
                                 
-                                    self.reviewArray.append(review)
-                                    self.tableView.reloadData()
-                                    }
-                                })
+                                    DataService.usernameRef.child(review.poster!).observeEventType(.Value, withBlock: { userSnapshot in
+                                        if let user = User(snapshot: userSnapshot){
+                                            review.poster = user.username
+                                            review.profileImage = user.profileImage
+                                    
+                                        self.reviewArray.append(review)
+                                        self.tableView.reloadData()
+                                        }
+                                    })
 
 
-                                
-                            }
-                        })
-                    }
-                })
+                                    
+                                }
+                            })
+                        }
+                    })
+                }
             }
         })
         
