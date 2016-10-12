@@ -101,10 +101,14 @@ class HomeTabViewController: UIViewController, UICollectionViewDelegate, UIColle
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("Cell", forIndexPath: indexPath) as! ProductCell
         let post = self.listOfPosts[indexPath.row]
-        cell.priceLabel.backgroundColor = StyleKit.skinColor
-        cell.productNameLabel.backgroundColor = StyleKit.skinColor
+        
+        cell.layer.cornerRadius = cell.frame.width / 30
+        
+        cell.backgroundColor = StyleKit.skinColor
+//        cell.productNameLabel.backgroundColor = StyleKit.skinColor
         cell.productNameLabel.attributedText = self.BoldString(post.productName,size: 15)
-        cell.priceLabel.text = "RM " + post.price
+        let tempString = "RM " + post.price
+        cell.priceLabel.attributedText = self.BoldString(tempString,size: 11)
         
         cell.layer.shadowColor = UIColor.blackColor().CGColor
         cell.layer.shadowOffset = CGSizeMake(0, 1)
@@ -118,6 +122,7 @@ class HomeTabViewController: UIViewController, UICollectionViewDelegate, UIColle
         let userImageUrl = post.productImage
         let url = NSURL(string: userImageUrl)
         cell.productImageView.sd_setImageWithURL(url)
+        
         
         return cell
     }
