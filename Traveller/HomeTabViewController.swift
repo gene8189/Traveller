@@ -104,10 +104,11 @@ class HomeTabViewController: UIViewController, UICollectionViewDelegate, UIColle
         
         cell.layer.cornerRadius = cell.frame.width / 30
         
-        cell.priceLabel.backgroundColor = StyleKit.skinColor
-        cell.productNameLabel.backgroundColor = StyleKit.skinColor
+        cell.backgroundColor = StyleKit.skinColor
+//        cell.productNameLabel.backgroundColor = StyleKit.skinColor
         cell.productNameLabel.attributedText = self.BoldString(post.productName,size: 15)
-        cell.priceLabel.text = "RM " + post.price
+        let tempString = "RM " + post.price
+        cell.priceLabel.attributedText = self.BoldString(tempString,size: 11)
         
         cell.layer.shadowColor = UIColor.blackColor().CGColor
         cell.layer.shadowOffset = CGSizeMake(0, 1)
