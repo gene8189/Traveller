@@ -24,6 +24,8 @@ class EditProfileViewController: UIViewController,UIImagePickerControllerDelegat
         self.aboutMeTextView.text = self.user.description
         self.usernameTextField.text = self.user.username
         
+        self.hideKeyboardWhenTappedAround()
+        
         self.title = "Edit Profile"
         let attributes: AnyObject = [ NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController!.navigationBar.titleTextAttributes = attributes as? [String : AnyObject]
@@ -69,7 +71,7 @@ class EditProfileViewController: UIViewController,UIImagePickerControllerDelegat
 
         
     }
-    
+
     @IBAction func onSaveButtonPressed(sender: AnyObject) {
         let username = self.usernameTextField.text
         

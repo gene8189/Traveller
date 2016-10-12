@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ugu-wx-Nuf">
-                                <rect key="frame" x="50" y="80" width="300" height="400"/>
+                                <rect key="frame" x="50" y="20" width="300" height="400"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RvG-4a-xkK">
                                         <rect key="frame" x="80" y="10" width="200" height="60"/>
@@ -96,7 +96,9 @@
                                             <constraint firstAttribute="height" constant="30" id="fg4-8L-Wak"/>
                                             <constraint firstAttribute="width" constant="220" id="vv6-YM-WrU"/>
                                         </constraints>
-                                        <state key="normal" title="Submit!"/>
+                                        <state key="normal" title="Submit">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <action selector="onSubmitButtonPressed:" destination="Inx-Pb-PMe" eventType="touchUpInside" id="Gaf-di-uEQ"/>
                                         </connections>
@@ -143,7 +145,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Ugu-wx-Nuf" firstAttribute="centerY" secondItem="mum-IB-YeK" secondAttribute="centerY" id="hnG-Gc-jlc"/>
-                            <constraint firstItem="Ugu-wx-Nuf" firstAttribute="top" secondItem="mBW-Wj-X0x" secondAttribute="bottom" constant="60" id="ibU-GA-FB0"/>
+                            <constraint firstItem="Ugu-wx-Nuf" firstAttribute="top" secondItem="mBW-Wj-X0x" secondAttribute="bottom" id="ibU-GA-FB0"/>
                             <constraint firstItem="Ugu-wx-Nuf" firstAttribute="centerX" secondItem="mum-IB-YeK" secondAttribute="centerX" id="zIN-lc-XvV"/>
                         </constraints>
                         <variation key="default">

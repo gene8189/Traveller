@@ -53,7 +53,7 @@ class ProfileViewController: UIViewController {
                 }
                 
                 self.aboutMeLabel.text = user.description
-                self.usernameLabel.attributedText = self.BoldString(user.username!)
+                self.usernameLabel.attributedText = self.BoldString(user.username!,size: 13)
                 self.user = user
                 
                 if user.rating == 0 {

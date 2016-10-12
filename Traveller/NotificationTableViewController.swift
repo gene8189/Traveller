@@ -245,7 +245,7 @@ class NotificationTableViewController: UITableViewController {
             
             //have been rejected
             
-            cell.messageTextView.text = "Too bad you have been rejected."
+            cell.messageTextView.text = "you have been rejected."
             let userImageUrl = user.profileImage
             let url = NSURL(string: userImageUrl!)
             cell.userImageView.sd_setImageWithURL(url)

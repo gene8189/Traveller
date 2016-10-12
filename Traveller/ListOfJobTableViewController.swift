@@ -18,6 +18,14 @@ class ListOfJobTableViewController: UITableViewController, JobCellDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "My Jobs"
+        navigationController?.navigationBar.barTintColor = StyleKit.darkRed
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        let attribute = UIFont(name: "Elley", size: 23)
+        UIBarButtonItem.appearance()
+            .setTitleTextAttributes([NSFontAttributeName : attribute!],
+                                    forState: UIControlState.Normal)
+        
         DataService.usernameRef.child(User.currentUserUid()!).child("post").observeEventType(.Value, withBlock: { snapshot in
             
             if snapshot.hasChildren(){
@@ -50,7 +58,9 @@ class ListOfJobTableViewController: UITableViewController, JobCellDelegate {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("JobCell") as! JobCell
-
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         let job = self.listOfJob[indexPath.row]
         
         cell.job = job

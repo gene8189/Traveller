@@ -19,9 +19,26 @@ class CompletionController: UIViewController {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var collectionMethodLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
+    
+    @IBOutlet weak var taskCompleteButton: UIButton!
+    
+    //label style
+    @IBOutlet weak var PNStyle: UILabel!
+    @IBOutlet weak var LStyle: UILabel!
+    @IBOutlet weak var CMStyle: UILabel!
+    @IBOutlet weak var PStyle: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         observePost(postID)
+        
+        PNStyle.font = UIFont(name:"Elley", size: 17)
+        LStyle.font = UIFont(name: "Elley", size: 17)
+        CMStyle.font = UIFont(name: "Elley", size: 17)
+        PStyle.font = UIFont(name: "Elley", size: 17)
+        
+        taskCompleteButton.layer.backgroundColor = StyleKit.paleRed.CGColor
+        taskCompleteButton.layer.cornerRadius = taskCompleteButton.frame.width / 30
         
     }
     
@@ -29,10 +46,10 @@ class CompletionController: UIViewController {
     func observePost(postID : String?){
         DataService.postRef.child(postID!).observeSingleEventOfType(.Value, withBlock: {(snapshot) in
             let post = Post(snapshot: snapshot)
-            self.productNameLabel.text = "Product: " + post!.productName
-            self.priceLabel.text = "Price: RM" + post!.price
-            self.locationLabel.text = "Location: " + post!.location
-            self.collectionMethodLabel.text = "Collection Method: " + post!.collectionMethod
+            self.productNameLabel.text = post!.productName
+            self.priceLabel.text = "RM " + post!.price
+            self.locationLabel.text = post!.location
+            self.collectionMethodLabel.text = post!.collectionMethod
             let url = NSURL(string: post!.productImage)
             self.productImage.sd_setImageWithURL(url, placeholderImage: UIImage(named:"loading"))
             

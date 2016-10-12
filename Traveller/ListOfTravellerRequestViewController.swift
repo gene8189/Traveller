@@ -27,7 +27,7 @@ class ListOfTravellerRequestViewController: UIViewController, UITableViewDelegat
         refreshTable()
         
         
-        self.title = ""
+        self.title = "Travellers"
         navigationController?.navigationBar.barTintColor = StyleKit.darkRed
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         let attribute = UIFont(name: "Elley", size: 23)

@@ -26,6 +26,13 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var applyJobButton: UIButton!
     
+    //label Style
+    
+    @IBOutlet weak var PNStyle: UILabel!
+    @IBOutlet weak var LStyle: UILabel!
+    @IBOutlet weak var CMStyle: UILabel!
+    @IBOutlet weak var PStyle: UILabel!
+    
     var post:Post!
     var identifier:Situation?
     var choosen:Bool = false
@@ -35,6 +42,14 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         
         self.ratingButton.hidden = true
+        PNStyle.font = UIFont(name:"Elley", size: 17)
+        LStyle.font = UIFont(name: "Elley", size: 17)
+        CMStyle.font = UIFont(name: "Elley", size: 17)
+        PStyle.font = UIFont(name: "Elley", size: 17)
+        
+        ratingButton.layer.backgroundColor = StyleKit.paleRed.CGColor
+        ratingButton.layer.cornerRadius = ratingButton.frame.width / 30
+        
         
         if productID != nil{
             if let productID = self.productID{
@@ -132,10 +147,10 @@ class DetailViewController: UIViewController {
         
         
         if let post = self.post{
-            self.productNameLabel.text = "Product: " + post.productName
-            self.priceLabel.text = "Price: RM" + post.price
-            self.locationLabel.text = "Location: " + post.location
-            self.collectionMethodLabel.text = "Collection Method: " + post.collectionMethod
+            self.productNameLabel.text = post.productName
+            self.priceLabel.text = "RM " + post.price
+            self.locationLabel.text = post.location
+            self.collectionMethodLabel.text = post.collectionMethod
             let userImageUrl = post.productImage
             let url = NSURL(string: userImageUrl)
             self.productImageView.sd_setImageWithURL(url)
@@ -160,8 +175,10 @@ class DetailViewController: UIViewController {
         }else if segue.identifier == "RatingSegue"{
             let nextScene = segue.destinationViewController as! RatingViewController
             nextScene.travellerID = self.post.posterUID
+            nextScene.postID = self.post.uid
         }
     }
+    
     
     @IBAction func onApplyJobButtonPressed(sender: AnyObject) {
         
