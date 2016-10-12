@@ -81,14 +81,14 @@
                                                     <constraint firstAttribute="height" constant="95" id="25K-9A-kDx"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-mx-VvD">
-                                                <rect key="frame" x="174" y="290" width="252" height="30"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Tmn-mx-VvD">
+                                                <rect key="frame" x="182" y="290" width="236" height="30"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NKH-FX-Kcw">
-                                                        <rect key="frame" x="0.0" y="0.0" width="96" height="30"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="120" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="6uU-sd-PSx"/>
-                                                            <constraint firstAttribute="width" constant="96" id="PqY-Vd-Dm1"/>
+                                                            <constraint firstAttribute="width" constant="120" id="PqY-Vd-Dm1"/>
                                                         </constraints>
                                                         <state key="normal" title="Add As Friend">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,7 +98,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bX-wI-cAC">
-                                                        <rect key="frame" x="156" y="0.0" width="96" height="30"/>
+                                                        <rect key="frame" x="140" y="0.0" width="96" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="WCZ-CM-Eox"/>
                                                             <constraint firstAttribute="width" constant="96" id="qt7-nk-r3l"/>
