@@ -32,6 +32,10 @@ class RatingViewController: UIViewController {
         observeTravellerProfile(travellerID!)
         numberOfStars = 0
         
+        submitButton.layer.backgroundColor = StyleKit.paleRed.CGColor
+        submitButton.layer.cornerRadius = submitButton.frame.width / 30
+        
+        self.hideKeyboardWhenTappedAround()
         
         DataService.postRef.child(self.postID!).child("reviews").observeEventType(.ChildAdded, withBlock: {(snapshot) in
             let userKey = snapshot.key

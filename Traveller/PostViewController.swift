@@ -23,9 +23,9 @@ extension UIViewController {
         view.endEditing(true)
     }
     
-    func BoldString(text:String) -> NSMutableAttributedString{
+    func BoldString(text:String,size:CGFloat) -> NSMutableAttributedString{
         
-        let att = [NSFontAttributeName : UIFont.boldSystemFontOfSize(15)]
+        let att = [NSFontAttributeName : UIFont.boldSystemFontOfSize(size)]
         
         let boldText = NSMutableAttributedString(string:text, attributes:att)
         
@@ -45,11 +45,21 @@ class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {
     @IBOutlet weak var productNameTextField: UITextField!
     @IBOutlet weak var selectImageView: UIImageView!
     
+    //label style
+    @IBOutlet weak var PNStyle: UILabel!
+    @IBOutlet weak var LStyle: UILabel!
+    @IBOutlet weak var CMStyle: UILabel!
+    @IBOutlet weak var PStyle: UILabel!
+    
     var selectedImage = UIImage()
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.registerForKeyboardNotificaion()
+        PNStyle.font = UIFont(name:"Elley", size: 17)
+        LStyle.font = UIFont(name: "Elley", size: 17)
+        CMStyle.font = UIFont(name: "Elley", size: 17)
+        PStyle.font = UIFont(name: "Elley", size: 17)
+        
         self.hideKeyboardWhenTappedAround()
         self.productNameTextField.text = ""
         self.locationTextField.text = ""
@@ -163,61 +173,4 @@ class PostViewController: UIViewController,FusumaDelegate,UITextFieldDelegate {
         
     }
     
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    override func viewWillDisappear(animated: Bool) {
-        super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidShowNotification, object: nil)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardDidHideNotification, object: nil)
-    }
-    
-    func registerForKeyboardNotificaion(){
-        
-        //when keyboard appears
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardWasShown), name: UIKeyboardDidShowNotification, object: nil)
-        //when keyboard dissappear
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(keyboardDisappear), name: UIKeyboardDidHideNotification, object: nil)
-        
-    }
-    
-    func textFieldDidBeginEditing(textField: UITextField) {
-        
-        activeTextField = textField
-    }
-    
-    func textFieldDidEndEditing(textField: UITextField) {
-        activeTextField = nil
-    }
-    
-    func keyboardWasShown(notification: NSNotification){
-        
-        // check if the current text field is being coverd by keyboard
-        let info: NSDictionary = notification.userInfo!
-        let keyboardSize = info.objectForKey(UIKeyboardFrameBeginUserInfoKey)!.CGRectValue().size
-        
-        // get part of screen not covered by keyboard
-        var viewRect = view.frame
-        viewRect.size.height -= keyboardSize.height
-        let globalPoint = activeTextField!.superview?.convertPoint(activeTextField!.frame.origin, toView: nil)
-        
-        //check if current text field is being covered by keyboard
-        if !CGRectContainsPoint(viewRect, globalPoint!){
-            let bottomEdgeOfTextField = globalPoint!.y + activeTextField!.frame.height
-            let verticalDistance = bottomEdgeOfTextField - viewRect.height
-            
-            let contentOffsetPoint = CGPointMake(0.0, verticalDistance)
-            scrollView.setContentOffset(contentOffsetPoint, animated:true)
-        }
-        
-        
-        //   up entire view until keyboard is directly beneath the selected text field
-    }
-    
-    func keyboardDisappear(notification: NSNotification){
-        
-    }
 }

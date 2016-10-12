@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Notification Table View Controller-->
@@ -21,58 +22,58 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="63.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4f-3d-p44">
-                                            <rect key="frame" x="79" y="8" width="131" height="43"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fNv-ND-e8j">
+                                            <rect key="frame" x="8" y="4" width="63" height="56"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="43" id="8BJ-SM-X91"/>
-                                                <constraint firstAttribute="width" constant="131" id="Vfw-S2-IEA"/>
+                                                <constraint firstAttribute="width" constant="63" id="2Wt-rR-tAE"/>
+                                                <constraint firstAttribute="height" constant="56" id="XXL-N4-vXQ"/>
                                             </constraints>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
+                                        </imageView>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="ste-Vr-zFO">
-                                            <rect key="frame" x="212" y="17" width="115" height="30"/>
+                                            <rect key="frame" x="79" y="8" width="513" height="47"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmG-7a-BKQ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="53" height="30"/>
-                                                    <state key="normal" title="Accept"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="message view" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4f-3d-p44">
+                                                    <rect key="frame" x="0.0" y="0.0" width="433" height="47"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gmG-7a-BKQ">
+                                                    <rect key="frame" x="443" y="0.0" width="30" height="47"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="AIL-sN-g3I"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="KohinoorDevanagari-Regular" family="Kohinoor Devanagari" pointSize="20"/>
+                                                    <state key="normal" title="✓">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="onAcceptButtonPressed:" destination="iSC-bP-FSv" eventType="touchUpInside" id="6uB-8i-gf9"/>
                                                     </connections>
                                                 </button>
-                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uyd-xO-Fus">
-                                                    <rect key="frame" x="63" y="0.0" width="52" height="30"/>
-                                                    <state key="normal" title="Decline"/>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uyd-xO-Fus">
+                                                    <rect key="frame" x="483" y="0.0" width="30" height="47"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="tgY-gD-xPT"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                    <state key="normal" title="✘">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="onDeclineButtonPressed:" destination="iSC-bP-FSv" eventType="touchUpInside" id="Kk4-S1-8ZQ"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="30" id="DgN-fd-K0w"/>
-                                                <constraint firstAttribute="width" constant="115" id="yid-ZX-wIB"/>
-                                            </constraints>
                                         </stackView>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fNv-ND-e8j">
-                                            <rect key="frame" x="8" y="4" width="63" height="56"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="56" id="8fH-kH-MsJ"/>
-                                                <constraint firstAttribute="width" constant="63" id="Lpb-gT-xcw"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="fNv-ND-e8j" firstAttribute="leading" secondItem="lAc-1r-jez" secondAttribute="leading" constant="8" id="NET-YD-krz"/>
-                                        <constraint firstItem="k4f-3d-p44" firstAttribute="top" secondItem="lAc-1r-jez" secondAttribute="top" constant="8" id="OOT-RJ-eq7"/>
-                                        <constraint firstItem="fNv-ND-e8j" firstAttribute="top" secondItem="lAc-1r-jez" secondAttribute="top" constant="4" id="UEY-Mz-zoh"/>
-                                        <constraint firstItem="ste-Vr-zFO" firstAttribute="leading" secondItem="k4f-3d-p44" secondAttribute="trailing" constant="2" id="UnY-v9-RsW"/>
-                                        <constraint firstItem="k4f-3d-p44" firstAttribute="leading" secondItem="fNv-ND-e8j" secondAttribute="trailing" constant="8" id="qw4-op-MXI"/>
-                                        <constraint firstAttribute="bottom" secondItem="ste-Vr-zFO" secondAttribute="bottom" constant="16.5" id="raI-5n-okI"/>
-                                        <constraint firstAttribute="bottom" secondItem="k4f-3d-p44" secondAttribute="bottom" constant="12.5" id="rkQ-6s-uxd"/>
-                                        <constraint firstAttribute="bottom" secondItem="fNv-ND-e8j" secondAttribute="bottom" constant="3.5" id="udM-bG-UO3"/>
-                                        <constraint firstItem="ste-Vr-zFO" firstAttribute="top" secondItem="lAc-1r-jez" secondAttribute="top" constant="17" id="wAI-cb-nIM"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="ste-Vr-zFO" secondAttribute="bottom" id="KYa-ep-MjE"/>
+                                        <constraint firstItem="ste-Vr-zFO" firstAttribute="leading" secondItem="fNv-ND-e8j" secondAttribute="trailing" constant="8" id="NCR-21-JS8"/>
+                                        <constraint firstItem="ste-Vr-zFO" firstAttribute="top" secondItem="lAc-1r-jez" secondAttribute="topMargin" id="VOd-nI-Sya"/>
+                                        <constraint firstItem="fNv-ND-e8j" firstAttribute="centerY" secondItem="lAc-1r-jez" secondAttribute="centerY" id="j6n-x4-PJy"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="ste-Vr-zFO" secondAttribute="trailing" id="sdt-iY-8ss"/>
+                                        <constraint firstItem="fNv-ND-e8j" firstAttribute="leading" secondItem="lAc-1r-jez" secondAttribute="leadingMargin" id="y0v-dn-KOl"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

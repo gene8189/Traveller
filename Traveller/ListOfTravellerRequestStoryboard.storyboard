@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--List Of Traveller Request View Controller-->
@@ -28,87 +29,78 @@
                                             <rect key="frame" x="0.0" y="0.0" width="400" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="84u-uz-ATJ">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="84u-uz-ATJ">
                                                     <rect key="frame" x="8" y="10" width="60" height="60"/>
                                                     <color key="backgroundColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="tintColor" red="0.89411764709999997" green="0.89411764709999997" blue="0.89411764709999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="eY0-9E-Oq2"/>
-                                                        <constraint firstAttribute="height" constant="60" id="hRJ-J7-GRk"/>
+                                                        <constraint firstAttribute="width" constant="60" id="KE7-q7-3dI"/>
+                                                        <constraint firstAttribute="height" constant="60" id="vbV-BV-UyA"/>
                                                     </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utg-Yz-5PF">
-                                                    <rect key="frame" x="76" y="10" width="100" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="hqn-9E-Ch0"/>
-                                                    </constraints>
-                                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                    <state key="normal" title="Button"/>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Pmr-o3-LAY">
-                                                    <rect key="frame" x="180" y="0.0" width="110" height="80"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="nQr-Fy-Amu"/>
-                                                        <constraint firstAttribute="width" constant="110" id="vN4-qs-gta"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                                    <state key="normal" title="Accept"/>
-                                                    <connections>
-                                                        <action selector="onAcceptButtonPressed:" destination="9uI-Tq-E6u" eventType="touchUpInside" id="VVs-nE-BKf"/>
-                                                    </connections>
-                                                </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mbl-ZG-dvi">
-                                                    <rect key="frame" x="76" y="40" width="100" height="30"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Mbl-ZG-dvi">
+                                                    <rect key="frame" x="76" y="40" width="196" height="30"/>
                                                     <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="WqY-50-nP8"/>
-                                                        <constraint firstAttribute="height" constant="30" id="Xce-xT-6QF"/>
+                                                        <constraint firstAttribute="height" constant="30" id="iCI-vd-HqG"/>
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="7Zi-wU-c3b">
-                                                    <rect key="frame" x="290" y="0.0" width="110" height="80"/>
+                                                    <rect key="frame" x="345" y="-1" width="55" height="80"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="110" id="Nyb-tf-6y2"/>
-                                                        <constraint firstAttribute="height" constant="80" id="i9v-EN-Eg8"/>
+                                                        <constraint firstAttribute="height" constant="80" id="cwQ-1I-uxg"/>
+                                                        <constraint firstAttribute="width" constant="55" id="jBM-VZ-phS"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                     <state key="normal" title="Decline"/>
                                                     <connections>
                                                         <action selector="onDeclineButtonPressed:" destination="9uI-Tq-E6u" eventType="touchUpInside" id="F2Y-yF-Ghz"/>
                                                     </connections>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Utg-Yz-5PF">
+                                                    <rect key="frame" x="76" y="10" width="196" height="30"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Mrh-U5-bfE"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="Pmr-o3-LAY">
+                                                    <rect key="frame" x="285" y="-1" width="60" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="OkZ-rY-1V3"/>
+                                                        <constraint firstAttribute="height" constant="80" id="kVS-pb-MP7"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="11"/>
+                                                    <state key="normal" title="Accept"/>
+                                                    <connections>
+                                                        <action selector="onAcceptButtonPressed:" destination="9uI-Tq-E6u" eventType="touchUpInside" id="VVs-nE-BKf"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="Utg-Yz-5PF" firstAttribute="leading" secondItem="84u-uz-ATJ" secondAttribute="trailing" constant="8" id="2gZ-Yn-sTz"/>
-                                                <constraint firstItem="Mbl-ZG-dvi" firstAttribute="leading" secondItem="84u-uz-ATJ" secondAttribute="trailing" constant="8" id="3jh-Pb-96z"/>
-                                                <constraint firstAttribute="trailing" secondItem="7Zi-wU-c3b" secondAttribute="trailing" id="Ckf-7g-LNd"/>
-                                                <constraint firstItem="Mbl-ZG-dvi" firstAttribute="top" secondItem="Utg-Yz-5PF" secondAttribute="bottom" id="DFQ-Fc-L90"/>
-                                                <constraint firstItem="84u-uz-ATJ" firstAttribute="leading" secondItem="9cG-xP-ldF" secondAttribute="leading" constant="8" id="GiA-BQ-NtY"/>
-                                                <constraint firstItem="Utg-Yz-5PF" firstAttribute="top" secondItem="9cG-xP-ldF" secondAttribute="top" constant="10" id="IPr-iX-GwL"/>
-                                                <constraint firstItem="84u-uz-ATJ" firstAttribute="top" secondItem="9cG-xP-ldF" secondAttribute="top" constant="10" id="QqP-9o-bE0"/>
-                                                <constraint firstAttribute="bottom" secondItem="84u-uz-ATJ" secondAttribute="bottom" constant="10" id="VKg-1g-8pv"/>
-                                                <constraint firstAttribute="bottom" secondItem="84u-uz-ATJ" secondAttribute="bottom" constant="10" id="Y2G-V1-QiO"/>
-                                                <constraint firstItem="84u-uz-ATJ" firstAttribute="centerY" secondItem="9cG-xP-ldF" secondAttribute="centerY" id="YCX-Ne-ymu"/>
-                                                <constraint firstItem="84u-uz-ATJ" firstAttribute="top" secondItem="9cG-xP-ldF" secondAttribute="top" constant="10" id="cx4-rp-1vy"/>
-                                                <constraint firstAttribute="bottom" secondItem="Mbl-ZG-dvi" secondAttribute="bottom" constant="9.5" id="dZp-LP-zJZ"/>
-                                                <constraint firstItem="7Zi-wU-c3b" firstAttribute="centerY" secondItem="9cG-xP-ldF" secondAttribute="centerY" id="gxn-mF-RpF"/>
-                                                <constraint firstItem="Pmr-o3-LAY" firstAttribute="leading" secondItem="Mbl-ZG-dvi" secondAttribute="trailing" id="qju-6c-zbs"/>
-                                                <constraint firstItem="7Zi-wU-c3b" firstAttribute="leading" secondItem="Pmr-o3-LAY" secondAttribute="trailing" id="s69-Ox-Tpk"/>
-                                                <constraint firstItem="7Zi-wU-c3b" firstAttribute="leading" secondItem="Pmr-o3-LAY" secondAttribute="trailing" id="tU4-bV-joj"/>
-                                                <constraint firstItem="Mbl-ZG-dvi" firstAttribute="top" secondItem="Utg-Yz-5PF" secondAttribute="bottom" id="uWh-mq-gTB"/>
-                                                <constraint firstItem="Pmr-o3-LAY" firstAttribute="centerY" secondItem="9cG-xP-ldF" secondAttribute="centerY" id="xxV-fd-Vld"/>
-                                                <constraint firstAttribute="trailing" secondItem="Pmr-o3-LAY" secondAttribute="trailing" id="ysI-eH-7De"/>
-                                                <constraint firstItem="84u-uz-ATJ" firstAttribute="leading" secondItem="9cG-xP-ldF" secondAttribute="leading" constant="10" id="zTZ-cL-LZG"/>
+                                                <constraint firstItem="Pmr-o3-LAY" firstAttribute="leading" secondItem="Utg-Yz-5PF" secondAttribute="trailing" constant="13" id="3iZ-8b-Ifn"/>
+                                                <constraint firstItem="Utg-Yz-5PF" firstAttribute="top" secondItem="9cG-xP-ldF" secondAttribute="topMargin" constant="2" id="6Si-OZ-05C"/>
+                                                <constraint firstItem="Pmr-o3-LAY" firstAttribute="leading" secondItem="Mbl-ZG-dvi" secondAttribute="trailing" constant="13" id="7fG-Yz-S7u"/>
+                                                <constraint firstItem="Pmr-o3-LAY" firstAttribute="centerY" secondItem="9cG-xP-ldF" secondAttribute="centerY" id="Adp-mm-K6Q"/>
+                                                <constraint firstItem="7Zi-wU-c3b" firstAttribute="leading" secondItem="Pmr-o3-LAY" secondAttribute="trailing" id="Esm-cG-nih"/>
+                                                <constraint firstItem="84u-uz-ATJ" firstAttribute="centerY" secondItem="9cG-xP-ldF" secondAttribute="centerY" id="FmR-pB-9DA"/>
+                                                <constraint firstItem="7Zi-wU-c3b" firstAttribute="centerY" secondItem="9cG-xP-ldF" secondAttribute="centerY" id="Gpf-zC-LDr"/>
+                                                <constraint firstItem="84u-uz-ATJ" firstAttribute="leading" secondItem="9cG-xP-ldF" secondAttribute="leadingMargin" id="Knb-Tx-0Wm"/>
+                                                <constraint firstItem="Mbl-ZG-dvi" firstAttribute="leading" secondItem="84u-uz-ATJ" secondAttribute="trailing" constant="8" id="N40-rb-pIz"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="84u-uz-ATJ" secondAttribute="bottom" constant="1.5" id="NiF-vZ-KCL"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Mbl-ZG-dvi" secondAttribute="bottom" constant="1.5" id="PIl-ti-cZU"/>
+                                                <constraint firstItem="Mbl-ZG-dvi" firstAttribute="leading" secondItem="84u-uz-ATJ" secondAttribute="trailing" constant="8" id="bJz-eh-PgM"/>
+                                                <constraint firstItem="Pmr-o3-LAY" firstAttribute="top" secondItem="9cG-xP-ldF" secondAttribute="topMargin" constant="-9" id="dsc-aM-elB"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Pmr-o3-LAY" secondAttribute="bottom" constant="-7.5" id="jfz-fs-5S1"/>
+                                                <constraint firstItem="7Zi-wU-c3b" firstAttribute="top" secondItem="9cG-xP-ldF" secondAttribute="topMargin" constant="-9" id="kTE-Xa-WFW"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="Mbl-ZG-dvi" secondAttribute="bottom" constant="1.5" id="kze-dg-OTV"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="7Zi-wU-c3b" secondAttribute="bottom" constant="-7.5" id="rwR-Lh-Gtd"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="7Zi-wU-c3b" secondAttribute="trailing" constant="-8" id="y7c-Pi-3Oi"/>
+                                                <constraint firstItem="Utg-Yz-5PF" firstAttribute="leading" secondItem="84u-uz-ATJ" secondAttribute="trailing" constant="8" id="yT4-mM-gHq"/>
+                                                <constraint firstItem="84u-uz-ATJ" firstAttribute="top" secondItem="9cG-xP-ldF" secondAttribute="topMargin" constant="2" id="z6q-Wu-3hI"/>
                                             </constraints>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="GiA-BQ-NtY"/>
-                                                    <exclude reference="VKg-1g-8pv"/>
-                                                    <exclude reference="cx4-rp-1vy"/>
-                                                    <exclude reference="qju-6c-zbs"/>
-                                                    <exclude reference="ysI-eH-7De"/>
-                                                    <exclude reference="tU4-bV-joj"/>
-                                                </mask>
-                                            </variation>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="acceptButton" destination="Pmr-o3-LAY" id="fsV-m7-6pK"/>

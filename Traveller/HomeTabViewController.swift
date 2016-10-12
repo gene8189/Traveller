@@ -103,7 +103,7 @@ class HomeTabViewController: UIViewController, UICollectionViewDelegate, UIColle
         let post = self.listOfPosts[indexPath.row]
         cell.priceLabel.backgroundColor = StyleKit.skinColor
         cell.productNameLabel.backgroundColor = StyleKit.skinColor
-        cell.productNameLabel.attributedText = self.BoldString(post.productName)
+        cell.productNameLabel.attributedText = self.BoldString(post.productName,size: 15)
         cell.priceLabel.text = "RM " + post.price
         
         cell.layer.shadowColor = UIColor.blackColor().CGColor

@@ -26,7 +26,7 @@ class SignUpViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var attributes = NSDictionary(object: UIFont(name: "HelveticaNeue", size: 18.0)!, forKey: NSFontAttributeName)
+        let attributes = NSDictionary(object: UIFont(name: "HelveticaNeue", size: 18.0)!, forKey: NSFontAttributeName)
         segmentedControl.setTitleTextAttributes(attributes as [NSObject : AnyObject], forState: .Normal)
         
         //gradient
